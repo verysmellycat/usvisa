@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加拿大美签抢签</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <style>
+        .header-container {
+            width: 100%;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .image {
+            margin-top: 20px;
+            width: 300px;
+            height: 200px;
+        }
+
+        #visaForm {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .checkbox-container label {
+            cursor: pointer;
+            display: block;
+            margin-bottom: -10px;
+        }
+
+        .checkbox-container label input {
+            margin-right: 10px;
+        }
+
+        .required-asterisk {
+            color: red;
+            margin-left: 5px;
+        }
+
+        label,
+        input[type="text"],
+        input[type="password"],
+        input[type="number"],
+        select {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Custom styling for text areas in the modal */
+        .modal-content textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+
+        #modalRecipient,
+        #modalSubject {
+            height: 40px;
+            min-height: 40px;
+        }
+
+        #modalContent {
+            height: 250px;
+        }
+
+        .copy-notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <div class="container">
+            <div class="row" style="align-items: center; justify-content: center;">
+                <div class="six columns" style="text-align: right; padding-right: 30px;">
+                    <img class="image" src="/qrcode.jpg">
+                </div>
+                <div class="six columns" style="text-align: left; padding-left: 30px;">
+                    <stripe-buy-button buy-button-id="buy_btn_1OXwo3EOWaPf9JJTBUlJ0KKx"
+                        publishable-key="pk_live_51OXSq1EOWaPf9JJTifoe9pk1hZhDCAGH278lptO9nSdpAdXlV2K0HkVjmMRAzGv7vgUPTpeJ1Pu2YOH0FZejC13t00h39KPe67">
+                    </stripe-buy-button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <form id="visaForm" class="container" action="">
+            <h2>加拿大美签自动抢签</h2>
+            <h5>暂时只支持B1&2, 其它的陆续会上线</h5>
+            <h5>求助, 个人精力有限, 如果有人可以帮忙开发优化这个页面, 不胜感激!!</h5>
+
+            <li>这个实验项目只为看劣币驱逐良币是否总是成立, 黄牛真的必要存在于世?</li>
+            <li>我自己要申请美签, 黄牛们狮子大开口, 一个人居然要 600 刀</li>
+            <li>抢加拿大美签黄牛价大概在 $150~$800 之间, 可能还有更贵更离谱的, 这个项目免费, 没有强制任何人付费</li>
+            <li>黄牛们持续威胁恐吓, 我不清楚他们具备什么能力, 究竟会不会影响到我的生命安全</li>
+            <li>我已经设定好了所有服务器自动续费, 用的是右上角账户的余额进行支付</li>
+            <li>这个系统会一直自动运行到账户余额不足以支付服务器费用, 不管我人还在不在</li>
+            <li>如果从今天 2024.01.15 开始没有任何小费支持, 我账户的钱能支持它运行到 2024.02.29</li>
+            <li><b>根据这几天的数据分析, 如果每个成功预约的朋友愿意给最低黄牛价三分之一的 tips, 这个项目能坚持到黄牛消失</b></li>
+            <li>希望这个项目比黄牛晚一天消失!! 我是个乐观的悲观主义者</li>
+
+            <h5>FAQ</h5>
+            <ol>
+                <li>Are you traveling from another country to apply for a U.S. visa in Canada? 这个问题如果回答 Yes, 程序无法自动预约!
+                </li>
+                <li>提交信息如果没有错误, 很快会收到一封通知邮件, 如果写着程序已经开始刷, 表示信息正确, 你只需要等着</li>
+                <li>程序不会取消你的已有预约, 只会重新预约你期望的日期范围, 请确保你的邮箱密码没有任何其他人知道!!!</li>
+                <li>成功预约上, 会立刻收到一封通知邮件, 以及延迟几小时收到使馆的邮件</li>
+                <li>信息重复提交, 新的会覆盖旧的</li>
+                <li>公平起见, 成功预约之后再次提交信息, 一个星期内抢签优先级会比从未抢到位置的其他人低一点, 但也会抢</li>
+            </ol>
+
+            <h4>表格</h4>
+            <div>
+                <label for="password"><a href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
+                        target="_blank">usvisa-info</a> 登陆密码<span class="required-asterisk">*</span></label>
+                <input type="text" id="password" name="password">
+            </div>
+
+            <div>
+                <label for="schedule_ids">schedule_id<span class="required-asterisk">* 对大多数用户来说这个不用填</span></label>
+                <input type="text" id="schedule_ids" name="schedule_ids">
+                <li>请确保你已经为需要抢签的每个人都随便预约了一个 appointment!!</li>
+                <li><b>如果账户下所有已预约了的人都想用程序抢签, 这里可以留空, 程序会自动判断出来, 非常方便</b></li>
+                <li>打开 <a href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in" target="_blank">usvisa-info</a>
+                    登陆之后点击右上角 Continue 进入下一个页面, 网址将会类似于
+                    https://ais.usvisa-info.com/en-ca/niv/schedule/54306276/continue_actions, 中间那串数字 54306276 就是
+                    schedule_id, 确保 url 中包含 /schedule/数字</li>
+                <li>如果网址类似于 https://ais.usvisa-info.com/en-ca/niv/groups/38929138, 里面包含 /groups/, 那是错误的, 不要填!!
+                </li>
+                <li>这个数字不是 IVR Account Number!!</li>
+                <li>如果多人在一个 group 里面, 记得拆分开, 一人一个 schedule_id</li>
+                <li>拆开很简单, 点 Reschedule Appointment 按钮, 勾选一个人, 确认下一步即可分开</li>
+                <li>如果需要程序抢账户下某几个人的 slot, 可以用逗号区分开, 比如 54306276,54306278,54306280</li>
+            </div>
+
+            <label>城市, 可多选<span class="required-asterisk">*</span></label>
+            <div class="checkbox-container">
+                <label><input type="checkbox" name="cities" value="Vancouver">Vancouver</label>
+                <label><input type="checkbox" name="cities" value="Toronto">Toronto</label>
+                <label><input type="checkbox" name="cities" value="Calgary">Calgary</label>
+                <label><input type="checkbox" name="cities" value="Halifax">Halifax</label>
+                <label><input type="checkbox" name="cities" value="Ottawa">Ottawa</label>
+                <label><input type="checkbox" name="cities" value="Montreal">Montreal</label>
+                <label><input type="checkbox" name="cities" value="Quebec City">Quebec City</label>
+            </div>
+
+            <div style="margin-top: 20px;">
+                <label for="from">起始日期<span class="required-asterisk">*</span></label>
+                <input type="date" id="from" name="from">
+            </div>
+
+            <div>
+                <label for="to">截止日期<span class="required-asterisk">*</span></label>
+                <input type="date" id="to" name="to">
+            </div>
+
+            <div>
+                <label for="tips">小费 $CAD</label>
+                <input type="number" id="tips" name="tips">
+            </div>
+
+            <button type="submit" class="button-primary">用你的 usvisa-info 登陆邮箱发邮件提交</button>
+        </form>
+    </div>
+
+    <!-- Modal Dialog -->
+    <div id="emailModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>可以手动复制</h2>
+            <label for="modalRecipient">收件人</label>
+            <textarea id="modalRecipient" readonly onclick="copyToClipboard('modalRecipient')"></textarea>
+
+            <label for="modalSubject">标题</label>
+            <textarea id="modalSubject" readonly onclick="copyToClipboard('modalSubject')"></textarea>
+
+            <label for="modalContent">内容</label>
+            <textarea id="modalContent" readonly onclick="copyToClipboard('modalContent')"></textarea>
+        </div>
+    </div>
+
+    <div id="copyNotification" class="copy-notification">已复制!</div>
+
+    <script async="" src="https://js.stripe.com/v3/buy-button.js"></script>
+
+    <script>
+        document.getElementById('from').valueAsDate = new Date();
+        document.getElementById('to').valueAsDate = new Date(new Date().setMonth(new Date().getMonth() + 8));
+
+        document.getElementById('visaForm').addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const password = document.getElementById('password').value;
+            alertError(!password, "empty password");
+
+            const schedule_ids = document.getElementById('schedule_ids').value.split(/,|\uFF0C/).
+                filter(v => v).
+                map(v => {
+                    const vv = v.replace(/\s/g, '');
+                    alertError(isNaN(parseInt(vv)), `schedule_id ${v} 不是数字`);
+                    return vv;
+                });
+
+            const from = parseInt(document.getElementById('from').value.replaceAll('-', ''));
+            const to = parseInt(document.getElementById('to').value.replaceAll('-', ''));
+
+            const checkboxes = document.querySelectorAll('input[name=cities]');
+            const cities = Array.from(checkboxes).filter(checkbox => checkbox.checked).map(checkbox => checkbox.value);
+            alertError(cities.length === 0, "没选择城市");
+
+            const tips = document.getElementById("tips").value;
+            const request = {
+                password,
+                schedule_ids,
+                cities,
+                from,
+                to,
+                tips,
+            };
+            const recipient = "admin@usvisa.lol";
+            const subject = "打击签证黄牛 fight against visa scalpers";
+            const content = `https://www.usvisa.lol/
+You can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.
+在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.
+<<<${JSON.stringify(request)}>>>`;
+
+            window.location.href = 'mailto:' + recipient + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(content);
+
+            document.getElementById('modalRecipient').textContent = recipient;
+            document.getElementById('modalSubject').textContent = subject;
+            document.getElementById('modalContent').textContent = content;
+            document.getElementById('emailModal').style.display = 'block';
+        });
+
+        // Close modal
+        document.getElementsByClassName("close")[0].onclick = function () {
+            document.getElementById('emailModal').style.display = "none";
+        }
+
+        // Copy content of specified textarea to clipboard
+        function copyToClipboard(elementId) {
+            const textArea = document.getElementById(elementId);
+            textArea.select();
+            navigator.clipboard.writeText(textArea.value).then(() => {
+                const notification = document.getElementById('copyNotification');
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 2000);
+            });
+        }
+
+        function alertError(fire, msg) {
+            if (fire) {
+                alert(msg);
+                throw msg;
+            }
+        }
+    </script>
+</body>
+
+</html>
