@@ -1,21 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import {
-  Select,
-  SelectItem,
-  Input,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  Button,
-  Modal,
-  ModalContent,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  useDisclosure,
-  Checkbox,
-  Textarea,
-} from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -31,6 +15,7 @@ const Submission = () => {
     if (!formData) {
       navigate("/404");
     }
+    console.log(formData);
   }, [formData, navigate]);
 
   const copyToClipboard = async (ref) => {
@@ -40,7 +25,7 @@ const Submission = () => {
         await navigator.clipboard.writeText(valueToCopy);
         alert("已复制");
       } catch (err) {
-        console.error("Failed to copy text: ", err);
+        console.error("复制失败", err);
       }
     }
   };
@@ -54,19 +39,19 @@ const Submission = () => {
         <Input
           isReadOnly
           ref={recipientRef}
+          label="收件人"
           variant="bordered"
           defaultValue="admin@usvisa.lol"
           type="email"
-          label="收件人"
           onClick={() => copyToClipboard(recipientRef)}
         ></Input>
         <Input
           isReadOnly
           ref={titleRef}
+          label="标题"
           variant="bordered"
           defaultValue="打击签证黄牛 fight against visa scalpers"
           type="text"
-          label="标题"
           onClick={() => copyToClipboard(titleRef)}
         ></Input>
         <Textarea

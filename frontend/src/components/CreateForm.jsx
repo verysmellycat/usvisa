@@ -15,6 +15,8 @@ import {
   ModalFooter,
   useDisclosure,
   Checkbox,
+  RadioGroup,
+  Radio,
 } from "@nextui-org/react";
 import { IoIosInformationCircle } from "react-icons/io";
 import DatePicker from "react-datepicker";
@@ -26,6 +28,7 @@ const UserForm = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [formData, setFormData] = useState(null);
   const [isAppointed, setIsAppointed] = useState(false);
+  const [tips, setTips] = useState(0);
   const navigate = useNavigate();
   const {
     control,
@@ -40,6 +43,7 @@ const UserForm = () => {
         ...data,
         from: format(startDate, "yyyyMMdd"),
         to: format(endDate, "yyyyMMdd"),
+        action: "create",
       });
       onOpen();
     }
@@ -47,10 +51,9 @@ const UserForm = () => {
 
   const onRead = () => {
     onOpenChange(false);
-    navigate("/submit", { state: { formData } });
+    navigate("/submit", { state: { formData: { ...formData, tips } } });
   };
 
-  const visaTypes = [{ value: "b1/b2", label: "B1/B2" }];
   const cities = [
     { value: "Vancouver", label: "Vancouver" },
     { value: "Toronto", label: "Toronto" },
@@ -87,7 +90,7 @@ const UserForm = () => {
         />
         <Popover placement="right">
           <PopoverTrigger>
-            <Button size={"sm"} className="bg-transparent">
+            <Button isIconOnly size="sm" className="bg-transparent">
               <IoIosInformationCircle size={24} />
             </Button>
           </PopoverTrigger>
@@ -96,43 +99,6 @@ const UserForm = () => {
               <div className="text-tiny">
                 暂时只支持加拿大, 未来也许会拓展至其他地区
               </div>
-            </div>
-          </PopoverContent>
-        </Popover>
-      </div>
-      <div className="flex items-center gap-x-2">
-        <Controller
-          control={control}
-          name="type"
-          //rules={{ required: "请选择签证类型" }}
-          defaultValue="b1/b2"
-          render={({ field }) => (
-            <Select
-              {...field}
-              className="w-full"
-              label="签证类型"
-              placeholder="B1/B2"
-              errorMessage={errors?.type?.message}
-              validationState={errors.type ? "invalid" : "valid"}
-              isDisabled
-            >
-              {visaTypes.map((type) => (
-                <SelectItem key={type.value} value={type.value}>
-                  {type.label}
-                </SelectItem>
-              ))}
-            </Select>
-          )}
-        />
-        <Popover placement="right">
-          <PopoverTrigger>
-            <Button size={"sm"} className="bg-transparent">
-              <IoIosInformationCircle size={24} />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div className="px-1 py-2">
-              <div className="text-tiny">暂时只支持B1&2, 其它的陆续会上线</div>
             </div>
           </PopoverContent>
         </Popover>
@@ -163,24 +129,20 @@ const UserForm = () => {
           name="schedule_ids"
           defaultValue=""
           render={({ field }) => (
-            <Select
+            <Input
               {...field}
               className="w-full"
               label="Schedule ID"
-              selectionMode="multiple"
+              type="text"
               placeholder="大多数用户都不用填"
               errorMessage={errors?.schedule_ids?.message}
-              validationState={errors.schedule_ids ? "invalid" : "valid"}
-              closeMenuOnSelect={false}
               isDisabled={!isAppointed}
-            >
-              {<SelectItem value={""}>{"NONE"}</SelectItem>}
-            </Select>
+            ></Input>
           )}
         />
         <Popover placement="right">
           <PopoverTrigger>
-            <Button size={"sm"} className="bg-transparent">
+            <Button isIconOnly size="sm" className="bg-transparent">
               <IoIosInformationCircle size={24} />
             </Button>
           </PopoverTrigger>
@@ -288,7 +250,7 @@ const UserForm = () => {
         className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
         type="submit"
       >
-        阅读后提交
+        阅读后提交新请求
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
@@ -334,6 +296,19 @@ const UserForm = () => {
                     </strong>
                   </li>
                   <li>希望这个项目比黄牛晚一天消失!! 我是个乐观的悲观主义者</li>
+                  <li className="list-none">
+                    <Input
+                      type="number"
+                      label="成功预约后你愿意支付多少小费以维持项目运行?"
+                      placeholder="0.00"
+                      startContent={
+                        <div className="pointer-events-none flex items-center">
+                          <span className="text-default-400 text-small">$</span>
+                        </div>
+                      }
+                      onValueChange={setTips}
+                    ></Input>
+                  </li>
                 </ul>
               </ModalBody>
               <ModalFooter>

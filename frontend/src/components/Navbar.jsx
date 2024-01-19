@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
-import BuyButton from "./BuyButton";
 
 const Navbar = () => {
   return (
@@ -17,17 +16,9 @@ const Navbar = () => {
         </a>
       </div>
       <div className="flex items-center gap-x-10">
-        <Popover placement="bottom">
-          <PopoverTrigger>
-            <div className="flex items-center gap-x-2 cursor-pointer">
-              <p className="hover:text-blue-600">支持这个项目 一起打击黄牛</p>
-            </div>
-          </PopoverTrigger>
-          <PopoverContent>
-            <img src="/QR.jpg" alt="QR payment" width={300} />
-            <BuyButton></BuyButton>
-          </PopoverContent>
-        </Popover>
+        <Link to="/tip">
+          <p className="hover:text-blue-600">支持这个项目 一起打击黄牛</p>
+        </Link>
         <Popover placement="bottom">
           <PopoverTrigger>
             <div className="flex items-center gap-x-2 cursor-pointer">
