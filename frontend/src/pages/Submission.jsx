@@ -32,7 +32,7 @@ const Submission = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-3 mt-3 w-full">
-      <div className="flex flex-col items-center gap-y-3 w-1/2">
+      <div className="flex flex-col items-center gap-y-3 w-5/6 sm:w-1/2">
         <p className="text-lg text-danger">
           用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交
         </p>

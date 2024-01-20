@@ -230,7 +230,7 @@ const UserForm = () => {
         />
       </div>
       <div className="flex items-center justify-between">
-        <div className="flex flex-col items-center sm:flex-row sm:justify-between">
+        <div className="flex flex-col items-center sm:flex-row sm:justify-between overflow-auto">
           <div className="flex flex-row sm:flex-col items-center z-10">
             <label className="text-sm">起始日期</label>
             <DatePicker
