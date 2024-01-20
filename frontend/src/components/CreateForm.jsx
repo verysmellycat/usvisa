@@ -247,6 +247,7 @@ const UserForm = () => {
         </Button>
       </div>
       <div className="flex flex-col items-center gap-y-2">
+        <h4 className="text-sm">已添加时间：</h4>
         {timeIntervals.map((interval, index) => (
           <Card key={index}>
             <CardBody className="flex flex-row items-center p-1">
