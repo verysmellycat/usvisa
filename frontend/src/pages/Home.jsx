@@ -5,6 +5,7 @@ import CancelForm from "../components/CancelForm";
 import { IoIosInformationCircle } from "react-icons/io";
 import Faq from "../components/Faq";
 import { Radio, RadioGroup } from "@nextui-org/react";
+import Payment from "../components/Payment";
 
 const Home = () => {
   const [successCount, setSuccessCount] = useState(null);
@@ -26,6 +27,9 @@ const Home = () => {
         <br />
         若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
       </h4>
+      <div className="w-1/3">
+        <Payment />
+      </div>
       <h4 className="flex items-center text-sm text-danger">
         填写遇到问题点
         <IoIosInformationCircle size={16} />

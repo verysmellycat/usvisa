@@ -35,7 +35,7 @@ const NavigationBar = () => {
               className="hover:text-blue-600"
               isExternal
               color="foreground"
-              href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
+              href="https://ceac.state.gov/genniv/"
             >
               填写DS-160
             </Link>
@@ -54,11 +54,11 @@ const NavigationBar = () => {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden sm:flex">
+        {/*<NavbarItem className="hidden sm:flex">
           <Link className="hover:text-blue-600" href="/tip" color="foreground">
             💰 支持这个项目 一起打击黄牛
           </Link>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
@@ -88,11 +88,11 @@ const NavigationBar = () => {
             </PopoverContent>
           </Popover>
         </NavbarItem>
-        <NavbarItem className="sm:hidden">
+        {/*<NavbarItem className="sm:hidden">
           <Button size="sm">
             <Link href="/tip">赞助</Link>
           </Button>
-        </NavbarItem>
+        </NavbarItem>*/}
       </NavbarContent>
 
       <NavbarMenu>
