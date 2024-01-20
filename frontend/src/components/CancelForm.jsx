@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   Input,
@@ -8,7 +8,6 @@ import {
   Button,
 } from "@nextui-org/react";
 import { IoIosInformationCircle } from "react-icons/io";
-import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 const CancelForm = () => {
@@ -26,9 +25,14 @@ const CancelForm = () => {
         ...data,
         action: "cancel",
       });
-      navigate("/submit", { state: { formData } });
     }
   };
+
+  useEffect(() => {
+    if (formData) {
+      navigate("/submit", { state: { formData } });
+    }
+  }, [formData, navigate]);
 
   return (
     <form
