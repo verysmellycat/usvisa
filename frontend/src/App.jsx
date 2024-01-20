@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/NavigationBar";
 import Submission from "./pages/Submission";
 import NotFound from "./pages/NotFound";
 import Payment from "./components/Payment";
 
 function App() {
   return (
-    <div className="w-3/4 mx-auto mb-10">
+    <div className="mx-auto sm:mb-10">
       <BrowserRouter>
         <Navbar></Navbar>
         <h1 className="font-semibold text-center text-2xl">

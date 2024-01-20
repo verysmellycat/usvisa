@@ -21,7 +21,7 @@ const Home = () => {
         <span>总抢位请求:{requestCount || " _ "}</span>
         <span>已帮助{successCount || " _ "}位用户预约到美签位置🚀</span>
       </div>
-      <h4 className="flex items-center text-sm">
+      <h4 className="flex items-center text-sm text-center w-5/6 sm:w-fit">
         暂时只支持 B1&2, 有支持 H1B 的打算, 但是项目目前入不敷出
         <br />
         若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
@@ -30,8 +30,12 @@ const Home = () => {
         填写遇到问题点
         <IoIosInformationCircle size={16} />
       </h4>
-      <div className="w-1/2">
-        <RadioGroup defaultValue="create" onValueChange={setRequestType}>
+      <div className="w-5/6 sm:w-1/2">
+        <RadioGroup
+          className="mb-3"
+          defaultValue="create"
+          onValueChange={setRequestType}
+        >
           <Radio value="create">
             <p className="text-sm">提交新的请求</p>
           </Radio>
@@ -39,8 +43,8 @@ const Home = () => {
             <p className="text-sm">取消现有请求</p>
           </Radio>
         </RadioGroup>
+        {requestType === "create" ? <CreateForm /> : <CancelForm />}
       </div>
-      {requestType === "create" ? <CreateForm /> : <CancelForm />}
       <Faq></Faq>
     </div>
   );
