@@ -27,7 +27,6 @@ const UserForm = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [formData, setFormData] = useState(null);
-  const [isAppointed, setIsAppointed] = useState(false);
   const [tips, setTips] = useState(0);
   const [timeIntervals, setTimeIntervals] = useState([]);
   const navigate = useNavigate();
@@ -108,26 +107,6 @@ const UserForm = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <Controller
-        control={control}
-        name="appointed"
-        rules={{ required: "如果没有预约请先手动预约" }}
-        render={({ field }) => (
-          <Checkbox
-            {...field}
-            isSelected={isAppointed}
-            onValueChange={setIsAppointed}
-            required
-          >
-            <p className="text-sm">
-              请确保你已经为需要抢签的每个人都随便预约了一个appointment
-            </p>
-          </Checkbox>
-        )}
-      />
-      {errors.appointed && (
-        <p className="text-xs text-danger">{errors.appointed.message}</p>
-      )}
       <div className="flex items-center gap-x-2">
         <Controller
           control={control}
@@ -141,7 +120,6 @@ const UserForm = () => {
               type="text"
               placeholder="大多数用户都不用填"
               errorMessage={errors?.schedule_ids?.message}
-              isDisabled={!isAppointed}
             ></Input>
           )}
         />

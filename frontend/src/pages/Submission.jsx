@@ -11,10 +11,21 @@ const Submission = () => {
   const navigate = useNavigate();
   const formData = location.state?.formData;
 
+  const recipient = "admin@usvisa.lol";
+  const title = "打击签证黄牛 fight against visa scalpers";
+  const content =
+    "https://www.usvisa.lol/\nYou can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.\n在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.";
+
   useEffect(() => {
     if (!formData) {
       navigate("/404");
     }
+    const subject = encodeURIComponent(title);
+    const body = encodeURIComponent(
+      `${content}\n<<<${JSON.stringify(formData)}>>>`
+    );
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
     console.log(formData);
   }, [formData, navigate]);
 
@@ -41,7 +52,7 @@ const Submission = () => {
           ref={recipientRef}
           label="收件人"
           variant="bordered"
-          defaultValue="admin@usvisa.lol"
+          defaultValue={recipient}
           type="email"
           onClick={() => copyToClipboard(recipientRef)}
         ></Input>
@@ -50,7 +61,7 @@ const Submission = () => {
           ref={titleRef}
           label="标题"
           variant="bordered"
-          defaultValue="打击签证黄牛 fight against visa scalpers"
+          defaultValue={title}
           type="text"
           onClick={() => copyToClipboard(titleRef)}
         ></Input>
@@ -59,10 +70,7 @@ const Submission = () => {
           ref={contentRef}
           label="内容"
           variant="bordered"
-          defaultValue={`https://www.usvisa.lol/
-You can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.
-在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.
-<<<${JSON.stringify(formData)}>>>`}
+          defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
           onClick={() => copyToClipboard(contentRef)}
         />
       </div>
