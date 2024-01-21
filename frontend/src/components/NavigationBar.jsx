@@ -63,7 +63,7 @@ const NavigationBar = () => {
           <Link
             isExternal
             className="gap-x-2"
-            href="https://discord.gg/fEY8ZUuZYU"
+            href="https://discord.gg/MFFf4RnpPm"
             color="foreground"
           >
             <img src="/discord.png" alt="discord logo" width={30} height={30} />
