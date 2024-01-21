@@ -22,7 +22,6 @@ const CancelForm = () => {
   const onFormSubmit = (data) => {
     if (Object.keys(errors).length === 0) {
       setFormData({
-        ...data,
         schedule_ids:
           data.schedule_ids === "" ? [] : data.schedule_ids.split(","),
         action: "cancel",
@@ -90,7 +89,7 @@ const CancelForm = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <div className="flex items-center gap-x-2">
+      {/**      <div className="flex items-center gap-x-2">
         <Controller
           control={control}
           name="password"
@@ -106,7 +105,8 @@ const CancelForm = () => {
             ></Input>
           )}
         />
-      </div>
+      </div> */}
+
       <Button
         className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
         type="submit"

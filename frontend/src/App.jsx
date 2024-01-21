@@ -9,7 +9,7 @@ function App() {
     <div className="mx-auto sm:mb-10">
       <BrowserRouter>
         <NavBar></NavBar>
-        <h1 className="font-semibold text-center text-2xl">
+        <h1 className="font-semibold text-center text-2xl mt-3">
           加拿大美签自动预约
         </h1>
         <Routes>
