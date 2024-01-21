@@ -273,7 +273,7 @@ const UserForm = () => {
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.from}
                 popperPlacement="bottom"
-                onFocus={(e) => (e.target.readOnly = true)}
+                onFocus={(e) => e.target.blur()}
                 onChange={(date) => handleTimeChange(index, "from", date)}
               />
             </div>
@@ -285,7 +285,7 @@ const UserForm = () => {
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.to}
                 popperPlacement="bottom"
-                onFocus={(e) => (e.target.readOnly = true)}
+                onFocus={(e) => e.target.blur()}
                 onChange={(date) => handleTimeChange(index, "to", date)}
               />
             </div>
