@@ -19,7 +19,7 @@ const CancelForm = () => {
     formState: { errors },
   } = useForm();
 
-  const onsubmit = (data) => {
+  const onFormSubmit = (data) => {
     if (Object.keys(errors).length === 0) {
       setFormData({
         ...data,
@@ -36,7 +36,7 @@ const CancelForm = () => {
 
   return (
     <form
-      onSubmit={handleSubmit(onsubmit)}
+      onSubmit={handleSubmit(onFormSubmit)}
       className="flex flex-col gap-y-3"
       noValidate
     >

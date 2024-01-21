@@ -43,8 +43,8 @@ const UserForm = () => {
   const onFormSubmit = (data) => {
     if (Object.keys(errors).length === 0) {
       const formattedTimeIntervals = timeIntervals.map((interval) => ({
-        from: format(interval.from, "yyyyMMdd"),
-        to: format(interval.to, "yyyyMMdd"),
+        from: parseInt(format(interval.from, "yyyyMMdd")),
+        to: parseInt(format(interval.to, "yyyyMMdd")),
       }));
       setFormData({
         ...data,

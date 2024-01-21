@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import CreateForm from "../components/CreationForm";
+import QueryButton from "../components/QueryButton";
 import CancelForm from "../components/CancellationForm";
 import { IoIosInformationCircle } from "react-icons/io";
 import Faq from "../components/Faq";
@@ -39,16 +40,24 @@ const Home = () => {
           className="mb-3"
           defaultValue="create"
           onValueChange={setRequestType}
-          isDisabled
         >
           <Radio value="create">
             <p className="text-sm">提交新的请求</p>
+          </Radio>
+          <Radio value="query">
+            <p className="text-sm">查询请求状态</p>
           </Radio>
           <Radio value="cancel">
             <p className="text-sm">取消现有请求</p>
           </Radio>
         </RadioGroup>
-        {requestType === "create" ? <CreateForm /> : <CancelForm />}
+        {requestType === "create" ? (
+          <CreateForm />
+        ) : requestType === "query" ? (
+          <QueryButton />
+        ) : (
+          <CancelForm />
+        )}
       </div>
       <Faq></Faq>
     </div>
