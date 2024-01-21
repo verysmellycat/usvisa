@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import CreateForm from "../components/CreateForm";
-import CancelForm from "../components/CancelForm";
+import CreateForm from "../components/CreationForm";
+import CancelForm from "../components/CancellationForm";
 import { IoIosInformationCircle } from "react-icons/io";
 import Faq from "../components/Faq";
 import { Radio, RadioGroup } from "@nextui-org/react";
@@ -39,6 +39,7 @@ const Home = () => {
           className="mb-3"
           defaultValue="create"
           onValueChange={setRequestType}
+          isDisabled
         >
           <Radio value="create">
             <p className="text-sm">提交新的请求</p>
