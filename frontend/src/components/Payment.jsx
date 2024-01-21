@@ -2,7 +2,7 @@ import React from "react";
 
 const Payment = () => {
   return (
-    <div className="flex flex-col items-center gap-y-3 mt-3">
+    <div className="flex flex-col items-center sm:flex-row sm:justify-center gap-y-3">
       <img src="/QR.jpg" alt="QR payment" width={300} className="min-w-48" />
       <stripe-buy-button
         buy-button-id="buy_btn_1OXwo3EOWaPf9JJTBUlJ0KKx"

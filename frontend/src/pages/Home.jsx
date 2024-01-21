@@ -18,8 +18,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full gap-y-3 mt-3">
-      <div className="flex flex-col items-center text-sm px-5 border-1 rounded-2xl bg-white">
+    <div className="flex flex-col items-center w-full gap-y-3">
+      {/**       <div className="flex flex-col items-center text-sm px-5 border-1 rounded-2xl bg-white">
         <span>总抢位请求:{requestCount || " _ "}</span>
         <span>已帮助{successCount || " _ "}位用户预约到美签位置🚀</span>
       </div>
@@ -27,7 +27,7 @@ const Home = () => {
         暂时只支持 B1&2, 有支持 H1B 的打算, 但是项目目前入不敷出
         <br />
         若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
-      </h4>
+      </h4>*/}
       <div className="w-1/3">
         <Payment />
       </div>
