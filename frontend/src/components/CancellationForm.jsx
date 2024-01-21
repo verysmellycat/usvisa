@@ -23,6 +23,8 @@ const CancelForm = () => {
     if (Object.keys(errors).length === 0) {
       setFormData({
         ...data,
+        schedule_ids:
+          data.schedule_ids === "" ? [] : data.schedule_ids.split(","),
         action: "cancel",
       });
     }
