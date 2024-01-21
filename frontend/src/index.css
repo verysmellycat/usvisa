@@ -3,3 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-datepicker-popper {
+  z-index: 9999 !important;
+}

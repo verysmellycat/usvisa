@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   Select,
@@ -16,7 +16,6 @@ import {
   useDisclosure,
   Checkbox,
 } from "@nextui-org/react";
-import { Card, CardBody } from "@nextui-org/react";
 import { IoIosInformationCircle, IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import DatePicker from "react-datepicker";
@@ -24,12 +23,16 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 const UserForm = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const [formData, setFormData] = useState(null);
   const [tips, setTips] = useState(0);
-  const [timeIntervals, setTimeIntervals] = useState([]);
+  const [timeIntervals, setTimeIntervals] = useState([
+    {
+      from: new Date(),
+      to: new Date(),
+    },
+  ]);
   const navigate = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -37,24 +40,65 @@ const UserForm = () => {
   } = useForm();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const onsubmit = (data) => {
+  const onFormSubmit = (data) => {
     if (Object.keys(errors).length === 0) {
+      const formattedTimeIntervals = timeIntervals.map((interval) => ({
+        from: format(interval.from, "yyyyMMdd"),
+        to: format(interval.to, "yyyyMMdd"),
+      }));
       setFormData({
         ...data,
-        timeIntervals,
+        schedule_ids:
+          data.schedule_ids === "" ? [] : data.schedule_ids.split(","),
+        cities: data.cities.split(","),
+        date_ranges: formattedTimeIntervals,
         action: "create",
       });
       onOpen();
     }
   };
 
+  const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  const handleTimeAdd = useCallback(
+    debounce(() => {
+      setTimeIntervals([
+        ...timeIntervals,
+        {
+          from: new Date(),
+          to: new Date(),
+        },
+      ]);
+    }, 300),
+    [timeIntervals]
+  );
+
+  const handleTimeDelete = useCallback(
+    debounce((index) => {
+      const newIntervals = timeIntervals.filter((_, i) => i !== index);
+      setTimeIntervals(newIntervals);
+    }, 300),
+    [timeIntervals]
+  );
+
   const onRead = () => {
     onOpenChange(false);
     navigate("/submit", { state: { formData: { ...formData, tips } } });
   };
 
-  const handleDeleteInterval = (index) => {
-    const newIntervals = timeIntervals.filter((_, i) => i !== index);
+  const handleTimeChange = (index, type, date) => {
+    const newIntervals = [...timeIntervals];
+    newIntervals[index][type] = date;
     setTimeIntervals(newIntervals);
   };
 
@@ -70,7 +114,7 @@ const UserForm = () => {
 
   return (
     <form
-      onSubmit={handleSubmit(onsubmit)}
+      onSubmit={handleSubmit(onFormSubmit)}
       className="flex flex-col gap-y-3 w-full"
       noValidate
     >
@@ -207,65 +251,55 @@ const UserForm = () => {
           )}
         />
       </div>
-      <div className="flex items-center justify-between">
-        <div className="flex flex-col items-center sm:flex-row sm:justify-between overflow-auto">
-          <div className="flex flex-row sm:flex-col items-center z-10">
-            <label className="text-sm">起始日期</label>
-            <DatePicker
-              className="border-2 rounded-lg ml-2 text-center"
-              selected={startDate}
-              minDate={new Date()}
-              popperPlacement="bottom"
-              onChange={(date) => setStartDate(date)}
-            />
+      <div className="flex flex-col gap-y-2">
+        <div className="flex items-center justify-end">
+          <Button
+            className="bg-transparent p-0 gap-x-1"
+            onPress={handleTimeAdd}
+          >
+            <IoIosAddCircle size={24} />
+            添加时间范围
+          </Button>
+        </div>
+      </div>
+      {timeIntervals.map((timeInterval, index) => (
+        <div key={index} className="flex flex-row items-center justify-between">
+          <div className="flex flex-col sm:flex-row items-center gap-x-2">
+            <div className="flex flex-row items-center">
+              <label className="text-sm flex-shrink-0">起始日期</label>
+              <DatePicker
+                className="border-2 rounded-lg ml-2 text-center w-5/6 "
+                selected={timeInterval.from}
+                dateFormat="yyyy/MM/dd"
+                minDate={timeInterval.from}
+                popperPlacement="top"
+                onChange={(date) => handleTimeChange(index, "from", date)}
+              />
+            </div>
+            <div className="flex flex-row items-center">
+              <label className="text-sm flex-shrink-0">截止日期</label>
+              <DatePicker
+                className="border-2 rounded-lg ml-2 text-center w-5/6 "
+                selected={timeInterval.to}
+                dateFormat="yyyy/MM/dd"
+                minDate={timeInterval.to}
+                popperPlacement="top"
+                onChange={(date) => handleTimeChange(index, "to", date)}
+              />
+            </div>
           </div>
-          <div className="flex flex-row sm:flex-col items-center z-10">
-            <label className="text-sm">截止日期</label>
-            <DatePicker
-              className="border-2 rounded-lg ml-2 text-center"
-              selected={endDate}
-              minDate={new Date()}
-              popperPlacement="bottom"
-              onChange={(date) => setEndDate(date)}
-            />
+          <div>
+            <Button
+              isIconOnly
+              onPress={() => handleTimeDelete(index)}
+              size="sm"
+              className="bg-transparent"
+            >
+              <MdDelete size={20} />
+            </Button>
           </div>
         </div>
-        <Button
-          className="bg-transparent"
-          isIconOnly
-          onPress={() =>
-            setTimeIntervals([
-              ...timeIntervals,
-              {
-                from: format(startDate, "yyyyMMdd"),
-                to: format(endDate, "yyyyMMdd"),
-              },
-            ])
-          }
-        >
-          <IoIosAddCircle size={24} />
-        </Button>
-      </div>
-      <div className="flex flex-col items-center gap-y-2">
-        <h4 className="text-sm">已添加时间：</h4>
-        {timeIntervals.map((interval, index) => (
-          <Card key={index}>
-            <CardBody className="flex flex-row items-center p-1">
-              <p className="text-sm">
-                📅 From: {interval.from} To:
-                {interval.to}
-              </p>
-              <Button
-                isIconOnly
-                onPress={() => handleDeleteInterval(index)}
-                className="bg-transparent"
-              >
-                <MdDelete size={18} />
-              </Button>
-            </CardBody>
-          </Card>
-        ))}
-      </div>
+      ))}
       <Button
         className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
         type="submit"
