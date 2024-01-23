@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const req = https.request(options, (res) => {
+const req = http.request(options, (res) => {
   console.log(`statusCode: ${res.statusCode}`);
 
   res.on("data", (d) => {
