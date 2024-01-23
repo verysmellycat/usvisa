@@ -283,7 +283,7 @@ const UserForm = () => {
                 className="border-2 rounded-lg ml-2 text-center w-5/6 "
                 selected={timeInterval.to}
                 dateFormat="yyyy/MM/dd"
-                minDate={timeInterval.to}
+                minDate={timeInterval.from}
                 popperPlacement="bottom"
                 onFocus={(e) => e.target.blur()}
                 onChange={(date) => handleTimeChange(index, "to", date)}
