@@ -1,4 +1,4 @@
-const https = require("https");
+import * as http from "http";
 
 const webhookURL = process.env.DISCORD_WEBHOOK_URL;
 const data = JSON.stringify({
