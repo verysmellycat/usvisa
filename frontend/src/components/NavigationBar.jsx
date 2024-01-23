@@ -21,10 +21,10 @@ const NavigationBar = () => {
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarContent justify="space-between">
+      <NavbarContent justify="center">
         <NavbarBrand>
-          <Link href="/" color="foreground" className="gap-x-2">
-            <img src="/vite.svg" alt="main logo" width={30} height={30} />
+          <Link href="/" color="foreground" className="gap-x-1">
+            <img src="/logo.png" alt="main logo" width={38} height={38} />
             <p className="font-bold text-xl">Vizard</p>
           </Link>
         </NavbarBrand>

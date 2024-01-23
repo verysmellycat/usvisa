@@ -19,7 +19,7 @@ import {
 import { IoIosInformationCircle, IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
 import DatePicker from "react-datepicker";
-import { format } from "date-fns";
+import { format, addMonths } from "date-fns";
 import { useNavigate } from "react-router-dom";
 
 const UserForm = () => {
@@ -28,7 +28,7 @@ const UserForm = () => {
   const [timeIntervals, setTimeIntervals] = useState([
     {
       from: new Date(),
-      to: new Date(),
+      to: addMonths(new Date(), 8),
     },
   ]);
   const navigate = useNavigate();
@@ -76,7 +76,7 @@ const UserForm = () => {
         ...timeIntervals,
         {
           from: new Date(),
-          to: new Date(),
+          to: addMonths(new Date(), 8),
         },
       ]);
     }, 300),
