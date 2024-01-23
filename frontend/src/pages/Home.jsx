@@ -28,7 +28,7 @@ const Home = () => {
         <br />
         若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
       </h4>*/}
-      <div className="w-1/3">
+      <div className="w-1/3 mt-3">
         <Payment />
       </div>
       <h4 className="flex items-center text-sm text-danger">

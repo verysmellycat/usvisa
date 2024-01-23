@@ -1,33 +1,16 @@
-import * as http from "http";
+import axios from "axios";
 
-const webhookURL = process.env.DISCORD_WEBHOOK_URL;
-const data = JSON.stringify({
-  content: "New deployment is live!",
-});
-
-const url = new URL(webhookURL);
-
-const options = {
-  hostname: url.hostname,
-  path: url.pathname,
+axios({
   method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    "Content-Length": data.length,
-  },
-};
-
-const req = http.request(options, (res) => {
-  console.log(`statusCode: ${res.statusCode}`);
-
-  res.on("data", (d) => {
-    process.stdout.write(d);
-  });
-});
-
-req.on("error", (error) => {
-  console.error(error);
-});
-
-req.write(data);
-req.end();
+   url: process.env.DISCORD_WEBHOOK_URL,
+   data: JSON.stringify({
+     content: "New deployment is live!",
+   }),
+   headers: {
+     "Content-Type": "application/json",
+   },
+ }).then((response) => {
+   console.info("response", response.data);
+ }).catch((error) => {
+   console.error("error", error);
+ });
