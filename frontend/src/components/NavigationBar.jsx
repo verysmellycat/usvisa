@@ -88,11 +88,29 @@ const NavigationBar = () => {
             </PopoverContent>
           </Popover>
         </NavbarItem>
-        {/*<NavbarItem className="sm:hidden">
+        <NavbarItem className="hidden sm:flex">
+          <Popover placement="bottom">
+            <PopoverTrigger>
+              <div className="flex items-center gap-x-2 cursor-pointer">
+                <img
+                  src="/wechat.png"
+                  alt="wechat logo"
+                  width={30}
+                  height={30}
+                />
+                <p className="hover:text-blue-600">微信群</p>
+              </div>
+            </PopoverTrigger>
+            <PopoverContent>
+              <img src="/wechatQR.jpg" alt="wechat group QR code" width={200} />
+            </PopoverContent>
+          </Popover>
+        </NavbarItem>
+        <NavbarItem className="sm:hidden">
           <Button size="sm">
-            <Link href="/tip">赞助</Link>
+            <Link href="/support">用户交流群</Link>
           </Button>
-        </NavbarItem>*/}
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>

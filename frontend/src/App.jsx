@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavigationBar";
 import Submission from "./pages/Submission";
 import NotFound from "./pages/NotFound";
+import UserGroup from "./components/UserGroup";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/submit" element={<Submission />}></Route>
+          <Route path="/support" element={<UserGroup />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

@@ -9,8 +9,6 @@ import { Radio, RadioGroup } from "@nextui-org/react";
 import Payment from "../components/Payment";
 
 const Home = () => {
-  const [successCount, setSuccessCount] = useState(null);
-  const [requestCount, setRequestCount] = useState(null);
   const [requestType, setRequestType] = useState("create");
 
   useEffect(() => {
@@ -28,14 +26,14 @@ const Home = () => {
         <br />
         若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
       </h4>*/}
-      <div className="w-1/3 mt-3">
+      <div className="w-1/3">
         <Payment />
       </div>
       <h4 className="flex items-center text-sm text-danger">
         填写遇到问题点
         <IoIosInformationCircle size={16} />
       </h4>
-      <div className="w-5/6 sm:w-1/2">
+      <div className="w-5/6 sm:w-3/5">
         <RadioGroup
           className="mb-3"
           defaultValue="create"
@@ -59,7 +57,9 @@ const Home = () => {
           <CancelForm />
         )}
       </div>
-      <Faq></Faq>
+      <div className="w-5/6 sm:w-3/5">
+        <Faq />
+      </div>
     </div>
   );
 };

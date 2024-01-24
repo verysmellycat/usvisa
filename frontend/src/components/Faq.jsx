@@ -36,7 +36,7 @@ const Faq = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-y-3 w-3/4">
+    <div className="flex flex-col gap-y-3">
       <h2 className="font-semibold text-xl">FAQ/常见问题</h2>
       <Accordion className="p-0">
         {items.map((item, index) => (
