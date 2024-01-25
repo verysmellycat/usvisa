@@ -17,7 +17,7 @@ const UserGroup = () => {
             <img src="/xhs.png" alt="xiaohongshu logo" width={30} height={30} />
             小红书
           </p>
-          <img src="/wechatQR.jpg" alt="wechat group" />
+          <img src="/xhsQR.jpg" alt="xhs group" />
         </div>
         <div className="p-2">
           <Link
