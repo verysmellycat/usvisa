@@ -4,10 +4,11 @@ import NavBar from "./components/NavigationBar";
 import Submission from "./pages/Submission";
 import NotFound from "./pages/NotFound";
 import UserGroup from "./components/UserGroup";
+import Instruction from "./pages/Instruction";
 
 function App() {
   return (
-    <div className="mx-auto sm:mb-10">
+    <div className="mx-auto">
       <BrowserRouter>
         <NavBar></NavBar>
         <h1 className="font-semibold text-center text-2xl mt-3">
@@ -16,7 +17,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/submit" element={<Submission />}></Route>
-          <Route path="/support" element={<UserGroup />}></Route>
+          <Route path="/user_group" element={<UserGroup />}></Route>
+          <Route path="/instruction" element={<Instruction />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

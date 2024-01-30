@@ -16,20 +16,28 @@ import {
 
 const NavigationBar = () => {
   return (
-    <Navbar isBordered>
+    <Navbar isBordered maxWidth="xl">
       <NavbarContent className="sm:hidden">
         <NavbarMenuToggle />
       </NavbarContent>
 
       <NavbarContent justify="center">
         <NavbarBrand>
-          <Link href="/" color="foreground" className="gap-x-1">
+          <Link href="/" color="foreground" className="gap-x-2">
             <img src="/logo.png" alt="main logo" width={38} height={38} />
-            <p className="font-bold text-xl">Vizard</p>
+            <p className="font-bold font-inter text-xl">Vizard</p>
           </Link>
         </NavbarBrand>
-
-        <div className="hidden sm:flex gap-x-3">
+        <div className="hidden gap-x-2 sm:flex">
+          <NavbarItem>
+            <Link
+              className="hover:text-blue-600"
+              color="foreground"
+              href="/instruction"
+            >
+              使用教程
+            </Link>
+          </NavbarItem>
           <NavbarItem>
             <Link
               className="hover:text-blue-600"
@@ -47,18 +55,13 @@ const NavigationBar = () => {
               color="foreground"
               href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
             >
-              手动预约
+              USVISA-INFO
             </Link>
           </NavbarItem>
         </div>
       </NavbarContent>
 
       <NavbarContent justify="end">
-        {/*<NavbarItem className="hidden sm:flex">
-          <Link className="hover:text-blue-600" href="/tip" color="foreground">
-            💰 支持这个项目 一起打击黄牛
-          </Link>
-        </NavbarItem> */}
         <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
@@ -68,6 +71,17 @@ const NavigationBar = () => {
           >
             <img src="/discord.png" alt="discord logo" width={30} height={30} />
             <p className="hover:text-blue-600">Discord</p>
+          </Link>
+        </NavbarItem>
+        <NavbarItem className="hidden sm:flex">
+          <Link
+            isExternal
+            className="gap-x-2"
+            href="https://github.com/usvisa-lol/usvisa"
+            color="foreground"
+          >
+            <img src="/github.png" alt="github logo" width={30} height={30} />
+            <p className="hover:text-blue-600">Github</p>
           </Link>
         </NavbarItem>
         <NavbarItem className="hidden sm:flex">
@@ -108,12 +122,21 @@ const NavigationBar = () => {
         </NavbarItem>
         <NavbarItem className="sm:hidden">
           <Button size="sm">
-            <Link href="/support">用户交流群</Link>
+            <Link href="/user_group">用户交流群</Link>
           </Button>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarMenu>
+        <NavbarItem>
+          <Link
+            className="hover:text-blue-600"
+            color="foreground"
+            href="/instruction"
+          >
+            使用教程
+          </Link>
+        </NavbarItem>
         <NavbarMenuItem>
           <Link
             isExternal
@@ -129,7 +152,7 @@ const NavigationBar = () => {
             color="foreground"
             href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
           >
-            手动预约
+            USVISA-INFO
           </Link>
         </NavbarMenuItem>
       </NavbarMenu>

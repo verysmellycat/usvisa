@@ -38,7 +38,7 @@ const CancelForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onFormSubmit)}
-      className="flex flex-col gap-y-3"
+      className="flex flex-col gap-y-3 w-full"
       noValidate
     >
       <div className="flex items-center gap-x-2">

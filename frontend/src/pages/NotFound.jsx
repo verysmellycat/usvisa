@@ -12,7 +12,7 @@ const NotFound = () => {
   }, [navigate]);
 
   return (
-    <div className="flex flex-col items-center gap-y-3 mt-3 w-full">
+    <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
       <h2 className="text-xl">404 Not Found</h2>
       <p>The page you are looking for does not exist</p>
       <p>Redirecting to the Homepage in 3 seconds...</p>

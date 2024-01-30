@@ -5,13 +5,13 @@ const Faq = () => {
   const items = [
     {
       question:
-        '手动预约时怎么回答 "Are you traveling from another country to apply for a U.S. visa in Canada?"',
+        '在USVISA-INFO填写信息时怎么回答 "Are you traveling from another country to apply for a U.S. visa in Canada?"',
       answer:
         "在加拿大本国选no, 否则选yes. 在本国的情况包括当地居民、学生签工作签和PR. 不在本国指不居住在加拿大，持旅游签来加拿大的情况.",
     },
     {
       question: "如果以上问题回答Yes, 程序可以帮我自动预约美签吗？",
-      answer: "不可以, 本程序只适用于tcn = no.",
+      answer: "可以, 本程序同时适用于tcn = yes 和 no 的情况.",
     },
     {
       question: "提交后我还需要做什么吗？",
