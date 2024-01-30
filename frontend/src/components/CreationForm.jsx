@@ -238,12 +238,12 @@ const UserForm = () => {
         <Controller
           control={control}
           name="password"
-          rules={{ required: "请输入USVISA-INFO登陆邮箱密码" }}
+          rules={{ required: "请输入USVISA-INFO登陆密码" }}
           render={({ field }) => (
             <Input
               {...field}
               className="w-full"
-              label="USVISA-INFO登陆邮箱密码"
+              label="USVISA-INFO登陆密码"
               type="password"
               errorMessage={errors?.password?.message}
               isRequired
@@ -251,6 +251,14 @@ const UserForm = () => {
           )}
         />
       </div>
+      <p className="text-sm text-center">
+        和你自己预约一样, 系统预约也需要你
+        <strong>USVISA-INFO的账号和密码</strong>
+        <br />
+        请确保你填写的密码可以成功登陆预约网站
+        <br />
+        下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统
+      </p>
       <div className="flex flex-col gap-y-2">
         <div className="flex items-center justify-end">
           <Button

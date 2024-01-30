@@ -11,21 +11,11 @@ import Payment from "../components/Payment";
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
 
-  useEffect(() => {
-    //请求数据
-  }, []);
-
   return (
-    <div className="flex flex-col items-center w-full gap-y-3 mt-3 sm:mt-0">
-      {/**       <div className="flex flex-col items-center text-sm px-5 border-1 rounded-2xl bg-white">
-        <span>总抢位请求:{requestCount || " _ "}</span>
-        <span>已帮助{successCount || " _ "}位用户预约到美签位置🚀</span>
-      </div>
-      <h4 className="flex items-center text-sm text-center w-5/6 sm:w-fit">
-        暂时只支持 B1&2, 有支持 H1B 的打算, 但是项目目前入不敷出
-        <br />
-        若有人捐款达到总共 $5000, 我一周内应该可以实现对 H1B 的支持
-      </h4>*/}
+    <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
+      <span className="text-center w-5/6 sm:w-3/5">
+        已更新对B1/B2, H1B, F1等各种签证类型的支持🚀
+      </span>
       <div className="w-1/3">
         <Payment />
       </div>
@@ -33,12 +23,8 @@ const Home = () => {
         填写遇到问题点
         <IoIosInformationCircle size={16} />
       </h4>
-      <div className="w-5/6 sm:w-3/5">
-        <RadioGroup
-          className="mb-3"
-          defaultValue="create"
-          onValueChange={setRequestType}
-        >
+      <div className="flex flex-col gap-y-3 w-5/6 sm:w-3/5">
+        <RadioGroup defaultValue="create" onValueChange={setRequestType}>
           <Radio value="create">
             <p className="text-sm">提交新的请求</p>
           </Radio>
