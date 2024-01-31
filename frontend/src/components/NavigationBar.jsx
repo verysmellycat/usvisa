@@ -13,8 +13,10 @@ import {
   PopoverTrigger,
   PopoverContent,
 } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 
 const NavigationBar = () => {
+  const { t } = useTranslation();
   return (
     <Navbar isBordered maxWidth="xl">
       <NavbarContent className="sm:hidden">
@@ -35,7 +37,7 @@ const NavigationBar = () => {
               color="foreground"
               href="/instruction"
             >
-              使用教程
+              {t("使用教程")}
             </Link>
           </NavbarItem>
           <NavbarItem>
@@ -45,7 +47,7 @@ const NavigationBar = () => {
               color="foreground"
               href="https://ceac.state.gov/genniv/"
             >
-              填写DS-160
+              {t("填写DS-160")}
             </Link>
           </NavbarItem>
           <NavbarItem>

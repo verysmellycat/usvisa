@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Input, Textarea } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Submission = () => {
   const recipientRef = useRef();
@@ -10,6 +11,7 @@ const Submission = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const formData = location.state?.formData;
+  const { t } = useTranslation();
 
   const recipient = "admin@usvisa.lol";
   const title = "打击签证黄牛 fight against visa scalpers";
@@ -34,7 +36,7 @@ const Submission = () => {
       const valueToCopy = ref.current.value;
       try {
         await navigator.clipboard.writeText(valueToCopy);
-        alert("已复制");
+        alert(t("已复制"));
       } catch (err) {
         console.error("复制失败", err);
       }
@@ -45,12 +47,12 @@ const Submission = () => {
     <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
       <div className="flex flex-col items-center gap-y-3 w-5/6 sm:w-1/2">
         <p className="text-lg text-danger">
-          用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交
+          {t("用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交")}
         </p>
         <Input
           isReadOnly
           ref={recipientRef}
-          label="收件人"
+          label={t("收件人")}
           variant="bordered"
           defaultValue={recipient}
           type="email"
@@ -59,7 +61,7 @@ const Submission = () => {
         <Input
           isReadOnly
           ref={titleRef}
-          label="标题"
+          label={t("标题")}
           variant="bordered"
           defaultValue={title}
           type="text"
@@ -68,7 +70,7 @@ const Submission = () => {
         <Textarea
           isReadOnly
           ref={contentRef}
-          label="内容"
+          label={t("内容")}
           variant="bordered"
           defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
           onClick={() => copyToClipboard(contentRef)}

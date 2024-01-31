@@ -21,6 +21,7 @@ import { MdDelete } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import { format, addMonths } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const UserForm = () => {
   const [formData, setFormData] = useState(null);
@@ -32,6 +33,7 @@ const UserForm = () => {
     },
   ]);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const {
     control,
@@ -128,8 +130,8 @@ const UserForm = () => {
             <Select
               {...field}
               className="w-full"
-              label="预约国家"
-              placeholder="加拿大"
+              label={t("预约国家")}
+              placeholder={t("加拿大")}
               errorMessage={errors?.country?.message}
               validationState={errors.country ? "invalid" : "valid"}
               isDisabled
@@ -145,7 +147,7 @@ const UserForm = () => {
           <PopoverContent>
             <div className="px-1 py-2">
               <div className="text-tiny">
-                暂时只支持加拿大, 未来也许会拓展至其他地区
+                {t("暂时只支持加拿大, 未来也许会拓展至其他地区")}
               </div>
             </div>
           </PopoverContent>
@@ -162,7 +164,7 @@ const UserForm = () => {
               className="w-full"
               label="Schedule ID"
               type="text"
-              placeholder="大多数用户都不用填"
+              placeholder={t("大多数用户都不用填")}
               errorMessage={errors?.schedule_ids?.message}
             ></Input>
           )}
@@ -213,12 +215,12 @@ const UserForm = () => {
         <Controller
           control={control}
           name="cities"
-          rules={{ required: "至少选择一个城市" }}
+          rules={{ required: t("至少选择一个城市") }}
           render={({ field }) => (
             <Select
               {...field}
               className="w-full"
-              label="预约城市"
+              label={t("预约城市")}
               selectionMode="multiple"
               errorMessage={errors?.cities?.message}
               validationState={errors.cities ? "invalid" : "valid"}
@@ -238,12 +240,12 @@ const UserForm = () => {
         <Controller
           control={control}
           name="password"
-          rules={{ required: "请输入USVISA-INFO登陆密码" }}
+          rules={{ required: t("请输入USVISA-INFO登陆密码") }}
           render={({ field }) => (
             <Input
               {...field}
               className="w-full"
-              label="USVISA-INFO登陆密码"
+              label={t("USVISA-INFO登陆密码")}
               type="password"
               errorMessage={errors?.password?.message}
               isRequired
@@ -252,12 +254,11 @@ const UserForm = () => {
         />
       </div>
       <p className="text-sm text-center">
-        和你自己预约一样, 系统预约也需要你
-        <strong>USVISA-INFO的账号和密码</strong>
+        {t("和你自己预约一样, 系统预约也需要你USVISA-INFO的账号和密码")}
         <br />
-        请确保你填写的密码可以成功登陆预约网站
+        {t("请确保你填写的密码可以成功登陆预约网站")}
         <br />
-        下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统
+        {t("下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统")}
       </p>
       <div className="flex flex-col gap-y-2">
         <div className="flex items-center justify-end">
@@ -266,7 +267,7 @@ const UserForm = () => {
             onPress={handleTimeAdd}
           >
             <IoIosAddCircle size={24} />
-            添加时间范围
+            {t("添加时间范围")}
           </Button>
         </div>
       </div>
@@ -274,7 +275,7 @@ const UserForm = () => {
         <div key={index} className="flex flex-row items-center justify-between">
           <div className="flex flex-col sm:flex-row items-center gap-x-2">
             <div className="flex flex-row items-center">
-              <label className="text-sm flex-shrink-0">起始日期</label>
+              <label className="text-sm flex-shrink-0">{t("起始日期")}</label>
               <DatePicker
                 className="border-2 rounded-lg ml-2 text-center w-5/6 "
                 selected={timeInterval.from}
@@ -286,7 +287,7 @@ const UserForm = () => {
               />
             </div>
             <div className="flex flex-row items-center">
-              <label className="text-sm flex-shrink-0">截止日期</label>
+              <label className="text-sm flex-shrink-0">{t("截止日期")}</label>
               <DatePicker
                 className="border-2 rounded-lg ml-2 text-center w-5/6 "
                 selected={timeInterval.to}
@@ -314,7 +315,7 @@ const UserForm = () => {
         className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
         type="submit"
       >
-        阅读后提交新请求
+        {t("阅读后提交新请求")}
       </Button>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
@@ -363,7 +364,9 @@ const UserForm = () => {
                   <li className="list-none">
                     <Input
                       type="number"
-                      label="成功预约后你愿意支付多少小费以维持项目运行?"
+                      label={`${t(
+                        "成功预约后你愿意支付多少小费以维持项目运行"
+                      )}?`}
                       placeholder="0.00"
                       startContent={
                         <div className="pointer-events-none flex items-center">
@@ -377,10 +380,10 @@ const UserForm = () => {
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
-                  取消
+                  {t("取消")}
                 </Button>
                 <Button color="primary" onPress={onRead}>
-                  确认
+                  {t("确认")}
                 </Button>
               </ModalFooter>
             </>
