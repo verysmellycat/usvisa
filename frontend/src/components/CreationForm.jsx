@@ -218,7 +218,7 @@ const UserForm = () => {
           </PopoverContent>
         </Popover>
       </div>
-      <div className="flex items-center gap-x-2">
+      <div>
         <Controller
           control={control}
           name="cities"
@@ -243,7 +243,7 @@ const UserForm = () => {
           )}
         />
       </div>
-      <div className="flex items-center gap-x-2">
+      <div>
         <Controller
           control={control}
           name="password"
@@ -260,23 +260,16 @@ const UserForm = () => {
           )}
         />
       </div>
-      <p className="text-sm text-center">
-        {t("text.text3")}
-        <br />
-        {t("text.text4")}
-        <br />
-        {t("text.text5")}
-      </p>
-      <div className="flex flex-col gap-y-2">
-        <div className="flex items-center justify-end">
-          <Button
-            className="bg-transparent p-0 gap-x-1"
-            onPress={handleTimeAdd}
-          >
-            <IoIosAddCircle size={24} />
-            {t("form.datepickerButtonText")}
-          </Button>
-        </div>
+      <ul className="flex flex-col text-sm text-wrap list-disc ml-3 gap-y-2">
+        <li> {t("text.text3")}</li>
+        <li> {t("text.text4")}</li>
+        <li> {t("text.text5")}</li>
+      </ul>
+      <div className="flex items-center justify-end">
+        <Button className="bg-transparent p-0 gap-x-1" onPress={handleTimeAdd}>
+          <IoIosAddCircle size={24} />
+          {t("form.datepickerButtonText")}
+        </Button>
       </div>
       {timeIntervals.map((timeInterval, index) => (
         <div key={index} className="flex flex-row items-center justify-between">
