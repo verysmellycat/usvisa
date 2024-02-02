@@ -36,7 +36,7 @@ const Submission = () => {
       const valueToCopy = ref.current.value;
       try {
         await navigator.clipboard.writeText(valueToCopy);
-        alert(t("已复制"));
+        alert(t("submission.clipboardMessage"));
       } catch (err) {
         console.error("复制失败", err);
       }
@@ -46,13 +46,11 @@ const Submission = () => {
   return (
     <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
       <div className="flex flex-col items-center gap-y-3 w-5/6 sm:w-1/2">
-        <p className="text-lg text-danger">
-          {t("用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交")}
-        </p>
+        <p className="text-lg text-danger">{t("headers.header3")}</p>
         <Input
           isReadOnly
           ref={recipientRef}
-          label={t("收件人")}
+          label={t("submission.fieldLabel1")}
           variant="bordered"
           defaultValue={recipient}
           type="email"
@@ -61,7 +59,7 @@ const Submission = () => {
         <Input
           isReadOnly
           ref={titleRef}
-          label={t("标题")}
+          label={t("submission.fieldLabel2")}
           variant="bordered"
           defaultValue={title}
           type="text"
@@ -70,7 +68,7 @@ const Submission = () => {
         <Textarea
           isReadOnly
           ref={contentRef}
-          label={t("内容")}
+          label={t("submission.fieldLabel3")}
           variant="bordered"
           defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
           onClick={() => copyToClipboard(contentRef)}

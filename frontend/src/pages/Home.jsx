@@ -15,26 +15,24 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
-      <span className="text-center w-5/6 sm:w-3/5">
-        {t("已更新对B1/B2, H1B, F1等各种签证类型的支持")} 🚀
-      </span>
+      <span className="text-center w-5/6 sm:w-3/5">{t("text.text1")} 🚀</span>
       <div className="w-1/3">
         <Payment />
       </div>
       <h4 className="flex items-center text-sm text-danger">
-        {t("填写遇到问题点")}
+        {t("text.text2")}
         <IoIosInformationCircle size={16} />
       </h4>
       <div className="flex flex-col gap-y-3 w-5/6 sm:w-3/5">
         <RadioGroup defaultValue="create" onValueChange={setRequestType}>
           <Radio value="create">
-            <p className="text-sm">{t("提交新的请求")}</p>
+            <p className="text-sm">{t("form.requestType1")}</p>
           </Radio>
           <Radio value="query">
-            <p className="text-sm">{t("查询请求状态")}</p>
+            <p className="text-sm">{t("form.requestType2")}</p>
           </Radio>
           <Radio value="cancel">
-            <p className="text-sm">{t("取消现有请求")}</p>
+            <p className="text-sm">{t("form.requestType3")}</p>
           </Radio>
         </RadioGroup>
         {requestType === "create" ? (

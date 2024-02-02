@@ -37,7 +37,7 @@ const NavigationBar = () => {
               color="foreground"
               href="/instruction"
             >
-              {t("使用教程")}
+              {t("navbar.link1")}
             </Link>
           </NavbarItem>
           <NavbarItem>
@@ -47,7 +47,7 @@ const NavigationBar = () => {
               color="foreground"
               href="https://ceac.state.gov/genniv/"
             >
-              {t("填写DS-160")}
+              {t("navbar.link2")}
             </Link>
           </NavbarItem>
           <NavbarItem>

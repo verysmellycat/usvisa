@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <NavBar></NavBar>
         <h1 className="font-semibold text-center text-2xl mt-3">
-          {t("加拿大美签自动预约")}
+          {t("headers.header1")}
         </h1>
         <Routes>
           <Route path="/" element={<Home />}></Route>
