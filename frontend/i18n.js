@@ -56,35 +56,8 @@ i18n
             text3: "和你自己预约一样, 系统预约也需要你USVISA-INFO的账号和密码",
             text4: "请确保你填写的密码可以成功登陆预约网站",
             text5: "下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统",
-            text6:
-              "这个实验项目只为看劣币驱逐良币是否总是成立, 黄牛真的必要存在于世?",
-            text7: "我自己要申请美签, 黄牛们狮子大开口, 一个人居然要 600 刀",
-            text8:
-              "抢加拿大美签黄牛价大概在 $150~$800 之间, 可能还有更贵更离谱的, 这个项目免费, 没有强制任何人付费",
-            text9:
-              "黄牛们持续威胁恐吓, 我不清楚他们具备什么能力, 究竟会不会影响到我的生命安全",
-            text10:
-              "我已经设定好了所有服务器自动续费, 用的是右上角账户的余额进行支付",
-            text11:
-              "这个系统会一直自动运行到账户余额不足以支付服务器费用, 不管我人还在不在",
-            text12:
-              "如果从今天 2024.01.15 开始没有任何小费支持, 我账户的钱能支持它运行到 2024.02.29",
-            text13:
-              "根据这几天的数据分析, 如果每个成功预约的朋友愿意给最低黄牛价三分之一的 tips, 这个项目能坚持到黄牛消失",
-            text14: "希望这个项目比黄牛晚一天消失!! 我是个乐观的悲观主义者",
-            text15:
-              "如果账户下所有已预约了的人都想用程序抢签, 这里可以留空, 程序会自动判断出来, 非常方便",
-            text16:
-              "打开 usvisa-info 登陆之后点击右上角 Continue 进入下一个页面, 网址将会类似于 https://ais.usvisa-info.com/en-ca/niv/schedule/54306276/continue_actions, 中间那串数字 54306276 就是 schedule_id, 确保 url 中包含/schedule/数字",
-            text17:
-              "如果网址类似于 https://ais.usvisa-info.com/en-ca/niv/groups/38929138, 里面包含 /groups/, 那是错误的, 不要填!!",
-            text18: "这个数字不是 IVR Account Number!!",
-            text19:
-              "如果多人在一个 group 里面, 记得拆分开, 一人一个 schedule_id",
-            text20:
-              "拆开很简单, 点 Reschedule Appointment 按钮, 勾选一个人, 确认下一步即可分开",
-            text21:
-              "如果需要程序抢账户下某几个人的 slot, 可以用逗号区分开, 比如 54306276,54306278,54306280",
+            userCommunity: "用户交流群",
+            specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
           scheduleIdHelperText: scheduleIdHelperMapping,
           whyHelperText: whyHelperMapping,
@@ -138,6 +111,9 @@ i18n
               "Make sure the password you provide here matches the one you use to log in",
             text5:
               "In the final step, you'll provide the corresponding email by sending us necessary information",
+            userCommunity: "Community",
+            specialRequest:
+              "Please contact support@usvisa.lol for special/emergency request",
           },
           scheduleIdHelperText: {
             text1:
@@ -218,9 +194,6 @@ i18n
             fieldLabel3: "Body",
             clipboardMessage: "Copied successfully!",
           },
-          用户交流群: "Community",
-          "如有特别/紧急需求请邮件联系support@usvisa.lol":
-            "Please contact support@usvisa.lol for special/emergency request",
         },
       },
     },
