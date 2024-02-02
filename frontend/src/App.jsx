@@ -15,15 +15,18 @@ function App() {
     <div className="mx-auto">
       <BrowserRouter>
         <NavBar></NavBar>
-        <div className="flex justify-center items-center mt-3 mx-auto gap-x-5 w-5/6 sm:w-3/5">
-          <h1 className="font-semibold text-2xl">{t("headers.header1")}</h1>
+        <div className="flex flex-col mx-auto w-5/6 sm:w-3/5">
+          <h1 className="font-semibold text-2xl text-center">
+            {t("headers.header1")}
+          </h1>
           <button
+            className="self-end"
             onClick={() => {
               let lang = i18n.resolvedLanguage === "en" ? "ch" : "en";
               i18n.changeLanguage(lang);
             }}
           >
-            <IoLanguage size={28} className="border-2" />
+            <IoLanguage size={26} />
           </button>
         </div>
         <Routes>

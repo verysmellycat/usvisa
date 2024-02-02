@@ -93,7 +93,7 @@ i18n
       en: {
         translation: {
           headers: {
-            header1: "Automatic U.S. Visa Scheduler",
+            header1: "Automatic U.S. Visa Rescheduling",
             header2: "Why I Created the Program",
             header3:
               "Use the email for logging into USVISA-INFO to send the following email",
