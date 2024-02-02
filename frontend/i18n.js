@@ -219,6 +219,8 @@ i18n
             clipboardMessage: "Copied successfully!",
           },
           用户交流群: "Community",
+          "如有特别/紧急需求请邮件联系support@usvisa.lol":
+            "Please contact support@usvisa.lol for special/emergency request",
         },
       },
     },

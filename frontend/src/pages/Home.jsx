@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
       <span className="text-center w-5/6">
-        如有特别/紧急需求请邮件联系support@usvisa.lol
+        {t("如有特别/紧急需求请邮件联系support@usvisa.lol")}
       </span>
       <span className="text-center w-5/6">{t("text.text1")} 🚀</span>
       <Payment />
