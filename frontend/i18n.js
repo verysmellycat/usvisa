@@ -218,6 +218,7 @@ i18n
             fieldLabel3: "Body",
             clipboardMessage: "Copied successfully!",
           },
+          用户交流群: "Community",
         },
       },
     },

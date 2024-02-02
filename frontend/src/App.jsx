@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavigationBar";
 import Submission from "./pages/Submission";
 import NotFound from "./pages/NotFound";
-import UserGroup from "./components/UserGroup";
+import UserCommunity from "./components/UserCommunity";
 import Instruction from "./pages/Instruction";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
@@ -29,7 +29,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/submit" element={<Submission />}></Route>
-          <Route path="/user_group" element={<UserGroup />}></Route>
+          <Route path="/community" element={<UserCommunity />}></Route>
           <Route path="/instruction" element={<Instruction />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>

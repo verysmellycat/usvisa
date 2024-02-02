@@ -124,7 +124,7 @@ const NavigationBar = () => {
         </NavbarItem>
         <NavbarItem className="sm:hidden">
           <Button size="sm">
-            <Link href="/user_group">用户交流群</Link>
+            <Link href="/community">{t("用户交流群")}</Link>
           </Button>
         </NavbarItem>
       </NavbarContent>

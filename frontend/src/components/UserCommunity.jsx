@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@nextui-org/react";
 
-const UserGroup = () => {
+const UserCommunity = () => {
   return (
     <div className="flex flex-col items-center mt-3 mb-3 w-full">
       <div className="w-4/5 text-center">
@@ -46,4 +46,4 @@ const UserGroup = () => {
   );
 };
 
-export default UserGroup;
+export default UserCommunity;

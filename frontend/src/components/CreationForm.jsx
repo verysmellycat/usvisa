@@ -58,7 +58,7 @@ export const scheduleIdHelperText = [
   "如果需要程序抢账户下某几个人的 slot, 可以用逗号区分开, 比如 54306276,54306278,54306280",
 ];
 
-const UserForm = () => {
+const CreationForm = () => {
   const [formData, setFormData] = useState(null);
   const [tips, setTips] = useState(0);
   const [timeIntervals, setTimeIntervals] = useState([
@@ -364,4 +364,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default CreationForm;
