@@ -15,7 +15,7 @@ function App() {
     <div className="mx-auto">
       <BrowserRouter>
         <NavBar></NavBar>
-        <div className="flex flex-col mx-auto w-5/6 sm:w-3/5">
+        <div className="flex flex-col mx-auto mt-3 w-5/6 sm:w-3/5">
           <h1 className="font-semibold text-2xl text-center">
             {t("headers.header1")}
           </h1>

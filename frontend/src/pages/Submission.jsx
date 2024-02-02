@@ -44,36 +44,34 @@ const Submission = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
-      <div className="flex flex-col items-center gap-y-3 w-5/6 sm:w-1/2">
-        <p className="text-lg text-danger">{t("headers.header3")}</p>
-        <Input
-          isReadOnly
-          ref={recipientRef}
-          label={t("submission.fieldLabel1")}
-          variant="bordered"
-          defaultValue={recipient}
-          type="email"
-          onClick={() => copyToClipboard(recipientRef)}
-        ></Input>
-        <Input
-          isReadOnly
-          ref={titleRef}
-          label={t("submission.fieldLabel2")}
-          variant="bordered"
-          defaultValue={title}
-          type="text"
-          onClick={() => copyToClipboard(titleRef)}
-        ></Input>
-        <Textarea
-          isReadOnly
-          ref={contentRef}
-          label={t("submission.fieldLabel3")}
-          variant="bordered"
-          defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
-          onClick={() => copyToClipboard(contentRef)}
-        />
-      </div>
+    <div className="flex flex-col mx-auto gap-y-3 my-3 w-5/6 sm:w-1/2">
+      <p className="text-center text-lg text-danger">{t("headers.header3")}</p>
+      <Input
+        isReadOnly
+        ref={recipientRef}
+        label={t("submission.fieldLabel1")}
+        variant="bordered"
+        defaultValue={recipient}
+        type="email"
+        onClick={() => copyToClipboard(recipientRef)}
+      ></Input>
+      <Input
+        isReadOnly
+        ref={titleRef}
+        label={t("submission.fieldLabel2")}
+        variant="bordered"
+        defaultValue={title}
+        type="text"
+        onClick={() => copyToClipboard(titleRef)}
+      ></Input>
+      <Textarea
+        isReadOnly
+        ref={contentRef}
+        label={t("submission.fieldLabel3")}
+        variant="bordered"
+        defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
+        onClick={() => copyToClipboard(contentRef)}
+      />
     </div>
   );
 };

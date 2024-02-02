@@ -272,14 +272,14 @@ const CreationForm = () => {
         </Button>
       </div>
       {timeIntervals.map((timeInterval, index) => (
-        <div key={index} className="flex flex-row items-center justify-between">
-          <div className="flex flex-col sm:flex-row items-center gap-x-2">
-            <div className="flex flex-row items-center">
+        <div key={index} className="flex items-center justify-center">
+          <div className="flex flex-col sm:flex-row items-center gap-y-1 gap-x-2">
+            <div className="flex items-center">
               <label className="text-sm flex-shrink-0">
                 {t("form.datepickerStart")}
               </label>
               <DatePicker
-                className="border-2 rounded-lg ml-2 text-center w-5/6 "
+                className="border-2 rounded-lg ml-2 text-center text-sm max-w-40 lg:max-w-60"
                 selected={timeInterval.from}
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.from}
@@ -288,12 +288,12 @@ const CreationForm = () => {
                 onChange={(date) => handleTimeChange(index, "from", date)}
               />
             </div>
-            <div className="flex flex-row items-center">
+            <div className="flex items-center">
               <label className="text-sm flex-shrink-0">
                 {t("form.datepickerEnd")}
               </label>
               <DatePicker
-                className="border-2 rounded-lg ml-2 text-center w-5/6 "
+                className="border-2 rounded-lg ml-2 text-center text-sm max-w-40 lg:max-w-60"
                 selected={timeInterval.to}
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.from}
@@ -303,16 +303,13 @@ const CreationForm = () => {
               />
             </div>
           </div>
-          <div>
-            <Button
-              isIconOnly
-              onPress={() => handleTimeDelete(index)}
-              size="sm"
-              className="bg-transparent"
-            >
-              <MdDelete size={20} />
-            </Button>
-          </div>
+          <Button
+            isIconOnly
+            onPress={() => handleTimeDelete(index)}
+            className="bg-transparent"
+          >
+            <MdDelete size={20} />
+          </Button>
         </div>
       ))}
       <Button
