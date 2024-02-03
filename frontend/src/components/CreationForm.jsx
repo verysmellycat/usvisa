@@ -228,6 +228,7 @@ const CreationForm = () => {
               {...field}
               className="w-full"
               label={t("form.fieldLabel3")}
+              placeholder={t("form.fieldPlaceholder3")}
               selectionMode="multiple"
               errorMessage={errors?.cities?.message}
               validationState={errors.cities ? "invalid" : "valid"}
@@ -260,11 +261,16 @@ const CreationForm = () => {
           )}
         />
       </div>
-      <ul className="flex flex-col text-sm text-wrap list-disc ml-3 gap-y-2">
+      <ul className="flex flex-col text-xs text-wrap list-disc ml-3 gap-y-2">
         <li> {t("text.text3")}</li>
         <li> {t("text.text4")}</li>
         <li> {t("text.text5")}</li>
       </ul>
+      <p className="text-sm text-center">
+        {t("form.datepickerHeader")}
+        <span className="text-xs"> {t("form.datepickerSubHeader")}</span>
+        <span className="text-danger">*</span>
+      </p>
       <div className="flex items-center justify-end">
         <Button className="bg-transparent p-0 gap-x-1" onPress={handleTimeAdd}>
           <IoIosAddCircle size={24} />
