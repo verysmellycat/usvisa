@@ -35,7 +35,7 @@ const NavigationBar = () => {
             <Link
               className="hover:text-blue-600"
               color="foreground"
-              href="/instruction"
+              href="/tutorial"
             >
               {t("navbar.link1")}
             </Link>
@@ -134,7 +134,7 @@ const NavigationBar = () => {
           <Link
             className="hover:text-blue-600"
             color="foreground"
-            href="/instruction"
+            href="/tutorial"
           >
             使用教程
           </Link>
