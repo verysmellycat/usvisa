@@ -3,8 +3,8 @@ import Home from "./pages/Home";
 import NavBar from "./components/NavigationBar";
 import Submission from "./pages/Submission";
 import NotFound from "./pages/NotFound";
-import UserCommunity from "./components/UserCommunity";
-import Instruction from "./pages/Instruction";
+import UserCommunity from "./pages/UserCommunity";
+import Tutorial from "./pages/Tutorial";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { IoLanguage } from "react-icons/io5";
@@ -33,7 +33,7 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/submit" element={<Submission />}></Route>
           <Route path="/community" element={<UserCommunity />}></Route>
-          <Route path="/instruction" element={<Instruction />}></Route>
+          <Route path="/tutorial" element={<Tutorial />}></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>

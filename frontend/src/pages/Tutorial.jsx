@@ -1,6 +1,6 @@
 import React from "react";
 
-const Instruction = () => {
+const Tutorial = () => {
   return (
     <div className="flex flex-col items-center gap-y-3 mt-3 mb-3 w-full">
       {Array.from({ length: 5 }, (_, index) => (
@@ -13,4 +13,4 @@ const Instruction = () => {
   );
 };
 
-export default Instruction;
+export default Tutorial;
