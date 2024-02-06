@@ -23,6 +23,7 @@ const Home = () => {
         {t("text.text2")}
         <IoIosInformationCircle size={16} />
       </span>
+      <span className="text-center text-sm w-5/6">{t("text.text7")}</span>
       <div className="flex flex-col gap-y-3 w-5/6 sm:w-3/5">
         <RadioGroup defaultValue="create" onValueChange={setRequestType}>
           <Radio value="create">

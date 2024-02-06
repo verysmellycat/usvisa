@@ -57,6 +57,7 @@ i18n
             text4: "请确保你填写的密码可以成功登陆预约网站",
             text5: "下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统",
             text6: "这是一个免费项目, 如果对你有帮助的话请考虑支持项目运营",
+            text7: "如果暂时没有预约, 在向系统提交请求前不用自己预约时间",
             userCommunity: "用户交流群",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
@@ -120,6 +121,8 @@ i18n
               "In the final step, you'll provide the corresponding email by sending us necessary information",
             text6:
               "This is a free program. We greatly appreciate any donations to help cover our operating costs!",
+            text7:
+              "It is advisable that no prior appointment is necessary if you don't already have one",
             userCommunity: "Community",
             specialRequest:
               "Please contact support@usvisa.lol for special/emergency request",
