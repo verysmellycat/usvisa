@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   Select,
@@ -21,6 +21,7 @@ import DatePicker from "react-datepicker";
 import { format, addMonths } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import config from "../config.json";
 
 export const whyHelperText = [
   "这个实验项目只为看劣币驱逐良币是否总是成立, 黄牛真的必要存在于世?",
@@ -60,6 +61,8 @@ export const scheduleIdHelperText = [
 
 const CreationForm = () => {
   const [formData, setFormData] = useState(null);
+  const [selectedCountry, setSelectedCountry] = useState(new Set(["Canada"]));
+  const [consulates, setConsulates] = useState([]);
   const [tips, setTips] = useState(0);
   const [timeIntervals, setTimeIntervals] = useState([
     {
@@ -83,6 +86,7 @@ const CreationForm = () => {
         from: parseInt(format(interval.from, "yyyyMMdd")),
         to: parseInt(format(interval.to, "yyyyMMdd")),
       }));
+      const [countrySelection] = selectedCountry;
       setFormData({
         ...data,
         schedule_ids:
@@ -90,6 +94,7 @@ const CreationForm = () => {
         cities: data.cities.split(","),
         date_ranges: formattedTimeIntervals,
         action: "create",
+        country: countrySelection,
       });
       onOpen();
     }
@@ -139,15 +144,17 @@ const CreationForm = () => {
     setTimeIntervals(newIntervals);
   };
 
-  const cities = [
-    { value: "Vancouver", label: "Vancouver" },
-    { value: "Toronto", label: "Toronto" },
-    { value: "Calgary", label: "Calgary" },
-    { value: "Halifax", label: "Halifax" },
-    { value: "Ottawa", label: "Ottawa" },
-    { value: "Montreal", label: "Montreal" },
-    { value: "Quebec", label: "Quebec City" },
-  ];
+  useEffect(() => {
+    let [countrySelection] = selectedCountry;
+    if (!countrySelection) {
+      setConsulates([]);
+      return;
+    }
+    let consulates = config.countries.find(
+      (country) => country.name === countrySelection
+    ).consulates;
+    setConsulates(consulates);
+  }, [selectedCountry]);
 
   return (
     <form
@@ -160,16 +167,25 @@ const CreationForm = () => {
           control={control}
           name="country"
           defaultValue="Canada"
+          rules={{ required: "选择要预约面试的国家" }}
           render={({ field }) => (
             <Select
               {...field}
               className="w-full"
               label={t("form.fieldLabel1")}
-              placeholder={t("form.fieldPlaceholder1")}
               errorMessage={errors?.country?.message}
               validationState={errors.country ? "invalid" : "valid"}
-              isDisabled
-            ></Select>
+              isDisabled={config.isDisabled}
+              isRequired
+              selectedKeys={selectedCountry}
+              onSelectionChange={setSelectedCountry}
+            >
+              {config.countries.map((country) => (
+                <SelectItem key={country.name} value={country.name}>
+                  {country.name}
+                </SelectItem>
+              ))}
+            </Select>
           )}
         />
         <Popover placement="right">
@@ -235,9 +251,9 @@ const CreationForm = () => {
               closeMenuOnSelect={false}
               isRequired
             >
-              {cities.map((city) => (
-                <SelectItem key={city.value} value={city.value}>
-                  {city.label}
+              {consulates.map((consulate) => (
+                <SelectItem key={consulate.value} value={consulate.value}>
+                  {consulate.label}
                 </SelectItem>
               ))}
             </Select>

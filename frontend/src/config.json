@@ -1,0 +1,109 @@
+{
+  "countries": [
+    {
+      "name": "Canada",
+      "to": "ca",
+      "consulates": [
+        {
+          "value": "Vancouver",
+          "label": "Vancouver"
+        },
+        {
+          "value": "Toronto",
+          "label": "Toronto"
+        },
+        {
+          "value": "Calgary",
+          "label": "Calgary"
+        },
+        {
+          "value": "Halifax",
+          "label": "Halifax"
+        },
+        {
+          "value": "Ottawa",
+          "label": "Ottawa"
+        },
+        {
+          "value": "Montreal",
+          "label": "Montreal"
+        },
+        {
+          "value": "Quebec",
+          "label": "Quebec City"
+        }
+      ]
+    },
+    {
+      "name": "United Kingdom",
+      "to": "gb",
+      "consulates": [
+        {
+          "value": "London",
+          "label": "London"
+        },
+        {
+          "value": "Belfast",
+          "label": "Belfast"
+        }
+      ]
+    },
+    {
+      "name": "France",
+      "to": "fr",
+      "consulates": [
+        {
+          "value": "Paris",
+          "label": "Paris"
+        }
+      ]
+    },
+    {
+      "name": "Spain and Andorra",
+      "to": "es",
+      "consulates": [
+        {
+          "value": "Madrid",
+          "label": "Madrid"
+        }
+      ]
+    },
+    {
+      "name": "Italy",
+      "to": "it",
+      "consulates": [
+        {
+          "value": "Rome",
+          "label": "Rome"
+        },
+        {
+          "value": "Florence",
+          "label": "Florence"
+        },
+        {
+          "value": "Milan",
+          "label": "Milan"
+        },
+        {
+          "value": "Naples",
+          "label": "Naples"
+        }
+      ]
+    },
+    {
+      "name": "United Arab Emirates",
+      "to": "ae",
+      "consulates": [
+        {
+          "value": "Abu",
+          "label": "Abu Dhabi"
+        },
+        {
+          "value": "Dubai",
+          "label": "Dubai"
+        }
+      ]
+    }
+  ],
+  "isDisabled": true
+}
