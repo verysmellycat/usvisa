@@ -188,18 +188,6 @@ const CreationForm = () => {
             </Select>
           )}
         />
-        <Popover placement="right">
-          <PopoverTrigger>
-            <Button isIconOnly size="sm" className="bg-transparent">
-              <IoIosInformationCircle size={24} />
-            </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div className="px-1 py-2">
-              <div className="text-tiny">{t("form.fieldPopover1")}</div>
-            </div>
-          </PopoverContent>
-        </Popover>
       </div>
       <div className="flex items-center gap-x-2">
         <Controller
