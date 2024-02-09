@@ -3,6 +3,7 @@ import { Input, Textarea } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import config from "../config.json";
 
 const Submission = () => {
   const recipientRef = useRef();
@@ -13,7 +14,8 @@ const Submission = () => {
   const formData = location.state?.formData;
   const { t } = useTranslation();
 
-  const recipient = "admin@usvisa.lol";
+  const to = config.countries.find((c) => c.name === formData.country).to;
+  const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =
     "https://www.usvisa.lol/\nYou can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.\n在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.";
@@ -22,13 +24,13 @@ const Submission = () => {
     if (!formData) {
       navigate("/404");
     }
+    console.log(formData);
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(
       `${content}\n<<<${JSON.stringify(formData)}>>>`
     );
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
-    console.log(formData);
   }, [formData, navigate]);
 
   const copyToClipboard = async (ref) => {

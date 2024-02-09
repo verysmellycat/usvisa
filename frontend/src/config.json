@@ -1,0 +1,38 @@
+{
+  "countries": [
+    {
+      "name": "Canada",
+      "to": "ca",
+      "consulates": [
+        { "value": "Vancouver", "label": "Vancouver" },
+        { "value": "Toronto", "label": "Toronto" },
+        { "value": "Calgary", "label": "Calgary" },
+        { "value": "Halifax", "label": "Halifax" },
+        { "value": "Ottawa", "label": "Ottawa" },
+        { "value": "Montreal", "label": "Montreal" },
+        { "value": "Quebec", "label": "Quebec City" }
+      ]
+    },
+    {
+      "name": "UK",
+      "to": "uk",
+      "consulates": [
+        { "value": "London", "label": "London" },
+        { "value": "Belfast", "label": "Belfast" },
+        { "value": "Edinburgh", "label": "Edinburgh" },
+        { "value": "Hamilton", "label": "Hamilton" }
+      ]
+    },
+    {
+      "name": "Italy",
+      "to": "it",
+      "consulates": [
+        { "value": "Rome", "label": "Rome" },
+        { "value": "Florence", "label": "Florence" },
+        { "value": "Milan", "label": "Milan" },
+        { "value": "Naples", "label": "Naples" }
+      ]
+    }
+  ],
+  "isDisabled": false
+}
