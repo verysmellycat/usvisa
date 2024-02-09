@@ -146,6 +146,10 @@ const CreationForm = () => {
 
   useEffect(() => {
     let [countrySelection] = selectedCountry;
+    if (!countrySelection) {
+      setConsulates([]);
+      return;
+    }
     let consulates = config.countries.find(
       (country) => country.name === countrySelection
     ).consulates;
