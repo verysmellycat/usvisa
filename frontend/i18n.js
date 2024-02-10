@@ -95,6 +95,20 @@ i18n
           cancellationButtonText: "提交取消请求",
           cancellationFieldPlaceholder: "不填即为取消账户下所有请求",
           queryButtonText: "提交查询请求",
+          discordButtonText1: "加入Discord",
+          discordButtonText2: "请求新功能/国家支持, 参与讨论或提供反馈",
+          githubButtonText1: "加入Github",
+          githubButtonText2: "请求新功能/国家支持, 参与讨论或提供反馈",
+          regularMode: "正常模式",
+          proMode: "专业模式",
+          specialRequest: "如有特别/紧急需求请邮件联系",
+          proModeTextSegment1: "如果不是近期",
+          proModeTextSegment2: "必须面试",
+          proModeTextSegment3: "请使用正常模式耐心等待",
+          proModeText1:
+            "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
+          proModeText2:
+            "专业模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
         },
       },
       en: {
@@ -210,6 +224,23 @@ i18n
           cancellationButtonText: "Submit Cancellation Request",
           cancellationFieldPlaceholder: "Leave it blank to cancel all requests",
           queryButtonText: "Submit Query Request",
+          githubButtonText1: "Join Github",
+          githubButtonText2:
+            "Request new feature / country support, ask questions or provide feedback",
+          discordButtonText1: "Join Discord",
+          discordButtonText2:
+            "Ask questions, share feedback, get updates, learn about upcoming features and more",
+          regularMode: "Regular Mode",
+          proMode: "Pro Mode",
+          specialRequest: "For special/emergency request please contact",
+          proModeTextSegment1: "If a recent interview ",
+          proModeTextSegment2: "is not mandatory",
+          proModeTextSegment3:
+            "please use the regular mode and patiently wait.",
+          proModeText1:
+            "Slot grabbing is dependent on the consulate's availability. We will not weaken the regular mode, and we will continuously optimize the system.",
+          proModeText2:
+            "The pro mode significantly increases the slot grabbing efficiency, but it also substantially raises our operational costs. Sadly, it cannot be offered free of cost at the moment.",
         },
       },
     },

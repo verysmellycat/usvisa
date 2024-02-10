@@ -33,7 +33,7 @@ const Home = () => {
       <Payment />
       <div className="flex flex-col gap-y-3 w-full">
         <Tabs className="self-center">
-          <Tab key="regular" title="正常模式">
+          <Tab key="regular" title={t("regularMode")}>
             <div className="flex flex-col gap-y-3">
               <p className="flex items-center justify-center text-sm text-danger">
                 {t("text.text2")}
@@ -60,7 +60,7 @@ const Home = () => {
               )}
             </div>
           </Tab>
-          <Tab key="pro" title="专业模式">
+          <Tab key="pro" title={t("proMode")}>
             <Card className="max-w-xl mx-auto">
               <CardHeader className="flex gap-3">
                 <FaRobot size={40} />
@@ -73,23 +73,19 @@ const Home = () => {
               <CardBody>
                 <div className="text-sm space-y-2">
                   <p>
-                    如果不是近期<strong>必须面试</strong>,
-                    请使用正常模式耐心等待
+                    {t("proModeTextSegment1")}
+                    <strong>{t("proModeTextSegment2")}</strong>
+                    {", "}
+                    {t("proModeTextSegment3")}
                   </p>
-                  <p>
-                    抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式,
-                    并且会不断优化系统
-                  </p>
-                  <p>
-                    专业模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨,
-                    因此无法免费开放使用
-                  </p>
+                  <p>{t("proModeText1")}</p>
+                  <p>{t("proModeText2")}</p>
                 </div>
               </CardBody>
               <Divider />
               <CardFooter>
                 <p className="text-sm">
-                  如有特别/紧急需求请邮件联系
+                  {t("specialRequest")}{" "}
                   <span className="text-blue-600 underline underline-offset-2">
                     support@usvisa.lol
                   </span>

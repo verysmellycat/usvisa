@@ -1,9 +1,11 @@
 import { Link, Button } from "@nextui-org/react";
 import { Tabs, Tab } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
 
 const UserCommunity = () => {
+  const { t } = useTranslation();
   return (
-    <div className="flex flex-col items-center my-3w-full">
+    <div className="flex flex-col items-center my-3 w-full">
       <Tabs>
         <Tab
           key="wechat"
@@ -43,9 +45,12 @@ const UserCommunity = () => {
             className="bg-black max-w-xs h-fit py-3"
           >
             <p className="text-white text-xs break-words whitespace-normal">
-              <span className="font-medium text-sm">Join Github</span> <br />
-              Request new feature / country support, ask questions or provide
-              feedback
+              <span className="font-medium text-sm">
+                {t("githubButtonText1")}
+              </span>
+              <br />
+              <br />
+              {t("githubButtonText2")}
             </p>
           </Button>
         </Tab>
@@ -70,9 +75,12 @@ const UserCommunity = () => {
             className="bg-blue-600 max-w-xs h-fit py-3"
           >
             <p className="text-white text-xs break-words whitespace-normal">
-              <span className="font-medium text-sm">Join Discord</span> <br />
-              Ask questions, share feedback, get updates, learn about upcoming
-              features and more
+              <span className="font-medium text-sm">
+                {t("discordButtonText1")}
+              </span>
+              <br />
+              <br />
+              {t("discordButtonText2")}
             </p>
           </Button>
         </Tab>
