@@ -44,7 +44,6 @@ const NavigationBar = () => {
       </div>
       <div className="hidden md:flex items-center gap-x-3">
         <div className="flex items-center gap-x-2 text-sm font-medium">
-          <p>联系我们</p>
           <p>support@usvisa.lol</p>
         </div>
         <Button
@@ -91,6 +90,13 @@ const NavigationBar = () => {
           </PopoverContent>
         </Popover>
       </div>
+      <Button
+        as={Link}
+        href="/community"
+        className="absolute md:hidden right-2 border-2 bg-sky-400 rounded-xl p-3 text-sm"
+      >
+        用户交流
+      </Button>
     </nav>
   );
 };

@@ -14,7 +14,9 @@ const Submission = () => {
   const formData = location.state?.formData;
   const { t } = useTranslation();
 
-  const to = config.countries.find((c) => c.name === formData.country).to;
+  const to = !formData.country
+    ? "admin"
+    : config.countries.find((c) => c.name === formData.country).to;
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =
@@ -24,7 +26,6 @@ const Submission = () => {
     if (!formData) {
       navigate("/404");
     }
-    console.log(formData);
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(
       `${content}\n<<<${JSON.stringify(formData)}>>>`
