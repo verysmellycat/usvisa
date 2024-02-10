@@ -46,7 +46,7 @@ const Submission = () => {
   };
 
   return (
-    <div className="flex flex-col mx-auto gap-y-3 my-3 w-5/6 sm:w-1/2">
+    <div className="flex flex-col items-center gap-y-3 my-3 w-full">
       <p className="text-center text-lg text-danger">{t("headers.header3")}</p>
       <Input
         isReadOnly

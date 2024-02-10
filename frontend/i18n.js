@@ -42,7 +42,7 @@ i18n
       ch: {
         translation: {
           headers: {
-            header1: "加拿大美签自动预约",
+            header1: "美签自动预约",
             header2: "我为什么做这个系统",
             header3: "用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交",
           },

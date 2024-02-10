@@ -165,33 +165,6 @@ const CreationForm = () => {
       <div className="flex items-center gap-x-2">
         <Controller
           control={control}
-          name="country"
-          defaultValue="Canada"
-          rules={{ required: "选择要预约面试的国家" }}
-          render={({ field }) => (
-            <Select
-              {...field}
-              className="w-full"
-              label={t("form.fieldLabel1")}
-              errorMessage={errors?.country?.message}
-              validationState={errors.country ? "invalid" : "valid"}
-              isDisabled={config.isDisabled}
-              isRequired
-              selectedKeys={selectedCountry}
-              onSelectionChange={setSelectedCountry}
-            >
-              {config.countries.map((country) => (
-                <SelectItem key={country.name} value={country.name}>
-                  {country.name}
-                </SelectItem>
-              ))}
-            </Select>
-          )}
-        />
-      </div>
-      <div className="flex items-center gap-x-2">
-        <Controller
-          control={control}
           name="schedule_ids"
           defaultValue=""
           render={({ field }) => (
@@ -221,6 +194,33 @@ const CreationForm = () => {
             </div>
           </PopoverContent>
         </Popover>
+      </div>
+      <div className="flex items-center gap-x-2">
+        <Controller
+          control={control}
+          name="country"
+          defaultValue="Canada"
+          rules={{ required: "选择要预约面试的国家" }}
+          render={({ field }) => (
+            <Select
+              {...field}
+              className="w-full"
+              label={t("form.fieldLabel1")}
+              errorMessage={errors?.country?.message}
+              validationState={errors.country ? "invalid" : "valid"}
+              isDisabled={config.isDisabled}
+              isRequired
+              selectedKeys={selectedCountry}
+              onSelectionChange={setSelectedCountry}
+            >
+              {config.countries.map((country) => (
+                <SelectItem key={country.name} value={country.name}>
+                  {country.name}
+                </SelectItem>
+              ))}
+            </Select>
+          )}
+        />
       </div>
       <div>
         <Controller
