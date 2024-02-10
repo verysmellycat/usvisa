@@ -14,7 +14,9 @@ const Submission = () => {
   const formData = location.state?.formData;
   const { t } = useTranslation();
 
-  const to = config.countries.find((c) => c.name === formData.country).to;
+  const to = !formData.country
+    ? "admin"
+    : config.countries.find((c) => c.name === formData.country).to;
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =
@@ -24,7 +26,6 @@ const Submission = () => {
     if (!formData) {
       navigate("/404");
     }
-    console.log(formData);
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(
       `${content}\n<<<${JSON.stringify(formData)}>>>`
@@ -46,7 +47,7 @@ const Submission = () => {
   };
 
   return (
-    <div className="flex flex-col mx-auto gap-y-3 my-3 w-5/6 sm:w-1/2">
+    <div className="flex flex-col items-center gap-y-3 my-3 w-full">
       <p className="text-center text-lg text-danger">{t("headers.header3")}</p>
       <Input
         isReadOnly

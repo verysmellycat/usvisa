@@ -91,6 +91,140 @@
       ]
     },
     {
+      "name": "Azerbaijan",
+      "to": "az",
+      "consulates": [
+        {
+          "value": "Baku",
+          "label": "Baku"
+        }
+      ]
+    },
+    {
+      "name": "Albania",
+      "to": "al",
+      "consulates": [
+        {
+          "value": "Tirana",
+          "label": "Tirana"
+        }
+      ]
+    },
+    {
+      "name": "Armenia",
+      "to": "am",
+      "consulates": [
+        {
+          "value": "Yerevan",
+          "label": "Yerevan"
+        }
+      ]
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "to": "ba",
+      "consulates": [
+        {
+          "value": "Sarajevo",
+          "label": "Sarajevo"
+        }
+      ]
+    },
+    {
+      "name": "Belgium",
+      "to": "be",
+      "consulates": [
+        {
+          "value": "Brussels",
+          "label": "Brussels"
+        }
+      ]
+    },
+    {
+      "name": "Croatia",
+      "to": "hr",
+      "consulates": [
+        {
+          "value": "Zagreb",
+          "label": "Zagreb"
+        }
+      ]
+    },
+    {
+      "name": "Kosovo",
+      "to": "kv",
+      "consulates": [
+        {
+          "value": "Pristina",
+          "label": "Pristina"
+        }
+      ]
+    },
+    {
+      "name": "The Netherlands",
+      "to": "nl",
+      "consulates": [
+        {
+          "value": "Amsterdam",
+          "label": "Amsterdam"
+        }
+      ]
+    },
+    {
+      "name": "Ireland",
+      "to": "ie",
+      "consulates": [
+        {
+          "value": "Dublin",
+          "label": "Dublin"
+        }
+      ]
+    },
+    {
+      "name": "North Macedonia",
+      "to": "mk",
+      "consulates": [
+        {
+          "value": "Skopje",
+          "label": "Skopje"
+        }
+      ]
+    },
+    {
+      "name": "Greece",
+      "to": "gr",
+      "consulates": [
+        {
+          "value": "Athens",
+          "label": "Athens"
+        }
+      ]
+    },
+    {
+      "name": "Cyprus",
+      "to": "cy",
+      "consulates": [
+        {
+          "value": "Nicosia",
+          "label": "Embassy in Nicosia"
+        },
+        {
+          "value": "North",
+          "label": "North Office"
+        }
+      ]
+    },
+    {
+      "name": "Serbia",
+      "to": "rs",
+      "consulates": [
+        {
+          "value": "Belgrade",
+          "label": "Belgrade"
+        }
+      ]
+    },
+    {
       "name": "United Arab Emirates",
       "to": "ae",
       "consulates": [

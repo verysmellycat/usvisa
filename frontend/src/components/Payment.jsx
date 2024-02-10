@@ -2,7 +2,7 @@ import React from "react";
 
 const Payment = () => {
   return (
-    <div className="flex flex-col items-center gap-y-3 sm:flex-row sm:justify-center">
+    <div className="flex flex-col items-center gap-y-3 md:flex-row md:justify-center">
       <img
         src="/qrcode.jpg"
         alt="QR payment"
