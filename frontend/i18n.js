@@ -100,7 +100,7 @@ i18n
           githubButtonText1: "加入Github",
           githubButtonText2: "请求新功能/国家支持, 参与讨论或提供反馈",
           regularMode: "正常模式",
-          proMode: "专业模式",
+          proMode: "Pro模式",
           specialRequest: "如有特别/紧急需求请邮件联系",
           proModeTextSegment1: "如果不是近期",
           proModeTextSegment2: "必须面试",
@@ -108,7 +108,7 @@ i18n
           proModeText1:
             "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
           proModeText2:
-            "专业模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
+            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
           communityButtonText: "用户交流",
         },
       },
