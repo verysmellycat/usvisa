@@ -95,7 +95,7 @@ const NavigationBar = () => {
         href="/community"
         className="absolute md:hidden right-2 border-2 bg-sky-400 rounded-xl p-3 text-sm"
       >
-        用户交流
+        {t("communityButtonText")}
       </Button>
     </nav>
   );

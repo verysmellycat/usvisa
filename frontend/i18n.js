@@ -109,6 +109,7 @@ i18n
             "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
           proModeText2:
             "专业模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
+          communityButtonText: "用户交流",
         },
       },
       en: {
@@ -241,6 +242,7 @@ i18n
             "Slot grabbing is dependent on the consulate's availability. We will not weaken the regular mode, and we will continuously optimize the system.",
           proModeText2:
             "The pro mode significantly increases the slot grabbing efficiency, but it also substantially raises our operational costs. Sadly, it cannot be offered free of cost at the moment.",
+          communityButtonText: "Community",
         },
       },
     },
