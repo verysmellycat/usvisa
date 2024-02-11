@@ -3,7 +3,7 @@ import { Input, Textarea } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import config from "../config.json";
+import { abbr, countryMap } from "../config.js";
 
 const Submission = () => {
   const recipientRef = useRef();
@@ -16,7 +16,7 @@ const Submission = () => {
 
   const to = !formData.country
     ? "admin"
-    : config.countries.find((c) => c.name === formData.country).to;
+    : abbr[countryMap[formData.country][0]];
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =

@@ -14,6 +14,8 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
+  SelectSection,
+  Avatar,
 } from "@nextui-org/react";
 import { IoIosInformationCircle, IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
@@ -21,7 +23,7 @@ import DatePicker from "react-datepicker";
 import { format, addMonths } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import config from "../config.json";
+import { countries, countryMap } from "../config.js";
 
 export const whyHelperText = [
   "这个实验项目只为看劣币驱逐良币是否总是成立, 黄牛真的必要存在于世?",
@@ -150,9 +152,8 @@ const CreationForm = () => {
       setConsulates([]);
       return;
     }
-    let consulates = config.countries.find(
-      (country) => country.name === countrySelection
-    ).consulates;
+    let consulates =
+      countries[countryMap[countrySelection][0]][countrySelection];
     setConsulates(consulates);
   }, [selectedCountry]);
 
@@ -188,7 +189,9 @@ const CreationForm = () => {
             <div className="px-1 py-2">
               <ul className="text-xs max-w-64 space-y-2 list-disc">
                 {scheduleIdHelperText.map((text, index) => (
-                  <li>{t(`scheduleIdHelperText.text${index + 1}`)}</li>
+                  <li key={index}>
+                    {t(`scheduleIdHelperText.text${index + 1}`)}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -199,7 +202,6 @@ const CreationForm = () => {
         <Controller
           control={control}
           name="country"
-          defaultValue="Canada"
           rules={{ required: "选择要预约面试的国家" }}
           render={({ field }) => (
             <Select
@@ -208,15 +210,40 @@ const CreationForm = () => {
               label={t("form.fieldLabel1")}
               errorMessage={errors?.country?.message}
               validationState={errors.country ? "invalid" : "valid"}
-              isDisabled={config.isDisabled}
+              isDisabled={false}
               isRequired
               selectedKeys={selectedCountry}
               onSelectionChange={setSelectedCountry}
+              startContent={
+                selectedCountry.size === 0 ? null : (
+                  <Avatar
+                    alt="country icon"
+                    className="w-6 h-6"
+                    src={`https://flagcdn.com/${
+                      countryMap[Array.from(selectedCountry)[0]][1]
+                    }.svg`}
+                  />
+                )
+              }
             >
-              {config.countries.map((country) => (
-                <SelectItem key={country.name} value={country.name}>
-                  {country.name}
-                </SelectItem>
+              {Object.entries(countries).map((entry) => (
+                <SelectSection key={entry[0]} title={entry[0]}>
+                  {Object.keys(entry[1]).map((country) => (
+                    <SelectItem
+                      key={country}
+                      value={country}
+                      startContent={
+                        <Avatar
+                          alt="country"
+                          className="w-6 h-6"
+                          src={`https://flagcdn.com/${countryMap[country][1]}.svg`}
+                        />
+                      }
+                    >
+                      {country}
+                    </SelectItem>
+                  ))}
+                </SelectSection>
               ))}
             </Select>
           )}
@@ -338,7 +365,7 @@ const CreationForm = () => {
               <ModalBody>
                 <ul className="text-xs space-y-2 list-disc">
                   {whyHelperText.map((_, index) => (
-                    <li>{t(`whyHelperText.text${index + 1}`)}</li>
+                    <li key={index}>{t(`whyHelperText.text${index + 1}`)}</li>
                   ))}
                   <li className="list-none">
                     <Input
