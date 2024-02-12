@@ -14,13 +14,14 @@ const Submission = () => {
   const formData = location.state?.formData;
   const { t } = useTranslation();
 
-  const to = !formData.country
+  const to = !formData.countryFull
     ? "admin"
-    : abbr[countryMap[formData.country][0]];
+    : abbr[countryMap[formData.countryFull][0]];
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =
     "https://www.usvisa.lol/\nYou can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.\n在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.";
+  const { countryFull, ...finalData } = formData;
 
   useEffect(() => {
     if (!formData) {
@@ -28,7 +29,7 @@ const Submission = () => {
     }
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(
-      `${content}\n<<<${JSON.stringify(formData)}>>>`
+      `${content}\n<<<${JSON.stringify(finalData)}>>>`
     );
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
@@ -72,7 +73,7 @@ const Submission = () => {
         ref={contentRef}
         label={t("submission.fieldLabel3")}
         variant="bordered"
-        defaultValue={`${content}\n<<<${JSON.stringify(formData)}>>>`}
+        defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
         onClick={() => copyToClipboard(contentRef)}
       />
     </div>
