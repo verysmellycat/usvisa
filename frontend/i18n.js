@@ -66,7 +66,8 @@ i18n
           form: {
             requestType1: "提交新的请求",
             requestType2: "查询请求状态",
-            requestType3: "取消现有请求",
+            requestType3: "修改现有请求",
+            requestType4: "取消现有请求",
             fieldLabel1: "预约国家",
             fieldPlaceholder1: "加拿大",
             fieldPlaceholder2: "大多数用户都不用填",
@@ -178,7 +179,8 @@ i18n
           form: {
             requestType1: "Create new request",
             requestType2: "Query request status",
-            requestType3: "Cancel existing request",
+            requestType3: "Modify existing request",
+            requestType4: "Cancel existing request",
             fieldLabel1: "Country",
             fieldPlaceholder1: "Canada",
             fieldPlaceholder2: "Not necessary for most users",
