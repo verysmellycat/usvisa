@@ -15,8 +15,6 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  Link,
-  Image,
 } from "@nextui-org/react";
 import { FaRobot } from "react-icons/fa";
 
@@ -47,12 +45,15 @@ const Home = () => {
                 <Radio value="query">
                   <p className="text-sm">{t("form.requestType2")}</p>
                 </Radio>
-                <Radio value="cancel">
+                <Radio value="update">
                   <p className="text-sm">{t("form.requestType3")}</p>
                 </Radio>
+                <Radio value="cancel">
+                  <p className="text-sm">{t("form.requestType4")}</p>
+                </Radio>
               </RadioGroup>
-              {requestType === "create" ? (
-                <CreationForm />
+              {requestType === "create" || requestType === "update" ? (
+                <CreationForm action={requestType} />
               ) : requestType === "query" ? (
                 <QueryButton />
               ) : (
