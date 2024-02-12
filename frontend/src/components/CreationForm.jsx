@@ -96,7 +96,8 @@ const CreationForm = () => {
         cities: data.cities.split(","),
         date_ranges: formattedTimeIntervals,
         action: "create",
-        country: countrySelection,
+        countryFull: countrySelection,
+        country: countryMap[countrySelection][1],
       });
       onOpen();
     }
