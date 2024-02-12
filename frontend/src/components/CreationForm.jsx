@@ -202,6 +202,7 @@ const CreationForm = () => {
         <Controller
           control={control}
           name="country"
+          defaultValue="Canada"
           rules={{ required: "选择要预约面试的国家" }}
           render={({ field }) => (
             <Select
