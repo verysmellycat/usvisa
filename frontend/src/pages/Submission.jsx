@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Input, Textarea } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";

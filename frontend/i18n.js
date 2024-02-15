@@ -111,6 +111,8 @@ i18n
           proModeText2:
             "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
           communityButtonText: "用户交流",
+          notification:
+            "系统将于2月22日起停止运行, 再次开放时间待定, 感谢支持!",
         },
       },
       en: {
@@ -245,6 +247,8 @@ i18n
           proModeText2:
             "The pro mode significantly increases the slot grabbing efficiency, but it also substantially raises our operational costs. Sadly, it cannot be offered free of cost at the moment.",
           communityButtonText: "Community",
+          notification:
+            "The program will be closed indefinitely starting from Feb. 22. Thanks for the support!",
         },
       },
     },
