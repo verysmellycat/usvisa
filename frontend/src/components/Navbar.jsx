@@ -10,7 +10,7 @@ import { useTranslation } from "react-i18next";
 const NavigationBar = () => {
   const { t } = useTranslation();
   return (
-    <nav className="sticky top-10 z-20 flex items-center justify-between w-full gap-x-3 py-3 px-6 bg-white">
+    <nav className="sticky top-16 md:top-10 z-20 flex items-center justify-between w-full gap-x-3 py-3 px-6 bg-white">
       <div className="flex flex-grow items-center gap-x-3 justify-center md:justify-normal">
         <Button as={Link} href="/" isIconOnly className="bg-transparent">
           <img src="/logo.png" alt="main logo" width={38} height={38} />
