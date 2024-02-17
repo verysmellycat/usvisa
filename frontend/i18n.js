@@ -248,7 +248,7 @@ i18n
             "The pro mode significantly increases the slot grabbing efficiency, but it also substantially raises our operational costs. Sadly, it cannot be offered free of cost at the moment.",
           communityButtonText: "Community",
           notification:
-            "The program will be closed indefinitely starting from Feb. 22. Thanks for the support!",
+            "The program will be closed temporarily starting from Feb. 22. Thanks for the support!",
         },
       },
     },
