@@ -4,6 +4,10 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
+  Navbar,
+  NavbarMenuToggle,
+  NavbarMenu,
+  NavbarMenuItem,
 } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 
@@ -11,6 +15,40 @@ const NavigationBar = () => {
   const { t } = useTranslation();
   return (
     <nav className="sticky top-16 md:top-10 z-20 flex items-center justify-between w-full gap-x-3 py-3 px-6 bg-white">
+      <Navbar className="md:hidden absolute z-0">
+        <NavbarMenuToggle />
+        <NavbarMenu className="fixed top-32">
+          <NavbarMenuItem>
+            <Link
+              className="hover:text-blue-600 text-sm font-medium"
+              color="foreground"
+              href="/tutorial"
+            >
+              {t("navbar.link1")}
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link
+              className="hover:text-blue-600 text-sm font-medium"
+              isExternal
+              color="foreground"
+              href="https://ceac.state.gov/genniv/"
+            >
+              {t("navbar.link2")}
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link
+              className="hover:text-blue-600 text-sm font-medium"
+              isExternal
+              color="foreground"
+              href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
+            >
+              USVISA-INFO
+            </Link>
+          </NavbarMenuItem>
+        </NavbarMenu>
+      </Navbar>
       <div className="flex flex-grow items-center gap-x-3 justify-center md:justify-normal">
         <Button as={Link} href="/" isIconOnly className="bg-transparent">
           <img src="/logo.png" alt="main logo" width={38} height={38} />
