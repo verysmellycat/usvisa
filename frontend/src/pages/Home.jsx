@@ -44,7 +44,7 @@ const Home = () => {
       </div>
       <Payment />
       <div className="flex flex-col gap-y-3 w-full">
-        <Tabs className="self-center">
+        <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>
             <div className="flex flex-col gap-y-3">
               <p className="flex items-center justify-center text-sm text-danger">
@@ -67,7 +67,7 @@ const Home = () => {
                 </Radio>
               </RadioGroup>
               <AnimateHeight
-                duration={800}
+                duration={650}
                 height={formHeight}
                 contentClassName="auto-content"
               >
