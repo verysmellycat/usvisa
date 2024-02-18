@@ -16,12 +16,12 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { FaRobot } from "react-icons/fa";
+import AnimateHeight from "react-animate-height";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
-  const [formHeight, setFormHeight] = useState(525);
+  const [formHeight, setFormHeight] = useState("auto");
   const formRef = useRef(null);
-  const containerRef = useRef(null);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -60,11 +60,7 @@ const Home = () => {
                   <p className="text-sm">{t("form.requestType4")}</p>
                 </Radio>
               </RadioGroup>
-              <div
-                ref={containerRef}
-                className="transition-all duration-1000 ease-in-out"
-                style={{ height: `${formHeight}px` }}
-              >
+              <AnimateHeight duration={500} height={formHeight}>
                 <div ref={formRef}>
                   {requestType === "create" || requestType === "update" ? (
                     <CreationForm action={requestType} />
@@ -74,7 +70,7 @@ const Home = () => {
                     <CancellationForm />
                   )}
                 </div>
-              </div>
+              </AnimateHeight>
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
