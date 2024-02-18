@@ -20,7 +20,7 @@ import AnimateHeight from "react-animate-height";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
-  const [formHeight, setFormHeight] = useState("auto");
+  const [formHeight, setFormHeight] = useState(525);
   const formRef = useRef(null);
   const { t } = useTranslation();
 
