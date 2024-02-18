@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 import CreationForm from "../components/CreationForm";
 import QueryButton from "../components/QueryButton";

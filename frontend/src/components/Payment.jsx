@@ -1,5 +1,3 @@
-import React from "react";
-
 const Payment = () => {
   return (
     <div className="flex flex-col items-center gap-y-3 md:flex-row md:justify-center">

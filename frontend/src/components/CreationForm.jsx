@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import {
   Select,
@@ -206,7 +206,7 @@ const CreationForm = ({ action }) => {
           control={control}
           name="country"
           defaultValue="Canada"
-          rules={{ required: "选择要预约面试的国家" }}
+          rules={{ required: "请选择要预约面试的国家" }}
           render={({ field }) => (
             <Select
               {...field}
