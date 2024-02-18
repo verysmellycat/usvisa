@@ -16,6 +16,7 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { FaRobot } from "react-icons/fa";
+import AnimateHeight from "react-animate-height";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
@@ -79,7 +80,7 @@ const Home = () => {
                     <CancellationForm />
                   )}
                 </div>
-              </div>
+              </AnimateHeight>
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
