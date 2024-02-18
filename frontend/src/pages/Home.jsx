@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import CreationForm from "../components/CreationForm";
 import QueryButton from "../components/QueryButton";
 import CancellationForm from "../components/CancellationForm";
@@ -19,7 +19,16 @@ import { FaRobot } from "react-icons/fa";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
+  const [formHeight, setFormHeight] = useState(525);
+  const formRef = useRef(null);
+  const containerRef = useRef(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    if (formRef && formRef.current) {
+      setFormHeight(formRef.current.clientHeight);
+    }
+  }, [requestType]);
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
@@ -29,7 +38,7 @@ const Home = () => {
       </div>
       <Payment />
       <div className="flex flex-col gap-y-3 w-full">
-        <Tabs className="self-center">
+        <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>
             <div className="flex flex-col gap-y-3">
               <p className="flex items-center justify-center text-sm text-danger">
@@ -51,13 +60,21 @@ const Home = () => {
                   <p className="text-sm">{t("form.requestType4")}</p>
                 </Radio>
               </RadioGroup>
-              {requestType === "create" || requestType === "update" ? (
-                <CreationForm action={requestType} />
-              ) : requestType === "query" ? (
-                <QueryButton />
-              ) : (
-                <CancellationForm />
-              )}
+              <div
+                ref={containerRef}
+                className="transition-all duration-1000 ease-in-out"
+                style={{ height: `${formHeight}px` }}
+              >
+                <div ref={formRef}>
+                  {requestType === "create" || requestType === "update" ? (
+                    <CreationForm action={requestType} />
+                  ) : requestType === "query" ? (
+                    <QueryButton />
+                  ) : (
+                    <CancellationForm />
+                  )}
+                </div>
+              </div>
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
