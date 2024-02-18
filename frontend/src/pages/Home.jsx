@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CreationForm from "../components/CreationForm";
 import QueryButton from "../components/QueryButton";
 import CancellationForm from "../components/CancellationForm";
@@ -19,16 +19,21 @@ import { FaRobot } from "react-icons/fa";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
-  const [formHeight, setFormHeight] = useState(525);
-  const formRef = useRef(null);
-  const containerRef = useRef(null);
+  const [formHeight, setFormHeight] = useState("auto");
+  const [formRef, setFormRef] = useState(null);
   const { t } = useTranslation();
 
   useEffect(() => {
-    if (formRef && formRef.current) {
-      setFormHeight(formRef.current.clientHeight);
+    //formRef === ref.current
+    if (formRef) {
+      const observed = formRef;
+      const resizeObserver = new ResizeObserver(() => {
+        setFormHeight(observed.clientHeight);
+      });
+      resizeObserver.observe(observed);
+      return () => resizeObserver.disconnect();
     }
-  }, [requestType]);
+  }, [formRef]);
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
@@ -60,12 +65,12 @@ const Home = () => {
                   <p className="text-sm">{t("form.requestType4")}</p>
                 </Radio>
               </RadioGroup>
-              <div
-                ref={containerRef}
-                className="transition-all duration-1000 ease-in-out"
-                style={{ height: `${formHeight}px` }}
+              <AnimateHeight
+                duration={800}
+                height={formHeight}
+                contentClassName="auto-content"
               >
-                <div ref={formRef}>
+                <div ref={(node) => setFormRef(node)}>
                   {requestType === "create" || requestType === "update" ? (
                     <CreationForm action={requestType} />
                   ) : requestType === "query" ? (
