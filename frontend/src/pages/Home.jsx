@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreationForm from "../components/CreationForm";
 import QueryButton from "../components/QueryButton";
 import CancellationForm from "../components/CancellationForm";
@@ -16,10 +16,25 @@ import {
   Divider,
 } from "@nextui-org/react";
 import { FaRobot } from "react-icons/fa";
+import AnimateHeight from "react-animate-height";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
+  const [formHeight, setFormHeight] = useState("auto");
+  const [formRef, setFormRef] = useState(null);
   const { t } = useTranslation();
+
+  useEffect(() => {
+    //formRef === ref.current
+    if (formRef) {
+      const observed = formRef;
+      const resizeObserver = new ResizeObserver(() => {
+        setFormHeight(observed.clientHeight);
+      });
+      resizeObserver.observe(observed);
+      return () => resizeObserver.disconnect();
+    }
+  }, [formRef]);
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
@@ -51,13 +66,21 @@ const Home = () => {
                   <p className="text-sm">{t("form.requestType4")}</p>
                 </Radio>
               </RadioGroup>
-              {requestType === "create" || requestType === "update" ? (
-                <CreationForm action={requestType} />
-              ) : requestType === "query" ? (
-                <QueryButton />
-              ) : (
-                <CancellationForm />
-              )}
+              <AnimateHeight
+                duration={800}
+                height={formHeight}
+                contentClassName="auto-content"
+              >
+                <div ref={(node) => setFormRef(node)}>
+                  {requestType === "create" || requestType === "update" ? (
+                    <CreationForm action={requestType} />
+                  ) : requestType === "query" ? (
+                    <QueryButton />
+                  ) : (
+                    <CancellationForm />
+                  )}
+                </div>
+              </AnimateHeight>
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
