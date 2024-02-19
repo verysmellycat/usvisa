@@ -49,7 +49,7 @@ const Submission = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
-      <p className="text-center text-lg text-danger">{t("headers.header3")}</p>
+      <p className="text-center text-danger">{t("headers.header3")}</p>
       <Input
         isReadOnly
         ref={recipientRef}
