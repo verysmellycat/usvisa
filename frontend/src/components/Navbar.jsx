@@ -20,7 +20,7 @@ const NavigationBar = () => {
         <NavbarMenu className="fixed top-32">
           <NavbarMenuItem>
             <Link
-              className="hover:text-blue-600 text-sm font-medium"
+              className="hover:text-blue-600 font-medium"
               color="foreground"
               href="/tutorial"
             >
@@ -29,7 +29,7 @@ const NavigationBar = () => {
           </NavbarMenuItem>
           <NavbarMenuItem>
             <Link
-              className="hover:text-blue-600 text-sm font-medium"
+              className="hover:text-blue-600 font-medium"
               isExternal
               color="foreground"
               href="https://ceac.state.gov/genniv/"
@@ -39,7 +39,7 @@ const NavigationBar = () => {
           </NavbarMenuItem>
           <NavbarMenuItem>
             <Link
-              className="hover:text-blue-600 text-sm font-medium"
+              className="hover:text-blue-600 font-medium"
               isExternal
               color="foreground"
               href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
