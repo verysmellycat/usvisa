@@ -36,7 +36,7 @@ export default function Product() {
           <h2 className="font-bold lg:text-lg">
             U.S. Visa Consulating Package
           </h2>
-          <p className="text-sm text-slate-400 text-balance ">
+          <p className="text-sm text-slate-400">
             Start exploring the professional visa application consultancy
             services we offer.
           </p>
