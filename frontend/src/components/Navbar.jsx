@@ -14,10 +14,10 @@ import { useTranslation } from "react-i18next";
 const NavigationBar = () => {
   const { t } = useTranslation();
   return (
-    <nav className="sticky top-16 md:top-10 z-20 flex items-center justify-between w-full gap-x-3 py-3 px-6 bg-white">
+    <nav className="sticky top-0 z-20 flex items-center justify-between w-full gap-x-3 py-3 px-6 bg-white">
       <Navbar className="md:hidden absolute z-0">
         <NavbarMenuToggle />
-        <NavbarMenu className="fixed top-32">
+        <NavbarMenu>
           <NavbarMenuItem>
             <Link
               className="hover:text-blue-600 font-medium"
