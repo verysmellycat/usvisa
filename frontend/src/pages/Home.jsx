@@ -40,7 +40,6 @@ const Home = () => {
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
       <div className="text-center space-y-3">
         <p>{t("text.text1")} 🚀</p>
-        <p>{t("text.text6")}</p>
       </div>
       <Payment />
       <div className="flex flex-col gap-y-3 w-full">
