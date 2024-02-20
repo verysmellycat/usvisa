@@ -44,7 +44,6 @@ i18n
           headers: {
             header1: "美签自动预约",
             header2: "我为什么做这个系统",
-            header3: "用你的 USVISA-INFO 登陆邮箱发送以下内容的邮件提交",
           },
           navbar: {
             link1: "使用教程",
@@ -58,7 +57,19 @@ i18n
             text5: "下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统",
             text6: "这是一个免费项目, 如果对你有帮助的话请考虑支持项目运营",
             text7: "如果暂时没有预约, 在向系统提交请求前不用自己预约时间",
-            userCommunity: "用户交流群",
+            text8: "用你的usvisa-info登陆邮箱发送第一封邮件到指定地址",
+            text9: "这是系统验证用户身份的重要步骤",
+            text10: "收到第一封回复",
+            text11:
+              "系统会判断你提交的内容, 如果没有问题你会收到一封自动回复邮件",
+            text12: "没有收到回复请仔细对照使用教程, 检查内容并重新提交",
+            text13: "发送第二封邮件",
+            text14:
+              "上一步收到的回复邮件包含你需要完成的步骤, 完成后请用同样的邮箱发送第二封邮件并附上凭证",
+            text15: "收到第二封回复",
+            text16:
+              "人工审核通过后, 你会收到一封确认邮件, 代表系统已经开始帮你抢位",
+            text17: "审核需要时间, 并且可能有时差, 如果没有收到回复请耐心等待",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
           scheduleIdHelperText: scheduleIdHelperMapping,
@@ -111,8 +122,6 @@ i18n
           proModeText2:
             "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
           communityButtonText: "用户交流",
-          notification:
-            "系统将于2月22日起暂时停止运行, 再次开放时间待定, 感谢支持!",
         },
       },
       en: {
@@ -140,7 +149,23 @@ i18n
               "This is a free program. We greatly appreciate any donations to help cover our operating costs!",
             text7:
               "It is advisable that no prior appointment is necessary if you don't already have one",
-            userCommunity: "Community",
+            text8:
+              "Send the first email of the following content using your usvisa-info login email",
+            text9:
+              "This is an important step for system verification of user identity.",
+            text10: "Receive the first reply",
+            text11:
+              "The system will evaluate the content you sent, and if there are no issues, you will receive an automatic reply email.",
+            text12:
+              "If you do not receive a reply, please carefully check the content following the user tutorial and resubmit.",
+            text13: "Send the second email",
+            text14:
+              "The reply email received in step 2 contains what you need to complete, after completing them please send the second email and attach the proof.",
+            text15: "Receive the second reply",
+            text16:
+              "After passing the manual review, you will receive a confirmation email, indicating that the system has started to help you secure a spot.",
+            text17:
+              "It takes time to review, and there may be time differences, if you do not receive a reply please be patient and wait.",
             specialRequest:
               "Please contact support@usvisa.lol for special/emergency request",
           },
