@@ -54,7 +54,7 @@ const Submission = () => {
           <span className="border px-3 py-1 rounded-lg">1</span>
           <div className="grow border-l"></div>
         </div>
-        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-2xl">
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
           <h2 className="font-bold">{t("text.text8")}</h2>
           <p className="text-sm">{t("text.text9")}</p>
           <Input
@@ -90,7 +90,7 @@ const Submission = () => {
           <span className="border px-3 py-1 rounded-lg">2</span>
           <div className="grow border-l"></div>
         </div>
-        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-2xl">
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
           <h2 className="font-bold">{t("text.text10")}</h2>
           <p className="text-sm">
             {t("text.text11")}
@@ -104,7 +104,7 @@ const Submission = () => {
           <span className="border px-3 py-1 rounded-lg">3</span>
           <div className="grow border-l"></div>
         </div>
-        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-2xl">
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
           <h2 className="font-bold">{t("text.text13")}</h2>
           <p className="text-sm">{t("text.text14")}</p>
         </div>
@@ -113,7 +113,7 @@ const Submission = () => {
         <div className="flex flex-col items-center max-w-fit">
           <span className="border px-3 py-1 rounded-lg">4</span>
         </div>
-        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-2xl">
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
           <h2 className="font-bold">{t("text.text15")}</h2>
           <p className="text-sm">
             {t("text.text16")}
