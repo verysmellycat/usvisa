@@ -63,9 +63,9 @@ i18n
             text11:
               "系统会判断你提交的内容, 如果没有问题你会收到一封自动回复邮件",
             text12: "没有收到回复请仔细对照使用教程, 检查内容并重新提交",
-            text13: "发送第二封邮件",
+            text13: "发送第二封邮件 (仅针对新用户)",
             text14:
-              "上一步收到的回复邮件包含你需要完成的步骤, 完成后请用同样的邮箱发送第二封邮件并附上凭证",
+              "上一步收到的回复邮件包含你需要完成的步骤, 完成后请用同样的邮箱回复邮件并附上凭证",
             text15: "收到第二封回复",
             text16:
               "人工审核通过后, 你会收到一封确认邮件, 代表系统已经开始帮你抢位",
@@ -158,9 +158,9 @@ i18n
               "The system will evaluate the content you sent, and if there are no issues, you will receive an automatic reply email.",
             text12:
               "If you do not receive a reply, please carefully check the content following the user tutorial and resubmit.",
-            text13: "Send the second email",
+            text13: "Send the second email (for new users only)",
             text14:
-              "The reply email received in step 2 contains what you need to complete, after completing them please send the second email and attach the proof.",
+              "The reply email received in step 2 contains what you need to complete, after completing them please reply the email with proof attached.",
             text15: "Receive the second reply",
             text16:
               "After passing the manual review, you will receive a confirmation email, indicating that the system has started to help you secure a spot.",
