@@ -11,7 +11,7 @@ const Tutorial = () => {
             <img
               src={`/${index}.jpg`}
               alt={`step ${index}`}
-              className="border border-black rounded-2xl border-dashed"
+              className="border border-black rounded-2xl"
             />
           </div>
         </div>
