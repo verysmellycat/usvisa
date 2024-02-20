@@ -49,33 +49,79 @@ const Submission = () => {
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
-      <p className="text-center text-danger">{t("headers.header3")}</p>
-      <Input
-        isReadOnly
-        ref={recipientRef}
-        label={t("submission.fieldLabel1")}
-        variant="bordered"
-        defaultValue={recipient}
-        type="email"
-        onClick={() => copyToClipboard(recipientRef)}
-      ></Input>
-      <Input
-        isReadOnly
-        ref={titleRef}
-        label={t("submission.fieldLabel2")}
-        variant="bordered"
-        defaultValue={title}
-        type="text"
-        onClick={() => copyToClipboard(titleRef)}
-      ></Input>
-      <Textarea
-        isReadOnly
-        ref={contentRef}
-        label={t("submission.fieldLabel3")}
-        variant="bordered"
-        defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
-        onClick={() => copyToClipboard(contentRef)}
-      />
+      <div className="grid grid-cols-5 w-full">
+        <div className="flex flex-col items-center">
+          <span className="border px-3 py-1 rounded-lg">1</span>
+          <div className="grow border-l"></div>
+        </div>
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
+          <h2 className="font-bold">{t("text.text8")}</h2>
+          <p className="text-sm">{t("text.text9")}</p>
+          <Input
+            isReadOnly
+            ref={recipientRef}
+            label={t("submission.fieldLabel1")}
+            variant="bordered"
+            defaultValue={recipient}
+            type="email"
+            onClick={() => copyToClipboard(recipientRef)}
+          ></Input>
+          <Input
+            isReadOnly
+            ref={titleRef}
+            label={t("submission.fieldLabel2")}
+            variant="bordered"
+            defaultValue={title}
+            type="text"
+            onClick={() => copyToClipboard(titleRef)}
+          ></Input>
+          <Textarea
+            isReadOnly
+            ref={contentRef}
+            label={t("submission.fieldLabel3")}
+            variant="bordered"
+            defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
+            onClick={() => copyToClipboard(contentRef)}
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-5 w-full min-h-[100px]">
+        <div className="flex flex-col items-center">
+          <span className="border px-3 py-1 rounded-lg">2</span>
+          <div className="grow border-l"></div>
+        </div>
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
+          <h2 className="font-bold">{t("text.text10")}</h2>
+          <p className="text-sm">
+            {t("text.text11")}
+            <br />
+            {t("text.text12")}
+          </p>
+        </div>
+      </div>
+      <div className="grid grid-cols-5 w-full min-h-[100px]">
+        <div className="flex flex-col items-center">
+          <span className="border px-3 py-1 rounded-lg">3</span>
+          <div className="grow border-l"></div>
+        </div>
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
+          <h2 className="font-bold">{t("text.text13")}</h2>
+          <p className="text-sm">{t("text.text14")}</p>
+        </div>
+      </div>
+      <div className="grid grid-cols-5 w-full min-h-[100px]">
+        <div className="flex flex-col items-center">
+          <span className="border px-3 py-1 rounded-lg">4</span>
+        </div>
+        <div className="col-span-4 flex flex-col gap-y-3 md:max-w-xl">
+          <h2 className="font-bold">{t("text.text15")}</h2>
+          <p className="text-sm">
+            {t("text.text16")}
+            <br />
+            {t("text.text17")}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
