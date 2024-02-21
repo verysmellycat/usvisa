@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { abbr, countryMap } from "../config.js";
+import { Button } from "@nextui-org/react";
 
 const Submission = () => {
   const recipientRef = useRef();
@@ -27,12 +28,6 @@ const Submission = () => {
     if (!formData) {
       navigate("/404");
     }
-    const subject = encodeURIComponent(title);
-    const body = encodeURIComponent(
-      `${content}\n<<<${JSON.stringify(finalData)}>>>`
-    );
-    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
   }, [formData, navigate]);
 
   const copyToClipboard = async (ref) => {
@@ -46,6 +41,15 @@ const Submission = () => {
       }
     }
   };
+
+  const handleClick = () =>{
+    const subject = encodeURIComponent(title);
+    const body = encodeURIComponent(
+      `${content}\n<<<${JSON.stringify(finalData)}>>>`
+    );
+    const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+  }
 
   return (
     <div className="flex flex-col items-center gap-y-3 my-3 w-full">
@@ -83,6 +87,7 @@ const Submission = () => {
             defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
             onClick={() => copyToClipboard(contentRef)}
           />
+          <Button onClick={handleClick} className="border-2 bg-sky-400 rounded-xl p-3 text-sm">{t("text.text19")}</Button>
         </div>
       </div>
       <div className="grid grid-cols-10 gap-x-3 w-full min-h-[100px]">
