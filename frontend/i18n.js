@@ -70,15 +70,18 @@ i18n
             text16:
               "人工审核通过后, 你会收到一封确认邮件, 代表系统已经开始帮你抢位",
             text17: "审核需要时间, 并且可能有时差, 如果没有收到回复请耐心等待",
+            text18: "建议直接修改密码以保护账户安全",
+            text19:"前往发送邮件",
+            text20:"新用户",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
           scheduleIdHelperText: scheduleIdHelperMapping,
           whyHelperText: whyHelperMapping,
           form: {
-            requestType1: "提交新的请求",
-            requestType2: "查询请求状态",
-            requestType3: "修改现有请求",
-            requestType4: "取消现有请求",
+            requestType1: "提交刷签请求 (新用户)",
+            requestType2: "查询刷签状态",
+            requestType3: "修改刷签请求",
+            requestType4: "取消刷签请求",
             fieldLabel1: "预约国家",
             fieldPlaceholder1: "加拿大",
             fieldPlaceholder2: "大多数用户都不用填",
@@ -166,6 +169,9 @@ i18n
               "After passing the manual review, you will receive a confirmation email, indicating that the system has started to help you secure a spot.",
             text17:
               "It takes time to review, and there may be time differences, if you do not receive a reply please be patient and wait.",
+            text18: "Please also change your password for account security",
+            text19: "Send Email",
+            text20: "For new users",
             specialRequest:
               "Please contact support@usvisa.lol for special/emergency request",
           },
@@ -205,7 +211,7 @@ i18n
               "I hope this project disappears a day later than the scalpers! I'm an optimistic pessimist.",
           },
           form: {
-            requestType1: "Create new request",
+            requestType1: "Create new request (new user)",
             requestType2: "Query request status",
             requestType3: "Modify existing request",
             requestType4: "Cancel existing request",

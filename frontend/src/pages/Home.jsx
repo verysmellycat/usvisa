@@ -56,11 +56,11 @@ const Home = () => {
                 <Radio value="create">
                   <p className="text-sm">{t("form.requestType1")}</p>
                 </Radio>
-                <Radio value="query">
-                  <p className="text-sm">{t("form.requestType2")}</p>
-                </Radio>
                 <Radio value="update">
                   <p className="text-sm">{t("form.requestType3")}</p>
+                </Radio>
+                <Radio value="query">
+                  <p className="text-sm">{t("form.requestType2")}</p>
                 </Radio>
                 <Radio value="cancel">
                   <p className="text-sm">{t("form.requestType4")}</p>

@@ -36,6 +36,7 @@ const CancelForm = () => {
       className="flex flex-col gap-y-3 w-full"
       noValidate
     >
+      <p className="text-sm text-danger">{t("text.text18")}</p>
       <Controller
         control={control}
         name="schedule_ids"
