@@ -42,20 +42,20 @@ const Submission = () => {
     }
   };
 
-  const handleClick = () =>{
+  const handleClick = () => {
     const subject = encodeURIComponent(title);
     const body = encodeURIComponent(
-      `${content}\n<<<${JSON.stringify(finalData)}>>>`
+      `${content}\n<<<${JSON.stringify(finalData)}>>>`,
     );
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
-  }
+  };
 
   return (
-    <div className="flex flex-col items-center gap-y-3 my-3 w-full">
-      <div className="grid grid-cols-10 gap-x-3 w-full">
-        <div className="justify-self-center flex flex-col items-center w-fit">
-          <span className="border px-3 py-1 rounded-lg">1</span>
+    <div className="my-3 flex w-full flex-col items-center gap-y-3">
+      <div className="grid w-full grid-cols-10 gap-x-3">
+        <div className="flex w-fit flex-col items-center justify-self-center">
+          <span className="rounded-lg border px-3 py-1">1</span>
           <div className="grow border-l"></div>
         </div>
         <div className="col-span-9 flex flex-col gap-y-3">
@@ -87,12 +87,17 @@ const Submission = () => {
             defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
             onClick={() => copyToClipboard(contentRef)}
           />
-          <Button onClick={handleClick} className="border-2 bg-sky-400 rounded-xl p-3 text-sm">{t("text.text19")}</Button>
+          <Button
+            onClick={handleClick}
+            className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
+          >
+            {t("text.text19")}
+          </Button>
         </div>
       </div>
-      <div className="grid grid-cols-10 gap-x-3 w-full min-h-[100px]">
-        <div className="justify-self-center flex flex-col items-center w-fit">
-          <span className="border px-3 py-1 rounded-lg">2</span>
+      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+        <div className="flex w-fit flex-col items-center justify-self-center">
+          <span className="rounded-lg border px-3 py-1">2</span>
           <div className="grow border-l"></div>
         </div>
         <div className="col-span-9 flex flex-col gap-y-3">
@@ -104,9 +109,9 @@ const Submission = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-10 gap-x-3 w-full min-h-[100px]">
-        <div className="justify-self-center flex flex-col items-center w-fit">
-          <span className="border px-3 py-1 rounded-lg">3</span>
+      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+        <div className="flex w-fit flex-col items-center justify-self-center">
+          <span className="rounded-lg border px-3 py-1">3</span>
           <div className="grow border-l"></div>
         </div>
         <div className="col-span-9 flex flex-col gap-y-3">
@@ -114,9 +119,9 @@ const Submission = () => {
           <p className="text-sm">{t("text.text14")}</p>
         </div>
       </div>
-      <div className="grid grid-cols-10 gap-x-3 w-full min-h-[100px]">
-        <div className="justify-self-center flex flex-col items-center w-fit">
-          <span className="border px-3 py-1 rounded-lg">4</span>
+      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+        <div className="flex w-fit flex-col items-center justify-self-center">
+          <span className="rounded-lg border px-3 py-1">4</span>
         </div>
         <div className="col-span-9 flex flex-col gap-y-3 md:max-w-xl">
           <h2 className="font-bold">{t("text.text15")}</h2>

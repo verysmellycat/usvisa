@@ -33,7 +33,7 @@ const CancelForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onFormSubmit)}
-      className="flex flex-col gap-y-3 w-full"
+      className="flex w-full flex-col gap-y-3"
       noValidate
     >
       <p className="text-sm text-danger">{t("text.text18")}</p>
@@ -52,7 +52,7 @@ const CancelForm = () => {
         )}
       />
       <Button
-        className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
+        className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
         type="submit"
       >
         {t("cancellationButtonText")}
