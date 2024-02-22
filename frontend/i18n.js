@@ -13,7 +13,7 @@ const faqMapping = faqItems.reduce(
     acc[`answer${index + 1}`] = item.answer;
     return acc;
   },
-  { header: "FAQ/常见问题" }
+  { header: "FAQ/常见问题" },
 );
 
 const whyHelperMapping = whyHelperText.reduce((acc, item, index) => {
@@ -26,7 +26,7 @@ const scheduleIdHelperMapping = scheduleIdHelperText.reduce(
     acc[`text${index + 1}`] = item;
     return acc;
   },
-  {}
+  {},
 );
 
 i18n
@@ -71,14 +71,13 @@ i18n
               "人工审核通过后, 你会收到一封确认邮件, 代表系统已经开始帮你抢位",
             text17: "审核需要时间, 并且可能有时差, 如果没有收到回复请耐心等待",
             text18: "建议直接修改密码以保护账户安全",
-            text19:"前往发送邮件",
-            text20:"新用户",
+            text19: "前往发送邮件",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
           scheduleIdHelperText: scheduleIdHelperMapping,
           whyHelperText: whyHelperMapping,
           form: {
-            requestType1: "提交刷签请求 (新用户)",
+            requestType1: "提交刷签请求 (本站新用户)",
             requestType2: "查询刷签状态",
             requestType3: "修改刷签请求",
             requestType4: "取消刷签请求",
@@ -171,7 +170,6 @@ i18n
               "It takes time to review, and there may be time differences, if you do not receive a reply please be patient and wait.",
             text18: "Please also change your password for account security",
             text19: "Send Email",
-            text20: "For new users",
             specialRequest:
               "Please contact support@usvisa.lol for special/emergency request",
           },
