@@ -14,8 +14,6 @@ import {
   ModalBody,
   ModalFooter,
   useDisclosure,
-  SelectSection,
-  Avatar,
 } from "@nextui-org/react";
 import { IoIosInformationCircle, IoIosAddCircle } from "react-icons/io";
 import { MdDelete } from "react-icons/md";
@@ -24,6 +22,7 @@ import { format, addMonths } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { countries, countryMap } from "../config.js";
+import CountrySelector from "./CountrySelector.jsx";
 
 export const whyHelperText = [
   "这个实验项目只为看劣币驱逐良币是否总是成立, 黄牛真的必要存在于世?",
@@ -126,7 +125,7 @@ const CreationForm = ({ action }) => {
         },
       ]);
     }, 300),
-    [timeIntervals]
+    [timeIntervals],
   );
 
   const handleTimeDelete = useCallback(
@@ -134,7 +133,7 @@ const CreationForm = ({ action }) => {
       const newIntervals = timeIntervals.filter((_, i) => i !== index);
       setTimeIntervals(newIntervals);
     }, 300),
-    [timeIntervals]
+    [timeIntervals],
   );
 
   const onRead = () => {
@@ -163,7 +162,7 @@ const CreationForm = ({ action }) => {
   return (
     <form
       onSubmit={handleSubmit(onFormSubmit)}
-      className="flex flex-col gap-y-3 w-full"
+      className="flex w-full flex-col gap-y-3"
       noValidate
     >
       <div className="flex items-center gap-x-2">
@@ -190,7 +189,7 @@ const CreationForm = ({ action }) => {
           </PopoverTrigger>
           <PopoverContent>
             <div className="px-1 py-2">
-              <ul className="text-xs max-w-64 space-y-2 list-disc">
+              <ul className="max-w-64 list-disc space-y-2 text-xs">
                 {scheduleIdHelperText.map((text, index) => (
                   <li key={index}>
                     {t(`scheduleIdHelperText.text${index + 1}`)}
@@ -201,58 +200,11 @@ const CreationForm = ({ action }) => {
           </PopoverContent>
         </Popover>
       </div>
-      <div className="flex items-center gap-x-2">
-        <Controller
-          control={control}
-          name="country"
-          defaultValue="Canada"
-          rules={{ required: "请选择要预约面试的国家" }}
-          render={({ field }) => (
-            <Select
-              {...field}
-              className="w-full"
-              label={t("form.fieldLabel1")}
-              errorMessage={errors?.country?.message}
-              validationState={errors.country ? "invalid" : "valid"}
-              isDisabled={false}
-              isRequired
-              selectedKeys={selectedCountry}
-              onSelectionChange={setSelectedCountry}
-              startContent={
-                selectedCountry.size === 0 ? null : (
-                  <Avatar
-                    alt="country icon"
-                    className="w-6 h-6"
-                    src={`https://flagcdn.com/${
-                      countryMap[Array.from(selectedCountry)[0]][1]
-                    }.svg`}
-                  />
-                )
-              }
-            >
-              {Object.entries(countries).map((entry) => (
-                <SelectSection key={entry[0]} title={entry[0]}>
-                  {Object.keys(entry[1]).map((country) => (
-                    <SelectItem
-                      key={country}
-                      value={country}
-                      startContent={
-                        <Avatar
-                          alt="country"
-                          className="w-6 h-6"
-                          src={`https://flagcdn.com/${countryMap[country][1]}.svg`}
-                        />
-                      }
-                    >
-                      {country}
-                    </SelectItem>
-                  ))}
-                </SelectSection>
-              ))}
-            </Select>
-          )}
-        />
-      </div>
+      <CountrySelector
+        countryState={{ selectedCountry, setSelectedCountry }}
+        control={control}
+        errors={errors}
+      />
       <div>
         <Controller
           control={control}
@@ -300,33 +252,33 @@ const CreationForm = ({ action }) => {
               )}
             />
           </div>
-          <ul className="flex flex-col text-xs text-wrap list-disc ml-3 gap-y-2">
+          <ul className="ml-3 flex list-disc flex-col gap-y-2 text-wrap text-xs">
             <li> {t("text.text3")}</li>
             <li> {t("text.text4")}</li>
             <li> {t("text.text5")}</li>
           </ul>
         </>
       )}
-      <p className="text-sm text-center">
+      <p className="text-center text-sm">
         {t("form.datepickerHeader")}
         <span className="text-xs"> {t("form.datepickerSubHeader")}</span>
         <span className="text-danger">*</span>
       </p>
       <div className="flex items-center justify-end">
-        <Button className="bg-transparent p-0 gap-x-1" onPress={handleTimeAdd}>
+        <Button className="gap-x-1 bg-transparent p-0" onPress={handleTimeAdd}>
           <IoIosAddCircle size={24} />
           {t("form.datepickerButtonText")}
         </Button>
       </div>
       {timeIntervals.map((timeInterval, index) => (
         <div key={index} className="flex items-center justify-center">
-          <div className="flex flex-col sm:flex-row items-center gap-y-1 gap-x-2">
+          <div className="flex flex-col items-center gap-x-2 gap-y-1 sm:flex-row">
             <div className="flex items-center">
-              <label className="text-sm flex-shrink-0">
+              <label className="flex-shrink-0 text-sm">
                 {t("form.datepickerStart")}
               </label>
               <DatePicker
-                className="border-2 rounded-lg ml-2 text-center text-sm max-w-40 lg:max-w-60"
+                className="ml-2 max-w-40 rounded-lg border-2 text-center text-sm lg:max-w-60"
                 selected={timeInterval.from}
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.from}
@@ -336,11 +288,11 @@ const CreationForm = ({ action }) => {
               />
             </div>
             <div className="flex items-center">
-              <label className="text-sm flex-shrink-0">
+              <label className="flex-shrink-0 text-sm">
                 {t("form.datepickerEnd")}
               </label>
               <DatePicker
-                className="border-2 rounded-lg ml-2 text-center text-sm max-w-40 lg:max-w-60"
+                className="ml-2 max-w-40 rounded-lg border-2 text-center text-sm lg:max-w-60"
                 selected={timeInterval.to}
                 dateFormat="yyyy/MM/dd"
                 minDate={timeInterval.from}
@@ -360,7 +312,7 @@ const CreationForm = ({ action }) => {
         </div>
       ))}
       <Button
-        className="border-2 bg-sky-400 rounded-xl p-3 text-sm"
+        className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
         type="submit"
       >
         {t("form.submitButtonText")}
@@ -373,7 +325,7 @@ const CreationForm = ({ action }) => {
                 {t("headers.header2")}
               </ModalHeader>
               <ModalBody>
-                <ul className="text-xs space-y-2 list-disc">
+                <ul className="list-disc space-y-2 text-xs">
                   {whyHelperText.map((_, index) => (
                     <li key={index}>{t(`whyHelperText.text${index + 1}`)}</li>
                   ))}
@@ -384,7 +336,7 @@ const CreationForm = ({ action }) => {
                       placeholder="0.00"
                       startContent={
                         <div className="pointer-events-none flex items-center">
-                          <span className="text-default-400 text-small">$</span>
+                          <span className="text-small text-default-400">$</span>
                         </div>
                       }
                       onValueChange={setTips}

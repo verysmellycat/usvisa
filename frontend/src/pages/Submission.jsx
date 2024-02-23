@@ -15,9 +15,7 @@ const Submission = () => {
   const formData = location.state?.formData;
   const { t } = useTranslation();
 
-  const to = !formData.countryFull
-    ? "admin"
-    : abbr[countryMap[formData.countryFull][0]];
+  const to = abbr[countryMap[formData.countryFull][0]];
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
   const content =
@@ -33,12 +31,8 @@ const Submission = () => {
   const copyToClipboard = async (ref) => {
     if (ref.current) {
       const valueToCopy = ref.current.value;
-      try {
-        await navigator.clipboard.writeText(valueToCopy);
-        alert(t("submission.clipboardMessage"));
-      } catch (err) {
-        console.error("复制失败", err);
-      }
+      await navigator.clipboard.writeText(valueToCopy);
+      alert(t("submission.clipboardMessage"));
     }
   };
 
@@ -56,7 +50,9 @@ const Submission = () => {
       <div className="grid w-full grid-cols-10 gap-x-3">
         <div className="flex w-fit flex-col items-center justify-self-center">
           <span className="rounded-lg border px-3 py-1">1</span>
-          <div className="grow border-l"></div>
+          <div
+            className={`grow ${formData.action === "create" && "border-l"}`}
+          ></div>
         </div>
         <div className="col-span-9 flex flex-col gap-y-3">
           <h2 className="font-bold">{t("text.text8")}</h2>
@@ -95,43 +91,47 @@ const Submission = () => {
           </Button>
         </div>
       </div>
-      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
-        <div className="flex w-fit flex-col items-center justify-self-center">
-          <span className="rounded-lg border px-3 py-1">2</span>
-          <div className="grow border-l"></div>
-        </div>
-        <div className="col-span-9 flex flex-col gap-y-3">
-          <h2 className="font-bold">{t("text.text10")}</h2>
-          <p className="text-sm">
-            {t("text.text11")}
-            <br />
-            {t("text.text12")}
-          </p>
-        </div>
-      </div>
-      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
-        <div className="flex w-fit flex-col items-center justify-self-center">
-          <span className="rounded-lg border px-3 py-1">3</span>
-          <div className="grow border-l"></div>
-        </div>
-        <div className="col-span-9 flex flex-col gap-y-3">
-          <h2 className="font-bold">{t("text.text13")}</h2>
-          <p className="text-sm">{t("text.text14")}</p>
-        </div>
-      </div>
-      <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
-        <div className="flex w-fit flex-col items-center justify-self-center">
-          <span className="rounded-lg border px-3 py-1">4</span>
-        </div>
-        <div className="col-span-9 flex flex-col gap-y-3 md:max-w-xl">
-          <h2 className="font-bold">{t("text.text15")}</h2>
-          <p className="text-sm">
-            {t("text.text16")}
-            <br />
-            {t("text.text17")}
-          </p>
-        </div>
-      </div>
+      {formData.action === "create" && (
+        <>
+          <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+            <div className="flex w-fit flex-col items-center justify-self-center">
+              <span className="rounded-lg border px-3 py-1">2</span>
+              <div className="grow border-l"></div>
+            </div>
+            <div className="col-span-9 flex flex-col gap-y-3">
+              <h2 className="font-bold">{t("text.text10")}</h2>
+              <p className="text-sm">
+                {t("text.text11")}
+                <br />
+                {t("text.text12")}
+              </p>
+            </div>
+          </div>
+          <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+            <div className="flex w-fit flex-col items-center justify-self-center">
+              <span className="rounded-lg border px-3 py-1">3</span>
+              <div className="grow border-l"></div>
+            </div>
+            <div className="col-span-9 flex flex-col gap-y-3">
+              <h2 className="font-bold">{t("text.text13")}</h2>
+              <p className="text-sm">{t("text.text14")}</p>
+            </div>
+          </div>
+          <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
+            <div className="flex w-fit flex-col items-center justify-self-center">
+              <span className="rounded-lg border px-3 py-1">4</span>
+            </div>
+            <div className="col-span-9 flex flex-col gap-y-3 md:max-w-xl">
+              <h2 className="font-bold">{t("text.text15")}</h2>
+              <p className="text-sm">
+                {t("text.text16")}
+                <br />
+                {t("text.text17")}
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

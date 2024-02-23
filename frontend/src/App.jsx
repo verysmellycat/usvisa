@@ -8,17 +8,16 @@ import Tutorial from "./pages/Tutorial";
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { IoLanguage } from "react-icons/io5";
-import Product from "./pages/Product";
 
 function MainContent() {
   const { t } = useTranslation();
   const location = useLocation();
   const isNotProductPage = location.pathname !== "/product";
   return (
-    <div className="flex flex-col mx-auto mt-3 w-5/6 md:w-2/3">
+    <div className="mx-auto mt-3 flex w-5/6 flex-col md:w-2/3">
       {isNotProductPage && (
         <>
-          <h1 className="font-semibold text-2xl text-center">
+          <h1 className="text-center text-2xl font-semibold">
             {t("headers.header1")}
           </h1>
           <button
@@ -37,7 +36,6 @@ function MainContent() {
         <Route path="/submit" element={<Submission />}></Route>
         <Route path="/community" element={<UserCommunity />}></Route>
         <Route path="/tutorial" element={<Tutorial />}></Route>
-        <Route path="/product" element={<Product />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CreationForm from "../components/CreationForm";
-import QueryButton from "../components/QueryButton";
+import QueryForm from "../components/QueryForm";
 import CancellationForm from "../components/CancellationForm";
 import { IoIosInformationCircle } from "react-icons/io";
 import Faq from "../components/Faq";
@@ -37,13 +37,13 @@ const Home = () => {
   }, [formRef]);
 
   return (
-    <div className="flex flex-col items-center gap-y-3 my-3 w-full">
-      <div className="text-center space-y-3">
+    <div className="my-3 flex w-full flex-col items-center gap-y-3">
+      <div className="space-y-3 text-center">
         <p>{t("text.text1")} 🚀</p>
         <p>{t("text.text6")}</p>
       </div>
       <Payment />
-      <div className="flex flex-col gap-y-3 w-full">
+      <div className="flex w-full flex-col gap-y-3">
         <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>
             <div className="flex flex-col gap-y-3">
@@ -75,7 +75,7 @@ const Home = () => {
                   {requestType === "create" || requestType === "update" ? (
                     <CreationForm action={requestType} />
                   ) : requestType === "query" ? (
-                    <QueryButton />
+                    <QueryForm />
                   ) : (
                     <CancellationForm />
                   )}
@@ -84,7 +84,7 @@ const Home = () => {
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
-            <Card className="max-w-xl mx-auto">
+            <Card className="mx-auto max-w-xl">
               <CardHeader className="flex gap-3">
                 <FaRobot size={40} />
                 <div className="flex flex-col">
@@ -94,7 +94,7 @@ const Home = () => {
               </CardHeader>
               <Divider />
               <CardBody>
-                <div className="text-sm space-y-2">
+                <div className="space-y-2 text-sm">
                   <p>
                     {t("proModeTextSegment1")}
                     <strong>{t("proModeTextSegment2")}</strong>

@@ -57,7 +57,7 @@ i18n
             text5: "下一步你需要用到与登陆预约网站时相同的邮箱来提交请求到系统",
             text6: "这是一个免费项目, 如果对你有帮助的话请考虑支持项目运营",
             text7: "如果暂时没有预约, 在向系统提交请求前不用自己预约时间",
-            text8: "用你的usvisa-info登陆邮箱发送第一封邮件",
+            text8: "用你的usvisa-info登陆邮箱发送邮件",
             text9: "这是系统验证用户身份的重要步骤",
             text10: "收到第一封回复",
             text11:
@@ -152,7 +152,7 @@ i18n
             text7:
               "It is advisable that no prior appointment is necessary if you don't already have one",
             text8:
-              "Send the first email of the following content using your usvisa-info login email",
+              "Send the email of the following content using your usvisa-info login email",
             text9:
               "This is an important step for system verification of user identity.",
             text10: "Receive the first reply",
