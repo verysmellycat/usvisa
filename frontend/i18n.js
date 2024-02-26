@@ -233,24 +233,24 @@ i18n
           },
           faq: {
             header: "FAQ",
-            faq1: "Can I use the program again to schedule for an earlier date, if I had already secured a spot using it?",
+            faq1: 'How should I answer the question "Are you traveling from another country to apply for a U.S. visa in Canada?"',
             answer1:
-              "Yes, feel free to submit a new request and follow the instructions from the email reply.",
-            faq2: "What if I need to correct the information or time range?",
-            answer2:
-              "Before you are rescheduled successfully, you may submit new requests with updated information, and the previous request will be overwritten.",
-            faq3: 'How should I answer the question "Are you traveling from another country to apply for a U.S. visa in Canada?"',
-            answer3:
               "No if you are a local resident, student, worker, or permanent resident. Yes if you are in Canada on a visitor's Visa.",
-            faq4: "Am I eligible to use this program if I answered yes to the above question?",
-            answer4:
+            faq2: "Am I eligible to use this program if I answered yes to the above question?",
+            answer2:
               "Yes, the program is applicable to both yes and no scenarios.",
-            faq5: "What else do I need to do after submitting the request?",
-            answer5:
+            faq3: "What else do I need to do after submitting the request?",
+            answer3:
               "If there are no errors in your submission, you will receive a notification email shortly. If it says that the program has started, all you need is to wait. If there is an error, such as a wrong password, etc., no email will be sent and you will need to check and resubmit!",
-            faq6: "Will my current appointment get cancelled?",
-            answer6:
+            faq4: "Will my current appointment get cancelled?",
+            answer4:
               "No, the program will only reschedule the appointment within your desirable time range. Make sure your USVISA-INFO credentials remain secured to yourself!!!",
+            faq5: "What if I need to correct the information or time range?",
+            answer5:
+              "Before you are rescheduled successfully, you may submit new requests with updated information, and the previous request will be overwritten.",
+            faq6: "Can I use the program again to schedule for an earlier date, if I had already secured a spot using it?",
+            answer6:
+              "Yes, feel free to submit a new request and follow the instructions from the email reply.",
             faq7: "What if I need to correct the information or time range?",
             answer7:
               "Before you are rescheduled successfully, you may submit new requests with updated information, and the previous request will be overwritten.",

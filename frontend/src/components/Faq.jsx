@@ -3,14 +3,6 @@ import { useTranslation } from "react-i18next";
 
 export const faqItems = [
   {
-    question: "已经通过程序刷到位置了还可以再刷更靠前的日期吗?",
-    answer: "可以, 提交新的刷签请求, 根据系统回复操作即可",
-  },
-  {
-    question: "信息填错了或者想更改日期范围怎么办?",
-    answer: "提交新的刷签请求, 刷到位置前新的请求会覆盖旧的",
-  },
-  {
     question:
       '在USVISA-INFO填写信息时怎么回答 "Are you traveling from another country to apply for a U.S. visa in Canada?"',
     answer:
@@ -29,6 +21,14 @@ export const faqItems = [
     question: "我已有的预约会被取消吗?",
     answer:
       "程序不会取消你的已有预约, 只会重新预约你期望的日期范围, 请确保你的邮箱密码没有任何其他人知道!!!",
+  },
+  {
+    question: "信息填错了或者想更改日期范围怎么办?",
+    answer: "提交新的刷签请求, 刷到位置前新的请求会覆盖旧的",
+  },
+  {
+    question: "已经通过程序刷到位置了还可以再刷更靠前的日期吗?",
+    answer: "可以, 提交新的刷签请求, 根据系统回复操作即可",
   },
 ];
 
