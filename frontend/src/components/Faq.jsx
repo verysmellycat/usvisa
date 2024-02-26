@@ -3,6 +3,14 @@ import { useTranslation } from "react-i18next";
 
 export const faqItems = [
   {
+    question: "已经通过程序刷到位置了还可以再刷更靠前的日期吗?",
+    answer: "可以, 提交新的刷签请求, 根据系统回复操作即可",
+  },
+  {
+    question: "信息填错了或者想更改日期范围怎么办?",
+    answer: "提交新的刷签请求, 刷到位置前新的请求会覆盖旧的",
+  },
+  {
     question:
       '在USVISA-INFO填写信息时怎么回答 "Are you traveling from another country to apply for a U.S. visa in Canada?"',
     answer:
@@ -29,14 +37,14 @@ const Faq = () => {
 
   return (
     <div className="flex flex-col gap-y-2">
-      <h2 className="font-semibold text-xl">{t("faq.header")}</h2>
+      <h2 className="text-xl font-semibold">{t("faq.header")}</h2>
       <Accordion className="p-0">
         {faqItems.map((item, index) => (
           <AccordionItem
-            className="text-sm text-wrap"
+            className="text-wrap text-sm"
             key={index}
             title={
-              <span className="text-base text-wrap">
+              <span className="text-wrap text-base">
                 {t(`faq.faq${index + 1}`)}
               </span>
             }
