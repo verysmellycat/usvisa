@@ -77,7 +77,7 @@ i18n
           scheduleIdHelperText: scheduleIdHelperMapping,
           whyHelperText: whyHelperMapping,
           form: {
-            requestType1: "提交刷签请求 (本站新用户)",
+            requestType1: "提交刷签请求",
             requestType2: "查询刷签状态",
             requestType3: "修改刷签请求",
             requestType4: "取消刷签请求",
@@ -209,7 +209,7 @@ i18n
               "I hope this project disappears a day later than the scalpers! I'm an optimistic pessimist.",
           },
           form: {
-            requestType1: "Create new request (new user)",
+            requestType1: "Create new request",
             requestType2: "Query request status",
             requestType3: "Modify existing request",
             requestType4: "Cancel existing request",

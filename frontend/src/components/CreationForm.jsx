@@ -60,7 +60,7 @@ export const scheduleIdHelperText = [
   "如果需要程序抢账户下某几个人的 slot, 可以用逗号区分开, 比如 54306276,54306278,54306280",
 ];
 
-const CreationForm = ({ action }) => {
+const CreationForm = () => {
   const [formData, setFormData] = useState(null);
   const [selectedCountry, setSelectedCountry] = useState(new Set(["Canada"]));
   const [selectedCities, setSelectedCities] = useState([]);
@@ -95,7 +95,7 @@ const CreationForm = ({ action }) => {
           data.schedule_ids === "" ? [] : data.schedule_ids.split(","),
         cities: data.cities.split(","),
         date_ranges: formattedTimeIntervals,
-        action: action,
+        action: "create",
         countryFull: countrySelection,
         country: countryMap[countrySelection][1],
       });
@@ -233,32 +233,29 @@ const CreationForm = ({ action }) => {
           )}
         />
       </div>
-      {action !== "update" && (
-        <>
-          <div>
-            <Controller
-              control={control}
-              name="password"
-              rules={{ required: t("form.fieldErrorMessage4") }}
-              render={({ field }) => (
-                <Input
-                  {...field}
-                  className="w-full"
-                  label={t("form.fieldLabel4")}
-                  type="password"
-                  errorMessage={errors?.password?.message}
-                  isRequired
-                ></Input>
-              )}
-            />
-          </div>
-          <ul className="ml-3 flex list-disc flex-col gap-y-2 text-wrap text-xs">
-            <li> {t("text.text3")}</li>
-            <li> {t("text.text4")}</li>
-            <li> {t("text.text5")}</li>
-          </ul>
-        </>
-      )}
+
+      <div>
+        <Controller
+          control={control}
+          name="password"
+          rules={{ required: t("form.fieldErrorMessage4") }}
+          render={({ field }) => (
+            <Input
+              {...field}
+              className="w-full"
+              label={t("form.fieldLabel4")}
+              type="password"
+              errorMessage={errors?.password?.message}
+              isRequired
+            ></Input>
+          )}
+        />
+      </div>
+      <ul className="ml-3 flex list-disc flex-col gap-y-2 text-wrap text-xs">
+        <li> {t("text.text3")}</li>
+        <li> {t("text.text4")}</li>
+        <li> {t("text.text5")}</li>
+      </ul>
       <p className="text-center text-sm">
         {t("form.datepickerHeader")}
         <span className="text-xs"> {t("form.datepickerSubHeader")}</span>

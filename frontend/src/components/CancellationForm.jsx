@@ -40,7 +40,6 @@ const CancelForm = () => {
       className="flex w-full flex-col gap-y-3"
       noValidate
     >
-      <p className="text-sm text-danger">{t("text.text18")}</p>
       <Controller
         control={control}
         name="schedule_ids"
@@ -60,6 +59,7 @@ const CancelForm = () => {
         control={control}
         errors={errors}
       />
+      <p className="text-sm text-danger">{t("text.text18")}</p>
       <Button
         className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
         type="submit"

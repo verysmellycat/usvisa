@@ -56,9 +56,6 @@ const Home = () => {
                 <Radio value="create">
                   <p className="text-sm">{t("form.requestType1")}</p>
                 </Radio>
-                <Radio value="update">
-                  <p className="text-sm">{t("form.requestType3")}</p>
-                </Radio>
                 <Radio value="query">
                   <p className="text-sm">{t("form.requestType2")}</p>
                 </Radio>
@@ -72,8 +69,8 @@ const Home = () => {
                 contentClassName="auto-content"
               >
                 <div ref={(node) => setFormRef(node)}>
-                  {requestType === "create" || requestType === "update" ? (
-                    <CreationForm action={requestType} />
+                  {requestType === "create" ? (
+                    <CreationForm />
                   ) : requestType === "query" ? (
                     <QueryForm />
                   ) : (
