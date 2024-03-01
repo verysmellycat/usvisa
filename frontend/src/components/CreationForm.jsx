@@ -29,17 +29,15 @@ export const whyHelperText = [
 
   "我自己要申请美签, 黄牛们狮子大开口, 一个人居然要 600 刀",
 
-  "抢加拿大美签黄牛价大概在 $150~$800 之间, 可能还有更贵更离谱的, 这个项目免费, 没有强制任何人付费",
+  "抢加拿大美签黄牛价大概在 $150~$800 之间, 可能还有更贵更离谱的",
 
-  "黄牛们持续威胁恐吓, 我不清楚他们具备什么能力, 究竟会不会影响到我的生命安全",
+  "系统本是开放给大家免费使用, 如果每个成功预约的朋友愿意给黄牛最低价三分之一的tips, 这个项目就能坚持到黄牛消失",
 
-  "我已经设定好了所有服务器自动续费, 用的是右上角账户的余额进行支付",
+  "但经过近三个月的运行, 即使已经成功帮助了几百人, 真正会给tips的寥寥可数, 更有黄牛利用系统漏洞为自己牟利",
 
-  "这个系统会一直自动运行到账户余额不足以支付服务器费用, 不管我人还在不在",
+  "为了更多人能从中受益, 系统使用不再采取小费制, 需要收取一定费用",
 
-  "如果从今天 2024.01.15 开始没有任何小费支持, 我账户的钱能支持它运行到 2024.02.29",
-
-  "根据这几天的数据分析, 如果每个成功预约的朋友愿意给最低黄牛价三分之一的 tips, 这个项目能坚持到黄牛消失",
+  "这个费用只为补贴项目正常运行成本, 相比黄牛价来说我相信是非常合理的",
 
   "希望这个项目比黄牛晚一天消失!! 我是个乐观的悲观主义者",
 ];
@@ -65,7 +63,6 @@ const CreationForm = () => {
   const [selectedCountry, setSelectedCountry] = useState(new Set(["Canada"]));
   const [selectedCities, setSelectedCities] = useState([]);
   const [consulates, setConsulates] = useState([]);
-  const [tips, setTips] = useState(0);
   const [timeIntervals, setTimeIntervals] = useState([
     {
       from: new Date(),
@@ -138,7 +135,7 @@ const CreationForm = () => {
 
   const onRead = () => {
     onOpenChange(false);
-    navigate("/submit", { state: { formData: { ...formData, tips } } });
+    navigate("/submission", { state: { formData } });
   };
 
   const handleTimeChange = (index, type, date) => {
@@ -326,19 +323,6 @@ const CreationForm = () => {
                   {whyHelperText.map((_, index) => (
                     <li key={index}>{t(`whyHelperText.text${index + 1}`)}</li>
                   ))}
-                  <li className="list-none">
-                    <Input
-                      type="number"
-                      label={`${t("form.gratuityFieldLabel")}?`}
-                      placeholder="0.00"
-                      startContent={
-                        <div className="pointer-events-none flex items-center">
-                          <span className="text-small text-default-400">$</span>
-                        </div>
-                      }
-                      onValueChange={setTips}
-                    ></Input>
-                  </li>
                 </ul>
               </ModalBody>
               <ModalFooter>

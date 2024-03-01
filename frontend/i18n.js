@@ -58,24 +58,37 @@ i18n
             text6: "这是一个免费项目, 如果对你有帮助的话请考虑支持项目运营",
             text7: "如果暂时没有预约, 在向系统提交请求前不用自己预约时间",
             text8: "用你的usvisa-info登陆邮箱发送邮件",
-            text9: "这是系统验证用户身份的重要步骤",
-            text10: "收到第一封回复",
+            text9: "系统会用你提供的信息进行身份验证。",
+            text10: "收到系统回邮",
             text11:
-              "系统会判断你提交的内容, 如果没有问题你会收到一封自动回复邮件",
-            text12: "没有收到回复请仔细对照使用教程, 检查内容并重新提交",
-            text13: "发送第二封邮件 (仅针对新用户)",
-            text14:
-              "上一步收到的回复邮件包含你需要完成的步骤, 完成后请用同样的邮箱回复邮件并附上凭证",
-            text15: "收到第二封回复",
-            text16:
-              "人工审核通过后, 你会收到一封确认邮件, 代表系统已经开始帮你抢位",
-            text17: "审核需要时间, 并且可能有时差, 如果没有收到回复请耐心等待",
+              "如果没有问题你会收到一封包括支付选项的自动回复邮件，否则请仔细对照使用教程，检查内容并重新提交。",
+            text12: "确认请求",
+            text13:
+              "完成支付后，你会自动跳转到请求确认页面，同时收到一封确认邮件，代表已经开始刷签。",
             text18: "建议直接修改密码以保护账户安全",
             text19: "前往发送邮件",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
           scheduleIdHelperText: scheduleIdHelperMapping,
           whyHelperText: whyHelperMapping,
+          confirmation: {
+            text1: "已收到你的刷签请求",
+            text2:
+              "一封确认邮件也会发送到你的邮箱，如果没有收到确认邮件请联系support@usvisa.lol人工查询。",
+          },
+          payment: {
+            option1: "微信支付",
+            option2: "支付宝",
+            option3: "银联支付",
+            text1: "请从以下三种支付方式中选择：",
+            text2:
+              "点击按钮后你会跳转到相应页面完成支付，完成支付后请保存好支付订单id。",
+            buttonText: "前往支付页面",
+          },
+          refund: {
+            text1: "系统收到邮件后将会自动退款。",
+            text2: "3月1日前用户退款需人工处理，请回复审核邮件发起申请。",
+          },
           form: {
             requestType1: "创建/更新刷签请求",
             requestType2: "查询刷签状态",
@@ -122,7 +135,7 @@ i18n
           proModeText1:
             "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
           proModeText2:
-            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此暂时无法免费开放使用",
+            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此无法免费开放使用",
           communityButtonText: "用户交流",
         },
       },
@@ -154,20 +167,13 @@ i18n
             text8:
               "Send the email of the following content using your usvisa-info login email",
             text9:
-              "This is an important step for system verification of user identity.",
-            text10: "Receive the first reply",
+              "The system will use the information you sent to verify your identity.",
+            text10: "Receive system reply",
             text11:
-              "The system will evaluate the content you sent, and if there are no issues, you will receive an automatic reply email.",
-            text12:
-              "If you do not receive a reply, please carefully check the content following the user tutorial and resubmit.",
-            text13: "Send the second email (for new users only)",
-            text14:
-              "The reply email received in step 2 contains what you need to complete, after completing them please reply the email with proof attached.",
-            text15: "Receive the second reply",
-            text16:
-              "After passing the manual review, you will receive a confirmation email, indicating that the system has started to help you secure a spot.",
-            text17:
-              "It takes time to review, and there may be time differences, if you do not receive a reply please be patient and wait.",
+              "If there are no issues, you will receive an automatic reply email including payment options; otherwise, please carefully refer to the tutorial, check the content, and resubmit.",
+            text12: "Request confirmed",
+            text13:
+              "After completing the payment, you will be automatically redirected to the request confirmation page, and you will receive a confirmation email, indicating that the slot grabbing has started.",
             text18: "Please also change your password for account security",
             text19: "Send Email",
             specialRequest:
@@ -196,17 +202,35 @@ i18n
             text3:
               "The scalper price for U.S. visas ranges from $150 to $800, and there might be even more expensive and absurd cases. This project is free, and nobody is being forced to pay.",
             text4:
-              "The scalpers continue to threaten and intimidate me. I'm not sure what capabilities they have, and whether they might pose a threat to my life.",
+              "The program was free to use for anyone originally, with the hope that if everyone would tip a small portion of what scalpers asked for, the project would continue until the scalpers disapper.",
             text5:
-              "I've already set up all servers for automatic renewal, using the balance in the tips account for payment.",
+              "However, after nearly three months of operation, even though it has successfully helped hundreds of people, very few actually give tips. Moreover, scalpers have exploited system vulnerabilities for their own profit.",
             text6:
-              "This system will keep running automatically until the account balance is insufficient to cover the server costs, regardless of whether I'm still here or not.",
+              "In order for more people to benefit, the system will no longer operate on a tip basis and will need to charge a certain fee.",
             text7:
-              "If starting from today, January 15, 2024, there is no tip support, the money in my account can keep it running until February 29, 2024.",
+              "This fee is only to subsidize the normal operating costs of the project, and I believe it is very reasonable compared to the scalper's price.",
             text8:
-              "If each user is willing to give a tip of one-third of the lowest scalper price, which is 50 CAD, this project can last until the scalpers disappear.",
-            text9:
               "I hope this project disappears a day later than the scalpers! I'm an optimistic pessimist.",
+          },
+          confirmation: {
+            text1: "Your request is confirmed!",
+            text2:
+              "A confirmation email will also be sent to your mailbox. If you do not receive the confirmation email, please contact support@usvisa.lol for manual inquiry.",
+          },
+          payment: {
+            option1: "WechatPay",
+            option2: "AliPay",
+            option3: "UnionPay",
+            text1: "Please select from the following options for payment: ",
+            text2:
+              "You will be redirected to the corresponding page to complete the payment. Please save your payment order ID.",
+            buttonText: "Go to payment page",
+          },
+          refund: {
+            text1:
+              "Refund will be automatically issued after receving the email. ",
+            text2:
+              "If you submitted the request before 3/1, please reply to the approval email for manual processing.",
           },
           form: {
             requestType1: "Create/Update request",

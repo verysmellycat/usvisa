@@ -18,8 +18,7 @@ const Submission = () => {
   const to = abbr[countryMap[formData.countryFull][0]];
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
-  const content =
-    "https://www.usvisa.lol/\nYou can reschedule the U.S. visa appointment slots automatically here for free, zero fees are charged, you don't have to pay to any ticket scalpers, let them perish.\n在这里可以免费刷美国签证位置, 不收取任何费用, 没必要给任何黄牛付钱, 让他们死绝.";
+  const content = "https://www.usvisa.lol/";
   const { countryFull, ...finalData } = formData;
 
   useEffect(() => {
@@ -83,6 +82,14 @@ const Submission = () => {
             defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
             onClick={() => copyToClipboard(contentRef)}
           />
+          {formData.action === "cancel" && (
+            <>
+              <p className="text-sm">
+                {t("refund.text1")} <br />
+                {t("refund.text2")}
+              </p>
+            </>
+          )}
           <Button
             onClick={handleClick}
             className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
@@ -100,34 +107,17 @@ const Submission = () => {
             </div>
             <div className="col-span-9 flex flex-col gap-y-3">
               <h2 className="font-bold">{t("text.text10")}</h2>
-              <p className="text-sm">
-                {t("text.text11")}
-                <br />
-                {t("text.text12")}
-              </p>
+              <p className="text-sm">{t("text.text11")}</p>
             </div>
           </div>
           <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
             <div className="flex w-fit flex-col items-center justify-self-center">
               <span className="rounded-lg border px-3 py-1">3</span>
-              <div className="grow border-l"></div>
+              <div className="grow"></div>
             </div>
             <div className="col-span-9 flex flex-col gap-y-3">
-              <h2 className="font-bold">{t("text.text13")}</h2>
-              <p className="text-sm">{t("text.text14")}</p>
-            </div>
-          </div>
-          <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">
-            <div className="flex w-fit flex-col items-center justify-self-center">
-              <span className="rounded-lg border px-3 py-1">4</span>
-            </div>
-            <div className="col-span-9 flex flex-col gap-y-3 md:max-w-xl">
-              <h2 className="font-bold">{t("text.text15")}</h2>
-              <p className="text-sm">
-                {t("text.text16")}
-                <br />
-                {t("text.text17")}
-              </p>
+              <h2 className="font-bold">{t("text.text12")}</h2>
+              <p className="text-sm">{t("text.text13")}</p>
             </div>
           </div>
         </>

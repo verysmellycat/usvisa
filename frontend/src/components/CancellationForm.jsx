@@ -30,7 +30,7 @@ const CancelForm = () => {
 
   useEffect(() => {
     if (formData) {
-      navigate("/submit", { state: { formData } });
+      navigate("/submission", { state: { formData } });
     }
   }, [formData, navigate]);
 

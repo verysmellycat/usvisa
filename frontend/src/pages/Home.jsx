@@ -5,7 +5,6 @@ import CancellationForm from "../components/CancellationForm";
 import { IoIosInformationCircle } from "react-icons/io";
 import Faq from "../components/Faq";
 import { Radio, RadioGroup } from "@nextui-org/react";
-import Payment from "../components/Payment";
 import { useTranslation } from "react-i18next";
 import { Tabs, Tab } from "@nextui-org/react";
 import {
@@ -40,9 +39,7 @@ const Home = () => {
     <div className="my-3 flex w-full flex-col items-center gap-y-3">
       <div className="space-y-3 text-center">
         <p>{t("text.text1")} 🚀</p>
-        <p>{t("text.text6")}</p>
       </div>
-      <Payment />
       <div className="flex w-full flex-col gap-y-3">
         <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>
