@@ -1,4 +1,4 @@
-import { useForm, Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { Select, SelectItem, SelectSection, Avatar } from "@nextui-org/react";
 import { countries, countryMap } from "../config.js";
 import { useTranslation } from "react-i18next";
