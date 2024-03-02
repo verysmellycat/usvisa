@@ -63,8 +63,7 @@ i18n
             text11:
               "如果没有问题你会收到一封包括支付选项的自动回复邮件，否则请仔细对照使用教程，检查内容并重新提交。",
             text12: "确认请求",
-            text13:
-              "完成支付后，你会自动跳转到请求确认页面，同时收到一封确认邮件，代表已经开始刷签。",
+            text13: "完成支付后，你会收到一封确认邮件，代表已经开始刷签。",
             text14: "注：以下仅为订单支付后示意图",
             text15:
               "近期通过测试发现，usvisa-info在修改账户邮箱时不会向原有邮箱发送确认邮件，而是直接修改成功。这个发现直接导致我们通过发邮件来验证用户身份的机制失效，并且解释了为什么黄牛可以用这个系统牟利，也让我们不得已做出一些改变。",
@@ -79,7 +78,7 @@ i18n
           confirmation: {
             text1: "已收到你的刷签请求",
             text2:
-              "一封确认邮件也会发送到你的邮箱，如果没有收到确认邮件请联系support@usvisa.lol人工查询。",
+              "一封确认邮件也会发送到你的邮箱，如果没有收到请联系support@usvisa.lol人工查询。",
           },
           payment: {
             option1: "微信支付",
@@ -180,7 +179,7 @@ i18n
               "If there are no issues, you will receive an automatic reply email including payment options; otherwise, please carefully refer to the tutorial, check the content, and resubmit.",
             text12: "Request confirmed",
             text13:
-              "After completing the payment, you will be automatically redirected to the request confirmation page, and you will receive a confirmation email, indicating that the slot grabbing has started.",
+              "After completing the payment, you will receive a confirmation email, indicating that the slot grabbing has started.",
             text14: "Note: what shown below is a demonstration only",
             text15:
               "It has been found that when modifying an account's email on usvisa-info, the system does not send a confirmation email to the original email address but directly completes the modification. This discovery has rendered our mechanism of verifying user identity through email ineffective, and it also explains why scalpers can profit from this system, forcing us to make some changes.",

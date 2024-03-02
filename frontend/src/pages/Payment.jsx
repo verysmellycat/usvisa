@@ -11,9 +11,9 @@ export default function Payment() {
 
   return (
     <div className="my-3 flex w-full flex-col items-center gap-y-3">
-      <p className="text-lg font-bold">{t("payment.text1")}</p>
       <div className="flex w-5/6 flex-col items-center gap-y-3 p-3">
-        <div className="grid h-[60px] w-full grid-cols-3 gap-x-4">
+        <p className="text-lg font-bold">{t("payment.text1")}</p>
+        <div className="grid h-[60px] w-2/3 grid-cols-2 gap-x-4">
           <Button
             className={`flex h-full flex-col items-center justify-between gap-y-1 rounded-lg border bg-white px-6 py-2 ${isActive !== "wechat_payment_url" && "hover:border-sky-400"} ${isActive === "wechat_payment_url" && " underline decoration-sky-400 decoration-2 underline-offset-8"}`}
             disableAnimation
@@ -30,14 +30,14 @@ export default function Payment() {
             <img src="/aliPay.png" alt="aliPay" width={20} height={20} />
             <p className="">{t("payment.option2")}</p>
           </Button>
-          <Button
+          {/**           <Button
             className={`flex h-full flex-col items-center justify-between gap-y-1 rounded-lg border bg-white px-6 py-2 ${isActive !== "unionpay_payment_url" && "hover:border-sky-400"} ${isActive === "unionpay_payment_url" && " underline decoration-sky-400 decoration-2 underline-offset-8"}`}
             disableAnimation
             onClick={() => setIsActive("unionpay_payment_url")}
           >
             <img src="/unionPay.png" alt="wechatPay" width={30} height={30} />
             <p className="">{t("payment.option3")}</p>
-          </Button>
+          </Button>*/}
         </div>
         <div className="flex w-full flex-col gap-y-3">
           <p className="text-center text-sm">{t("text.text14")}</p>
