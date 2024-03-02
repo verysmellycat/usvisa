@@ -105,6 +105,8 @@ const Submission = () => {
             <div className="col-span-9 flex flex-col gap-y-3">
               <h2 className="font-bold">{t("text.text10")}</h2>
               <p className="text-sm">{t("text.text11")}</p>
+              <p className="text-sm">{t("text.text15")}</p>
+              <p className="text-sm">{t("text.text16")}</p>
             </div>
           </div>
           <div className="grid min-h-[100px] w-full grid-cols-10 gap-x-3">

@@ -65,6 +65,11 @@ i18n
             text12: "确认请求",
             text13:
               "完成支付后，你会自动跳转到请求确认页面，同时收到一封确认邮件，代表已经开始刷签。",
+            text14: "注：以下仅为订单支付后示意图",
+            text15:
+              "近期通过测试发现，usvisa-info在修改账户邮箱时不会向原有邮箱发送确认邮件，而是直接修改成功。这个发现直接导致我们通过发邮件来验证用户身份的机制失效，并且解释了为什么黄牛可以用这个系统牟利，也让我们不得已做出一些改变。",
+            text16:
+              "自3月1日起，我们不再采用小费模式运营系统，而是会收取一定费用。这项费用只为补贴系统日常运行成本，只有这样的举措才能让更多人从中受益，希望用户理解。",
             text18: "建议直接修改密码以保护账户安全",
             text19: "前往发送邮件",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
@@ -81,8 +86,8 @@ i18n
             option2: "支付宝",
             option3: "银联支付",
             text1: "请从以下三种支付方式中选择：",
-            text2:
-              "点击按钮后你会跳转到相应页面完成支付，完成支付后请保存好支付订单id。",
+            text2a: "点击按钮后你会跳转到相应页面完成支付，",
+            text2b: "完成支付后请保存好支付订单id。",
             buttonText: "前往支付页面",
           },
           refund: {
@@ -97,6 +102,8 @@ i18n
             fieldLabel1: "预约国家",
             fieldPlaceholder1: "加拿大",
             fieldPlaceholder2: "大多数用户都不用填",
+            fieldErrorMessage2a: "无效schdule id",
+            fieldErrorMessage2b: "单个schedule id是8位数字",
             fieldLabel3: "预约城市",
             fieldPlaceholder3: "可多选",
             fieldErrorMessage3: "至少选择一个城市",
@@ -174,6 +181,11 @@ i18n
             text12: "Request confirmed",
             text13:
               "After completing the payment, you will be automatically redirected to the request confirmation page, and you will receive a confirmation email, indicating that the slot grabbing has started.",
+            text14: "Note: what shown below is a demonstration only",
+            text15:
+              "It has been found that when modifying an account's email on usvisa-info, the system does not send a confirmation email to the original email address but directly completes the modification. This discovery has rendered our mechanism of verifying user identity through email ineffective, and it also explains why scalpers can profit from this system, forcing us to make some changes.",
+            text16:
+              "Starting from March 1st, we will no longer operate the system on a tipping model but will charge a certain fee. This fee is solely to cover the daily operational costs of the system, and only such measures will allow more people to benefit from it. We hope our users understand.",
             text18: "Please also change your password for account security",
             text19: "Send Email",
             specialRequest:
@@ -204,7 +216,7 @@ i18n
             text4:
               "The program was free to use for anyone originally, with the hope that if everyone would tip a small portion of what scalpers asked for, the project would continue until the scalpers disapper.",
             text5:
-              "However, after nearly three months of operation, even though it has successfully helped hundreds of people, very few actually give tips. Moreover, scalpers have exploited system vulnerabilities for their own profit.",
+              "However, after two months of operation, even though it has successfully helped hundreds of people, very few actually give tips. Moreover, scalpers have exploited system vulnerabilities for their own profit.",
             text6:
               "In order for more people to benefit, the system will no longer operate on a tip basis and will need to charge a certain fee.",
             text7:
@@ -222,8 +234,9 @@ i18n
             option2: "AliPay",
             option3: "UnionPay",
             text1: "Please select from the following options for payment: ",
-            text2:
-              "You will be redirected to the corresponding page to complete the payment. Please save your payment order ID.",
+            text2a:
+              "You will be redirected to the corresponding page to complete the payment.",
+            text2b: "Please save your payment order ID.",
             buttonText: "Go to payment page",
           },
           refund: {
@@ -240,6 +253,8 @@ i18n
             fieldLabel1: "Country",
             fieldPlaceholder1: "Canada",
             fieldPlaceholder2: "Not necessary for most users",
+            fieldErrorMessage2a: "Invalid schedule id",
+            fieldErrorMessage2b: "A single schedule id should be 8 digits",
             fieldLabel3: "Consulate",
             fieldPlaceholder3: "Multiple selection",
             fieldErrorMessage3: "At lease one selection is required",

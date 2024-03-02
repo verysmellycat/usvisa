@@ -40,16 +40,21 @@ export default function Payment() {
           </Button>
         </div>
         <div className="flex w-full flex-col gap-y-3">
-          <p className="text-center text-sm">{t("payment.text2")}</p>
+          <p className="text-center text-sm">{t("text.text14")}</p>
           <img
             src="/orderId.jpg"
             alt="order id"
             className="mx-auto max-w-[250px] object-contain"
           />
+          <p className="text-center text-sm">
+            {t("payment.text2a")}
+            <span className="font-medium text-danger">
+              {t("payment.text2b")}
+            </span>
+          </p>
           <Button
             as={Link}
             href={`${queryParams.get(isActive)}`}
-            disableAnimation
             className="rounded-xl border-2 bg-sky-400 p-3 text-sm"
           >
             {t("payment.buttonText")}

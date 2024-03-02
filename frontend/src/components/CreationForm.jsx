@@ -33,7 +33,7 @@ export const whyHelperText = [
 
   "系统本是开放给大家免费使用, 如果每个成功预约的朋友愿意给黄牛最低价三分之一的tips, 这个项目就能坚持到黄牛消失",
 
-  "但经过近三个月的运行, 即使已经成功帮助了几百人, 真正会给tips的寥寥可数, 更有黄牛利用系统漏洞为自己牟利",
+  "但经过两个月的运行, 即使已经成功帮助了几百人, 真正会给tips的寥寥可数, 更有黄牛利用系统漏洞为自己牟利",
 
   "为了更多人能从中受益, 系统使用不再采取小费制, 需要收取一定费用",
 
@@ -167,6 +167,16 @@ const CreationForm = () => {
           control={control}
           name="schedule_ids"
           defaultValue=""
+          rules={{
+            pattern: {
+              value: /^$|^5\d*(?:,5\d*)*$/,
+              message: t("form.fieldErrorMessage2a"),
+            },
+            minLength: {
+              value: 8,
+              message: t("form.fieldErrorMessage2b"),
+            },
+          }}
           render={({ field }) => (
             <Input
               {...field}
