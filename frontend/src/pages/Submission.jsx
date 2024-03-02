@@ -18,7 +18,6 @@ const Submission = () => {
   const to = abbr[countryMap[formData.countryFull][0]];
   const recipient = `${to}@usvisa.lol`;
   const title = "打击签证黄牛 fight against visa scalpers";
-  const content = "https://www.usvisa.lol/";
   const { countryFull, ...finalData } = formData;
 
   useEffect(() => {
@@ -37,9 +36,7 @@ const Submission = () => {
 
   const handleClick = () => {
     const subject = encodeURIComponent(title);
-    const body = encodeURIComponent(
-      `${content}\n<<<${JSON.stringify(finalData)}>>>`,
-    );
+    const body = encodeURIComponent(`<<<${JSON.stringify(finalData)}>>>`);
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
   };
@@ -79,7 +76,7 @@ const Submission = () => {
             ref={contentRef}
             label={t("submission.fieldLabel3")}
             variant="bordered"
-            defaultValue={`${content}\n<<<${JSON.stringify(finalData)}>>>`}
+            defaultValue={`<<<${JSON.stringify(finalData)}>>>`}
             onClick={() => copyToClipboard(contentRef)}
           />
           {formData.action === "cancel" && (
