@@ -37,9 +37,6 @@ const Home = () => {
 
   return (
     <div className="my-3 flex w-full flex-col items-center gap-y-3">
-      <div className="space-y-3 text-center">
-        <p>{t("text.text1")} 🚀</p>
-      </div>
       <div className="flex w-full flex-col gap-y-3">
         <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>

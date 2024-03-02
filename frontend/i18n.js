@@ -141,7 +141,7 @@ i18n
           proModeText1:
             "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
           proModeText2:
-            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此无法免费开放使用",
+            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此无法免费开放使用.",
           communityButtonText: "用户交流",
         },
       },
@@ -271,27 +271,18 @@ i18n
           },
           faq: {
             header: "FAQ",
-            faq1: 'How should I answer the question "Are you traveling from another country to apply for a U.S. visa in Canada?"',
-            answer1:
-              "No if you are a local resident, student, worker, or permanent resident. Yes if you are in Canada on a visitor's Visa.",
+            faq1: 'How should I answer the TCN question "Are you traveling from another country to apply for a U.S. visa in Canada?"',
+            answer1: "No if you are a local resident, student, worker, or permanent resident. Yes if you are in Canada on a visitor's Visa.",
             faq2: "Am I eligible to use this program if I answered yes to the above question?",
-            answer2:
-              "Yes, the program is applicable to both yes and no scenarios.",
-            faq3: "What else do I need to do after submitting the request?",
-            answer3:
-              "If there are no errors in your submission, you will receive a notification email shortly. If it says that the program has started, all you need is to wait. If there is an error, such as a wrong password, etc., no email will be sent and you will need to check and resubmit!",
-            faq4: "Will my current appointment get cancelled?",
-            answer4:
-              "No, the program will only reschedule the appointment within your desirable time range. Make sure your USVISA-INFO credentials remain secured to yourself!!!",
-            faq5: "What if I need to correct the information or time range?",
-            answer5:
-              "Before you are rescheduled successfully, you may submit new requests with updated information, and the previous request will be overwritten.",
-            faq6: "Can I use the program again to schedule for an earlier date, if I had already secured a spot using it?",
-            answer6:
-              "Yes, feel free to submit a new request and follow the instructions from the email reply.",
-            faq7: "What if I need to correct the information or time range?",
-            answer7:
-              "Before you are rescheduled successfully, you may submit new requests with updated information, and the previous request will be overwritten.",
+            answer2: "Yes, the program is applicable to both yes and no scenarios; but the success rate of tcn=yes is quite low, please make sure you answer correctly.",
+            faq3: "What else do I need to do after submitting the request? Is there anything I cannot do?",
+            answer3: "No, the program will automatically reschedule and send an email notificaiton to you. In the mean time, you can do whatever you want, it won't affect the program.",
+            faq4: "Should I cancel my existing appointment to use the program? Will my appointment get cancelled by the program?",
+            answer4: "No, you don't have to cancel your existing appointment. The program won't cancel your appointment, instead, it will only reschedule the appointment to your desirable date range. Make sure your USVISA-INFO credentials remain secured.",
+            faq5: "What if I need to correct the information or date range?",
+            answer5: "Submit a new request.",
+            faq6: "Can I use the program again and again and again?",
+            answer6: "Yes, simply submit a new request.",
           },
           submission: {
             fieldLabel1: "Recipient",

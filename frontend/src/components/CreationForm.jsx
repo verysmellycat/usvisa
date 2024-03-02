@@ -191,7 +191,7 @@ const CreationForm = () => {
         <Popover placement="right">
           <PopoverTrigger>
             <Button isIconOnly size="sm" className="bg-transparent">
-              <IoIosInformationCircle size={24} />
+              <IoIosInformationCircle color="red" size={24} />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
