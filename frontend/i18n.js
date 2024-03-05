@@ -142,6 +142,11 @@ i18n
           proModeText4: "如需使用请邮件联系",
           communityButtonText: "用户交流",
           toggleLanguage: "切换语言",
+          open: "显示",
+          close: "关闭",
+          donation: "如果你愿意支持这个项目可以用以下方式捐赠",
+          donationButtonText: "付款方式",
+          donationText: "以下方式仅限捐赠使用",
         },
       },
       en: {
@@ -315,6 +320,12 @@ i18n
           notification:
             "The program will be closed temporarily starting from Feb. 22. Thanks for the support!",
           toggleLanguage: "Language",
+          open: "Display ",
+          close: "Close ",
+          donation:
+            "If you wish to support this program, please consider donating us.",
+          donationButtonText: "payment method",
+          donationText: "This should be used for donation only",
         },
       },
     },
