@@ -146,7 +146,7 @@ i18n
           close: "关闭",
           donation: "如果你愿意支持这个项目可以用以下方式捐赠",
           donationButtonText: "付款方式",
-          donationText: "以下方式仅限捐赠使用",
+          donationText: "仅限捐赠使用",
         },
       },
       en: {
