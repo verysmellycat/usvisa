@@ -7,21 +7,15 @@ import Faq from "../components/Faq";
 import { Radio, RadioGroup } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 import { Tabs, Tab } from "@nextui-org/react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-} from "@nextui-org/react";
-import { FaRobot } from "react-icons/fa";
 import AnimateHeight from "react-animate-height";
+import { Button } from "@nextui-org/react";
 
 const Home = () => {
   const [requestType, setRequestType] = useState("create");
   const [formHeight, setFormHeight] = useState("auto");
   const [formRef, setFormRef] = useState(null);
   const { t } = useTranslation();
+  const [isDisplayed, setIsDisplayed] = useState(false);
 
   useEffect(() => {
     //formRef === ref.current
@@ -37,6 +31,21 @@ const Home = () => {
 
   return (
     <div className="my-3 flex w-full flex-col items-center gap-y-3">
+      <p className="text-sm">{t("donation")}</p>
+      <Button
+        disableAnimation
+        onClick={() => setIsDisplayed(!isDisplayed)}
+        className="rounded-lg border p-3"
+      >
+        {isDisplayed ? t("close") : t("open")}
+        {t("donationButtonText")}
+      </Button>
+      {isDisplayed && (
+        <div className="space-y-2">
+          <p className="text-center text-sm">{t("donationText")}</p>
+          <img src="/tipsQR.png" alt="tips image" width={250} />
+        </div>
+      )}
       <div className="flex w-full flex-col gap-y-3">
         <Tabs className="self-center" disableAnimation>
           <Tab key="regular" title={t("regularMode")}>
