@@ -169,7 +169,7 @@ const CreationForm = () => {
           defaultValue=""
           rules={{
             pattern: {
-              value: /^$|^5\d*(?:,5\d*)*$/,
+              value: /^\d{8}(,\d{8})*$/,
               message: t("form.fieldErrorMessage2a"),
             },
             minLength: {
