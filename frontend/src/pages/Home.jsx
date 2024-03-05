@@ -75,37 +75,17 @@ const Home = () => {
             </div>
           </Tab>
           <Tab key="pro" title={t("proMode")}>
-            <Card className="mx-auto max-w-xl">
-              <CardHeader className="flex gap-3">
-                <FaRobot size={40} />
-                <div className="flex flex-col">
-                  <p className="text-sm">Admin</p>
-                  <p className="text-sm text-default-500">usvisa.lol</p>
-                </div>
-              </CardHeader>
-              <Divider />
-              <CardBody>
-                <div className="space-y-2 text-sm">
-                  <p>
-                    {t("proModeTextSegment1")}
-                    <strong>{t("proModeTextSegment2")}</strong>
-                    {", "}
-                    {t("proModeTextSegment3")}
-                  </p>
-                  <p>{t("proModeText1")}</p>
-                  <p>{t("proModeText2")}</p>
-                </div>
-              </CardBody>
-              <Divider />
-              <CardFooter>
-                <p className="text-sm">
-                  {t("specialRequest")}{" "}
-                  <span className="text-blue-600 underline underline-offset-2">
-                    support@usvisa.lol
-                  </span>
-                </p>
-              </CardFooter>
-            </Card>
+            <div className="flex flex-col gap-y-3 text-center text-sm">
+              <p>{t("proModeText1")}</p>
+              <p>{t("proModeText2")}</p>
+              <p>{t("proModeText3")}</p>
+              <p>
+                {t("proModeText4")}{" "}
+                <span className="text-blue-600 underline underline-offset-2">
+                  support@usvisa.lol
+                </span>
+              </p>
+            </div>
           </Tab>
         </Tabs>
         <Faq />

@@ -134,15 +134,14 @@ i18n
           githubButtonText2: "请求新功能/国家支持, 参与讨论或提供反馈",
           regularMode: "正常模式",
           proMode: "Pro模式",
-          specialRequest: "如有特别/紧急需求请邮件联系",
-          proModeTextSegment1: "如果不是近期",
-          proModeTextSegment2: "必须面试",
-          proModeTextSegment3: "请使用正常模式耐心等待",
-          proModeText1:
-            "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
+          proModeText1: "非特别/紧急需求请使用正常模式耐心等待",
           proModeText2:
-            "Pro模式提升抢位效率数倍, 但我们的运营成本也会大幅上涨, 因此无法免费开放使用.",
+            "抢位成功与否取决于领事馆放号情况, 我们不会削弱正常模式, 并且会不断优化系统",
+          proModeText3:
+            "Pro模式提升抢位效率数倍, 但运行成本也会大幅上涨, 因此无法免费开放使用",
+          proModeText4: "如需使用请邮件联系",
           communityButtonText: "用户交流",
+          toggleLanguage: "切换语言",
         },
       },
       en: {
@@ -272,13 +271,17 @@ i18n
           faq: {
             header: "FAQ",
             faq1: 'How should I answer the TCN question "Are you traveling from another country to apply for a U.S. visa in Canada?"',
-            answer1: "No if you are a local resident, student, worker, or permanent resident. Yes if you are in Canada on a visitor's Visa.",
+            answer1:
+              "No if you are a local resident, student, worker, or permanent resident. Yes if you are in Canada on a visitor's Visa.",
             faq2: "Am I eligible to use this program if I answered yes to the above question?",
-            answer2: "Yes, the program is applicable to both yes and no scenarios; but the success rate of tcn=yes is quite low, please make sure you answer correctly.",
+            answer2:
+              "Yes, the program is applicable to both yes and no scenarios; but the success rate of tcn=yes is quite low, please make sure you answer correctly.",
             faq3: "What else do I need to do after submitting the request? Is there anything I cannot do?",
-            answer3: "No, the program will automatically reschedule and send an email notificaiton to you. In the mean time, you can do whatever you want, it won't affect the program.",
+            answer3:
+              "No, the program will automatically reschedule and send an email notificaiton to you. In the mean time, you can do whatever you want, it won't affect the program.",
             faq4: "Should I cancel my existing appointment to use the program? Will my appointment get cancelled by the program?",
-            answer4: "No, you don't have to cancel your existing appointment. The program won't cancel your appointment, instead, it will only reschedule the appointment to your desirable date range. Make sure your USVISA-INFO credentials remain secured.",
+            answer4:
+              "No, you don't have to cancel your existing appointment. The program won't cancel your appointment, instead, it will only reschedule the appointment to your desirable date range. Make sure your USVISA-INFO credentials remain secured.",
             faq5: "What if I need to correct the information or date range?",
             answer5: "Submit a new request.",
             faq6: "Can I use the program again and again and again?",
@@ -301,18 +304,17 @@ i18n
             "Ask questions, share feedback, get updates, learn about upcoming features and more",
           regularMode: "Regular Mode",
           proMode: "Pro Mode",
-          specialRequest: "For special/emergency request please contact",
-          proModeTextSegment1: "If a recent interview ",
-          proModeTextSegment2: "is not mandatory",
-          proModeTextSegment3:
-            "please use the regular mode and patiently wait.",
           proModeText1:
-            "Slot grabbing is dependent on the consulate's availability. We will not weaken the regular mode, and we will continuously optimize the system.",
+            "For non-emergency request, please use the regular mode and patiently wait.",
           proModeText2:
+            "Slot grabbing is dependent on the consulate's availability. We will not weaken the regular mode, and we will continuously optimize the system.",
+          proModeText3:
             "The pro mode significantly increases the slot grabbing efficiency, but it also substantially raises our operational costs. Sadly, it cannot be offered free of cost at the moment.",
+          proModeText4: "For special/emergency request please contact",
           communityButtonText: "Community",
           notification:
             "The program will be closed temporarily starting from Feb. 22. Thanks for the support!",
+          toggleLanguage: "Language",
         },
       },
     },

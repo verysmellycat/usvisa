@@ -17,19 +17,21 @@ function App() {
     <BrowserRouter>
       <div className="container mx-auto">
         <NavBar />
-        <div className="mx-auto mt-3 flex w-5/6 flex-col md:w-2/3">
-          <h1 className="text-center text-2xl font-bold">
-            {t("headers.header1")}
-          </h1>
-          <button
-            className="self-end"
-            onClick={() => {
-              let lang = i18n.resolvedLanguage === "en" ? "ch" : "en";
-              i18n.changeLanguage(lang);
-            }}
-          >
-            <IoLanguage size={26} />
-          </button>
+        <div className="mx-auto mt-3 flex w-5/6 flex-col gap-y-3 md:w-2/3">
+          <div className="relative flex items-center">
+            <h1 className="mx-auto text-center text-2xl font-bold">
+              {t("headers.header1")}
+            </h1>
+            <button
+              className="absolute left-0 rounded-lg border p-1 hover:bg-foreground-100"
+              onClick={() => {
+                let lang = i18n.resolvedLanguage === "en" ? "ch" : "en";
+                i18n.changeLanguage(lang);
+              }}
+            >
+              <IoLanguage size={26} />
+            </button>
+          </div>
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/submission" element={<Submission />}></Route>
