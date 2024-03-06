@@ -290,7 +290,7 @@ i18n
             faq5: "What if I need to correct the information or date range?",
             answer5: "Submit a new request.",
             faq6: "Can I use the program again and again and again?",
-            answer6: "Yes, simply submit a new request.",
+            answer6: "Yes, simply submit a new request, but you'll have to pay.",
           },
           submission: {
             fieldLabel1: "Recipient",
