@@ -11,6 +11,7 @@ import { MdDelete } from "react-icons/md";
 import { IoIosAddCircle } from "react-icons/io";
 import { Select, SelectItem } from "@nextui-org/react";
 import { countryMap, countries } from "../config";
+import { Checkbox } from "@nextui-org/react";
 
 export default function RequestForm({ variant, setters }) {
   const { t } = useTranslation();
@@ -18,6 +19,7 @@ export default function RequestForm({ variant, setters }) {
   const { country } = params;
   const { setFormData, setActiveTab } = setters;
   const [consulates, setConsulates] = useState([]);
+  const [isSelected, setIsSelected] = useState(false);
 
   const {
     control,
@@ -86,6 +88,7 @@ export default function RequestForm({ variant, setters }) {
       conditions: formattedTimeIntervals,
       action: "create",
       country: country,
+      applicants: parseInt(formData.applicants),
     };
     if (variant === "ais") {
       data.schedule_ids =
@@ -249,7 +252,18 @@ export default function RequestForm({ variant, setters }) {
             )}
           />
         )}
-        <Button className="bg-foreground text-background" type="submit">
+        {variant === "cgi" && (
+          <Checkbox isSelected={isSelected} onValueChange={setIsSelected}>
+            <p className="text-sm">
+              请确保你填写的人数与账户中一致，否则程序无法正常运行
+            </p>
+          </Checkbox>
+        )}
+        <Button
+          className="bg-foreground text-background"
+          type="submit"
+          isDisabled={!isSelected}
+        >
           {t("提交")}
         </Button>
       </form>

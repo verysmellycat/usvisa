@@ -20,6 +20,7 @@ import {
 import Tutorial from "../components/Tutorial";
 import { CiCircleQuestion } from "react-icons/ci";
 import RequestForm from "../components/RequestForm.jsx";
+import { Link } from "@nextui-org/react";
 
 export default function Home() {
   const [formData, setFormData] = useState(null);
@@ -66,7 +67,7 @@ export default function Home() {
           <p className="text-xl font-bold">自动抓取位置</p>
           <p className="font text-lg text-foreground-500">
             {variant === "cgi"
-              ? "支持Chrome，Firefox等主流浏览器"
+              ? "支持Chrome等主流浏览器"
               : "预约成功实时邮件通知"}
           </p>
         </div>

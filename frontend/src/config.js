@@ -62,7 +62,7 @@ export const countries = {
   },
   Asia: {
     ae: ["Abu Dhabi", "Dubai"],
-    //cn: [],
+    cn: [],
   },
 };
 
@@ -92,7 +92,7 @@ export const countryMap = {
   cy: ["Europe", "ais", "Cyprus", "塞浦路斯"],
   rs: ["Europe", "ais", "Serbia", "塞尔维亚"],
   ae: ["Asia", "ais", "United Arab Emirates", "阿联酋"],
-  //cn: ["Asia", "cgi", "China", "中国"],
+  cn: ["Asia", "cgi", "China", "中国"],
   mx: ["The Americas", "ais", "Mexico", "墨西哥"],
   cl: ["The Americas", "ais", "Chile", "智利"],
   br: ["The Americas", "ais", "Brazil", "巴西"],
