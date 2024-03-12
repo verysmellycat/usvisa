@@ -1,106 +1,250 @@
-import { useState, useEffect } from "react";
-import CreationForm from "../components/CreationForm";
-import QueryForm from "../components/QueryForm";
-import CancellationForm from "../components/CancellationForm";
-import { IoIosInformationCircle } from "react-icons/io";
-import Faq from "../components/Faq";
-import { Radio, RadioGroup } from "@nextui-org/react";
-import { useTranslation } from "react-i18next";
-import { Tabs, Tab } from "@nextui-org/react";
-import AnimateHeight from "react-animate-height";
+import { useParams } from "react-router-dom";
+import { useRef, useState } from "react";
 import { Button } from "@nextui-org/react";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import SubmissionForm from "../components/SubmissionForm";
+import { aisFaq, cgiFaq } from "../constants";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { useLocation } from "react-router-dom";
+import { countryMap } from "../config";
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@nextui-org/react";
+import Tutorial from "../components/Tutorial";
+import { CiCircleQuestion } from "react-icons/ci";
+import RequestForm from "../components/RequestForm.jsx";
 
-const Home = () => {
-  const [requestType, setRequestType] = useState("create");
-  const [formHeight, setFormHeight] = useState("auto");
-  const [formRef, setFormRef] = useState(null);
+export default function Home() {
+  const [formData, setFormData] = useState(null);
+  const [activeTab, setActiveTab] = useState(0);
+  const [action, setAction] = useState(null);
+  const params = useParams();
+  const { country } = params;
   const { t } = useTranslation();
-  const [isDisplayed, setIsDisplayed] = useState(false);
+  const location = useLocation();
+  const variant = location.pathname.split("/")[1];
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const ref = useRef(null);
 
-  useEffect(() => {
-    //formRef === ref.current
-    if (formRef) {
-      const observed = formRef;
-      const resizeObserver = new ResizeObserver(() => {
-        setFormHeight(observed.clientHeight);
-      });
-      resizeObserver.observe(observed);
-      return () => resizeObserver.disconnect();
-    }
-  }, [formRef]);
+  const options = [
+    {
+      action: "create",
+      label: "创建/更新刷签请求",
+    },
+    {
+      action: "query",
+      label: "查询刷签状态",
+    },
+    {
+      action: "cancel",
+      label: "取消刷签&退款",
+    },
+  ];
 
   return (
-    <div className="my-3 flex w-full flex-col items-center gap-y-3">
-      <p className="text-sm">{t("donation")}</p>
-      <Button
-        disableAnimation
-        onClick={() => setIsDisplayed(!isDisplayed)}
-        className="rounded-lg border p-3"
-      >
-        {isDisplayed ? t("close") : t("open")}
-        {t("donationButtonText")}
-      </Button>
-      {isDisplayed && (
-        <div className="space-y-2">
-          <p className="text-center text-sm">{t("donationText")}</p>
-          <img src="/tipsQR.png" alt="tips image" width={250} />
+    <div className="flex w-full flex-col gap-y-12 py-12">
+      <div className="flex flex-col justify-center gap-y-6">
+        <h1 className="text-center text-5xl font-extrabold md:text-6xl">
+          <span
+            className={`bg-gradient-to-br ${variant === "cgi" ? "from-sky-500 to-purple-600" : "from-blue-500 via-purple-500 to-gray-400"} bg-clip-text text-transparent`}
+          >
+            {variant}
+          </span>
+          系统预约{" "}
+          <span className="text-2xl underline decoration-fuchsia-700 decoration-2 underline-offset-8 md:text-3xl">
+            {countryMap[country][3]}
+          </span>
+        </h1>
+        <div className="space-y-1.5 text-center">
+          <p className="text-xl font-bold">自动抓取位置</p>
+          <p className="font text-lg text-foreground-500">
+            {variant === "cgi"
+              ? "支持Chrome，Firefox等主流浏览器"
+              : "预约成功实时邮件通知"}
+          </p>
         </div>
-      )}
-      <div className="flex w-full flex-col gap-y-3">
-        <Tabs className="self-center" disableAnimation>
-          <Tab key="regular" title={t("regularMode")}>
-            <div className="flex flex-col gap-y-3">
-              <p className="flex items-center justify-center text-sm text-danger">
-                {t("text.text2")}
-                <IoIosInformationCircle size={16} />
-              </p>
-              <p className="text-center text-sm">{t("text.text7")}</p>
-              <RadioGroup defaultValue="create" onValueChange={setRequestType}>
-                <Radio value="create">
-                  <p className="text-sm">{t("form.requestType1")}</p>
-                </Radio>
-                <Radio value="query">
-                  <p className="text-sm">{t("form.requestType2")}</p>
-                </Radio>
-                <Radio value="cancel">
-                  <p className="text-sm">{t("form.requestType4")}</p>
-                </Radio>
-              </RadioGroup>
-              <AnimateHeight
-                duration={650}
-                height={formHeight}
-                contentClassName="auto-content"
-              >
-                <div ref={(node) => setFormRef(node)}>
-                  {requestType === "create" ? (
-                    <CreationForm />
-                  ) : requestType === "query" ? (
-                    <QueryForm />
-                  ) : (
-                    <CancellationForm />
-                  )}
-                </div>
-              </AnimateHeight>
-            </div>
-          </Tab>
-          <Tab key="pro" title={t("proMode")}>
-            <div className="flex flex-col gap-y-3 text-center text-sm">
-              <p>{t("proModeText1")}</p>
-              <p>{t("proModeText2")}</p>
-              <p>{t("proModeText3")}</p>
-              <p>
-                {t("proModeText4")}{" "}
-                <span className="text-blue-600 underline underline-offset-2">
-                  support@usvisa.lol
-                </span>
-              </p>
-            </div>
-          </Tab>
-        </Tabs>
-        <Faq />
       </div>
+      <div className="relative flex flex-col gap-y-8 py-12">
+        <h2 className="text-center text-3xl font-bold">开始使用</h2>
+        <Button
+          className="absolute right-0 bg-background"
+          disableAnimation
+          isIconOnly
+          onClick={() => ref.current.scrollIntoView({ behavior: "smooth" })}
+        >
+          <CiCircleQuestion size={36} className="text-red-500" />
+        </Button>
+        <div className="space-y-12">
+          <div className="grid grid-cols-3 gap-x-3 md:gap-x-6">
+            {Array(3)
+              .fill(null)
+              .map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-[30px] border-b-4 ${activeTab === index ? "border-sky-400" : "border-gray-500"}`}
+                  onClick={() => setActiveTab(index)}
+                  disabled={activeTab !== index}
+                />
+              ))}
+          </div>
+          <Button
+            isIconOnly
+            disableAnimation
+            variant="light"
+            className="absolute"
+            isDisabled={activeTab < 1}
+            onClick={() => {
+              setActiveTab((prev) => {
+                if (action === "query") return prev - 2;
+                return prev - 1;
+              });
+            }}
+          >
+            <MdArrowBackIosNew size={20} />
+          </Button>
+        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            {activeTab === 0 && (
+              <div className="flex flex-col items-center gap-y-6 py-6">
+                <p className="text-xl font-semibold">请从以下选项中选择</p>
+                <div
+                  className={`grid grid-cols-1 gap-x-3 gap-y-3 lg:${variant === "cgi" ? "grid-cols-2" : "grid-cols-3"}`}
+                >
+                  {options.map((option, index) => {
+                    if (variant === "cgi" && index === 1) {
+                      return null;
+                    }
+                    if (variant === "ais" && index === 1) {
+                      return (
+                        <Button
+                          key={option.action}
+                          variant="ghost"
+                          className="border border-foreground text-base"
+                          disableAnimation
+                          onClick={() => {
+                            setAction(option.action);
+                            setFormData({
+                              action: option.action,
+                              country: country,
+                            });
+                            setActiveTab((prev) => prev + 2);
+                          }}
+                        >
+                          {option.label}
+                        </Button>
+                      );
+                    }
+                    return (
+                      <Button
+                        key={option.action}
+                        variant="ghost"
+                        className="border border-foreground text-base"
+                        disableAnimation
+                        onClick={() => {
+                          setAction(option.action);
+                          setActiveTab((prev) => prev + 1);
+                        }}
+                      >
+                        {option.label}
+                      </Button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+            {activeTab === 1 &&
+              (action === "create" ? (
+                <RequestForm
+                  variant={variant}
+                  setters={{ setFormData, setActiveTab }}
+                />
+              ) : (
+                <div className="flex flex-col items-center gap-y-6 py-6">
+                  <p className="text-xl font-semibold">请确认以下内容</p>
+                  <p>提交后系统将会在24小时内自动完成退款</p>
+                  <p>
+                    退款后{variant === "cgi" ? "浏览器插件" : "刷签请求"}
+                    将即刻失效，如需再次使用请重新付款
+                  </p>
+                  <p>建议同步修改账户密码以保证信息安全</p>
+
+                  <Button
+                    className="bg-foreground text-background"
+                    onClick={() => {
+                      setFormData({ action: action, country: country });
+                      setActiveTab((prev) => prev + 1);
+                    }}
+                  >
+                    下一步
+                  </Button>
+                </div>
+              ))}
+            {activeTab === 2 && <SubmissionForm formData={formData} />}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+      <div className="flex flex-col gap-y-6 lg:gap-y-12" ref={ref}>
+        <h2 className="text-center text-3xl font-bold">常见问题</h2>
+        <div className="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3">
+          {(variant === "cgi" ? cgiFaq : aisFaq).map((item, index) => (
+            <div
+              key={index}
+              className="space-y-3 text-wrap p-3 hover:bg-foreground-50"
+            >
+              <h3 className="text-lg font-medium">{item.question}</h3>
+              <p className="text-foreground-500">{item.answer}</p>
+            </div>
+          ))}
+        </div>
+        <Tutorial variant={variant} />
+      </div>
+      <div
+        className="fixed bottom-0 left-0 flex h-fit w-[25px] cursor-pointer flex-col items-center justify-center rounded-md bg-foreground-300 px-3 py-3 text-sm leading-none lg:text-base"
+        onClick={onOpen}
+      >
+        <span>D</span>
+        <span>O</span>
+        <span>N</span>
+        <span>A</span>
+        <span>T</span>
+        <span>E</span>
+      </div>
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader>捐赠我们</ModalHeader>
+              <ModalBody className="mx-auto">
+                <img src="/tipsQR.png" alt="tips" width={240} />
+              </ModalBody>
+              <ModalFooter>
+                <Button
+                  variant="ghost"
+                  className="border border-foreground"
+                  disableAnimation
+                  onClick={onClose}
+                >
+                  关闭
+                </Button>
+              </ModalFooter>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
     </div>
   );
-};
-
-export default Home;
+}
