@@ -20,7 +20,6 @@ import {
 import Tutorial from "../components/Tutorial";
 import { CiCircleQuestion } from "react-icons/ci";
 import RequestForm from "../components/RequestForm.jsx";
-import { Link } from "@nextui-org/react";
 
 export default function Home() {
   const [formData, setFormData] = useState(null);

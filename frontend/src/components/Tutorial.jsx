@@ -1,5 +1,5 @@
 export default function Tutorial({ variant }) {
-  const cgiItems = [
+  const cgiVideoItems = [
     {
       title: "创建个人资料",
       body: "插件需要独立环境才能正常工作。使用插件前，在chrome浏览器中创建新的个人资料。",
@@ -15,6 +15,21 @@ export default function Tutorial({ variant }) {
     {
       title: "输入刷签凭证",
       body: "加载插件后，输入付款成功后邮箱收到的token，点击开始刷签。如果一切正常，几秒钟后浏览器会打开刷签页面开始自动刷签。在这期间请保持浏览器运行，但可以最小化做其他事情，不会影响刷签。",
+    },
+  ];
+
+  const cgiImageItems = [
+    {
+      title: "填写个人信息",
+      body: "提供签证预约网站的登陆密码，并且输入预约人数。请确保你输入的人数与账户中的一致，否则程序无法正常运行。",
+    },
+    {
+      title: "发送邮件提交",
+      body: "请仔细检查你填写的信息，尤其确保提供的密码可以成功登陆签证预约网站。确认无误后，请使用与签证预约网站账户相同的邮箱发送界面中显示内容的邮件。如果没有收到自动回邮，证明发送内容有误，或系统遇到了网络错误，请检查发送的内容，多尝试几次。",
+    },
+    {
+      title: "完成订单支付",
+      body: "请从上一步的自动回邮中点击支付链接，用任意方式完成支付后你会再次收到一封自动回邮，其中会包含你在插件中需要使用的token。",
     },
   ];
 
@@ -44,14 +59,30 @@ export default function Tutorial({ variant }) {
   return (
     <>
       <h2 className="text-center text-3xl font-bold">使用教程</h2>
-      {(variant === "cgi" ? cgiItems : aisItems).map((item, index) => (
+      {variant === "cgi" &&
+        cgiImageItems.map((item, index) => (
+          <div
+            key={index}
+            className="flex flex-col-reverse gap-x-6 gap-y-6 lg:grid lg:grid-cols-10"
+          >
+            <img
+              src={`/cgi-${index + 1}.png`}
+              className="col-span-7 border border-foreground-400"
+            />
+            <div className="col-span-3 w-full space-y-3 text-wrap">
+              <h3 className="text-2xl font-bold">{item.title}</h3>
+              <p className="text-lg">{item.body}</p>
+            </div>
+          </div>
+        ))}
+      {(variant === "cgi" ? cgiVideoItems : aisItems).map((item, index) => (
         <div
           key={index}
           className="flex flex-col-reverse gap-x-6 gap-y-6 lg:grid lg:grid-cols-10"
         >
           {variant === "cgi" ? (
             <video
-              src={`/${index + 1}.mp4`}
+              src={`/cgi-${index + 1}.mp4`}
               autoPlay
               loop
               className="col-span-7 border border-foreground-400"

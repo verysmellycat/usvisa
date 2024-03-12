@@ -3,12 +3,15 @@ import { useTranslation } from "react-i18next";
 import { abbr, countryMap } from "../config.js";
 import { Button } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
+import { useLocation } from "react-router-dom";
 
 export default function SubmissionForm({ formData }) {
   const recipient = `${abbr[countryMap[formData.country][0]]}.${countryMap[formData.country][1]}.${Math.floor(Math.random() * 10) + 1}@usvisa.lol`;
   const subject = "打击签证黄牛 fight against visa scalpers";
   const body = `<<<${JSON.stringify(formData)}>>>`;
   const { t } = useTranslation();
+  const location = useLocation();
+  const variant = location.pathname.split("/")[1];
 
   const copyToClipboard = async (value) => {
     await navigator.clipboard.writeText(value);
@@ -29,9 +32,11 @@ export default function SubmissionForm({ formData }) {
             如果没有收到自动回复请检查垃圾信箱或重新发送
           </span>
         </p>
-        <Link href="https://usvisa-lol-1324851224.cos.ap-shanghai.myqcloud.com/usvisa.lol.zip">
-          点击下载插件
-        </Link>
+        {variant === "cgi" && (
+          <Link href="https://usvisa-lol-1324851224.cos.ap-shanghai.myqcloud.com/usvisa.lol.zip">
+            点击下载插件
+          </Link>
+        )}
       </div>
       <Input
         isReadOnly

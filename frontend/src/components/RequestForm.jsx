@@ -262,7 +262,7 @@ export default function RequestForm({ variant, setters }) {
         <Button
           className="bg-foreground text-background"
           type="submit"
-          isDisabled={!isSelected}
+          isDisabled={variant === "cgi" && !isSelected}
         >
           {t("提交")}
         </Button>
