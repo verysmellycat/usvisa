@@ -6,7 +6,7 @@ export default function Tutorial({ variant }) {
     },
     {
       title: "修改语言设置",
-      body: "在chrome浏览器中设置英文为首选语言。",
+      body: "在chrome浏览器中设置英文为首选语言 (最好只保留英文因为程序只能在英文状态下正常工作)。",
     },
     {
       title: "加载浏览器插件",
