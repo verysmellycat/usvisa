@@ -1,39 +1,12 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import { faqItems } from "./src/components/Faq";
-import {
-  whyHelperText,
-  scheduleIdHelperText,
-} from "./src/components/CreationForm";
-
-const faqMapping = faqItems.reduce(
-  (acc, item, index) => {
-    acc[`faq${index + 1}`] = item.question;
-    acc[`answer${index + 1}`] = item.answer;
-    return acc;
-  },
-  { header: "FAQ/常见问题" },
-);
-
-const whyHelperMapping = whyHelperText.reduce((acc, item, index) => {
-  acc[`text${index + 1}`] = item;
-  return acc;
-}, {});
-
-const scheduleIdHelperMapping = scheduleIdHelperText.reduce(
-  (acc, item, index) => {
-    acc[`text${index + 1}`] = item;
-    return acc;
-  },
-  {},
-);
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    debug: true,
+    debug: false,
     fallbackLng: "en",
     interpolation: {
       escapeValue: false,
@@ -73,8 +46,6 @@ i18n
             text19: "前往发送邮件",
             specialRequest: "如有特别/紧急需求请邮件联系support@usvisa.lol",
           },
-          scheduleIdHelperText: scheduleIdHelperMapping,
-          whyHelperText: whyHelperMapping,
           confirmation: {
             text1: "已收到你的刷签请求",
             text2:
@@ -118,7 +89,6 @@ i18n
             cancelButtonText: "取消",
             confirmButtonText: "确认",
           },
-          faq: faqMapping,
           submission: {
             fieldLabel1: "收件人",
             fieldLabel2: "标题",
@@ -290,7 +260,8 @@ i18n
             faq5: "What if I need to correct the information or date range?",
             answer5: "Submit a new request.",
             faq6: "Can I use the program again and again and again?",
-            answer6: "Yes, simply submit a new request, but you'll have to pay.",
+            answer6:
+              "Yes, simply submit a new request, but you'll have to pay.",
           },
           submission: {
             fieldLabel1: "Recipient",

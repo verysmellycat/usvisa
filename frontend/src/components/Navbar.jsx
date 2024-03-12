@@ -14,19 +14,10 @@ import { useTranslation } from "react-i18next";
 const NavigationBar = () => {
   const { t } = useTranslation();
   return (
-    <nav className="sticky top-0 z-20 flex w-full items-center justify-between gap-x-3 bg-white px-6 py-3">
+    <nav className="sticky top-0 z-20 flex w-full items-center justify-between gap-x-3 bg-background py-3">
       <Navbar className="absolute z-0 md:hidden">
         <NavbarMenuToggle />
         <NavbarMenu>
-          <NavbarMenuItem>
-            <Link
-              className="font-medium hover:text-blue-600"
-              color="foreground"
-              href="/tutorial"
-            >
-              {t("navbar.link1")}
-            </Link>
-          </NavbarMenuItem>
           <NavbarMenuItem>
             <Link
               className="font-medium hover:text-blue-600"
@@ -55,14 +46,7 @@ const NavigationBar = () => {
         </Button>
         <div className="hidden items-center gap-x-6 md:flex">
           <Link
-            className="text-sm font-medium hover:text-blue-600"
-            color="foreground"
-            href="/tutorial"
-          >
-            {t("navbar.link1")}
-          </Link>
-          <Link
-            className="text-sm font-medium hover:text-blue-600"
+            className="text-base font-medium hover:text-blue-600"
             isExternal
             color="foreground"
             href="https://ceac.state.gov/genniv/"
@@ -70,7 +54,7 @@ const NavigationBar = () => {
             {t("navbar.link2")}
           </Link>
           <Link
-            className="text-sm font-medium hover:text-blue-600"
+            className="text-base font-medium hover:text-blue-600"
             isExternal
             color="foreground"
             href="https://ais.usvisa-info.com/en-ca/niv/users/sign_in"
@@ -80,7 +64,7 @@ const NavigationBar = () => {
         </div>
       </div>
       <div className="hidden items-center gap-x-3 md:flex">
-        <div className="flex items-center gap-x-2 text-sm font-medium">
+        <div className="flex items-center gap-x-2 text-base font-medium">
           <p>support@usvisa.lol</p>
         </div>
         <Button
@@ -91,15 +75,6 @@ const NavigationBar = () => {
           className="bg-transparent"
         >
           <img src="/discord.png" alt="discord logo" width={30} height={30} />
-        </Button>
-        <Button
-          as={Link}
-          href="https://github.com/usvisa-lol/usvisa"
-          isExternal
-          isIconOnly
-          className="bg-transparent"
-        >
-          <img src="/github.png" alt="github logo" width={30} height={30} />
         </Button>
         <Popover placement="bottom">
           <PopoverTrigger>
@@ -130,7 +105,8 @@ const NavigationBar = () => {
       <Button
         as={Link}
         href="/community"
-        className="absolute right-2 rounded-xl border-2 bg-sky-400 p-3 text-sm md:hidden"
+        variant="ghost"
+        className="absolute right-2 border border-foreground md:hidden"
       >
         {t("communityButtonText")}
       </Button>
