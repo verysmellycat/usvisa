@@ -66,7 +66,7 @@ export default function Home() {
           <p className="text-xl font-bold">自动抓取位置</p>
           <p className="font text-lg text-foreground-500">
             {variant === "cgi"
-              ? "支持Chrome等主流浏览器"
+              ? "只支持 Chrome 浏览器"
               : "预约成功实时邮件通知"}
           </p>
         </div>
