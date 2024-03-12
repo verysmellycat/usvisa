@@ -213,12 +213,15 @@ export default function Home() {
         <Tutorial variant={variant} />
       </div>
       <div
-        className="fixed bottom-20 left-0 flex h-[200px] w-[25px] cursor-pointer items-center justify-center rounded-md bg-foreground-100 text-lg"
+        className="fixed bottom-0 left-0 flex h-fit w-[25px] cursor-pointer flex-col items-center justify-center rounded-md bg-foreground-300 px-3 py-3 text-sm leading-none lg:text-base"
         onClick={onOpen}
       >
-        <p className="text-lg font-semibold">
-          D<br />O<br />N<br />A<br />T<br />E
-        </p>
+        <span>D</span>
+        <span>O</span>
+        <span>N</span>
+        <span>A</span>
+        <span>T</span>
+        <span>E</span>
       </div>
       <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="center">
         <ModalContent>
