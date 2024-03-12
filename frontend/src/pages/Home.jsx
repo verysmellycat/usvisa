@@ -98,7 +98,7 @@ export default function Home() {
             isIconOnly
             disableAnimation
             variant="light"
-            className="absolute"
+            className="absolute -left-3"
             isDisabled={activeTab < 1}
             onClick={() => {
               setActiveTab((prev) => {

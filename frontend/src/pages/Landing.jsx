@@ -7,9 +7,9 @@ import { useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function Landing() {
-  const bottomRef = useRef(null);
+  const ref = useRef(null);
   const scrollToBottom = () => {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    ref.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -41,7 +41,9 @@ export default function Landing() {
             Get started
           </Button>
         </div>
-        <h2 className="text-2xl font-bold">Select your country/region</h2>
+        <h2 className="text-2xl font-bold" ref={ref}>
+          Select your country/region
+        </h2>
         {Object.entries(countries).map((entry) => (
           <div key={entry[0]} className="space-y-3">
             <div className="space-y-1">
@@ -66,7 +68,6 @@ export default function Landing() {
             </div>
           </div>
         ))}
-        <div ref={bottomRef} />
       </div>
     </motion.div>
   );

@@ -13,8 +13,8 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container mx-auto">
+        <SharedNavbar />
         <div className="mx-auto w-5/6">
-          <SharedNavbar />
           <Routes>
             <Route path="/" element={<Landing />}></Route>
             <Route path="/ais/:country" element={<Home />}></Route>

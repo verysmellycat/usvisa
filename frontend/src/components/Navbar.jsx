@@ -14,7 +14,7 @@ import { useTranslation } from "react-i18next";
 const NavigationBar = () => {
   const { t } = useTranslation();
   return (
-    <nav className="sticky top-0 z-20 flex w-full items-center justify-between gap-x-3 bg-background py-3">
+    <nav className="sticky top-0 z-20 mx-auto flex w-full items-center justify-between gap-x-3 bg-background py-3 md:w-5/6">
       <Navbar className="absolute z-0 md:hidden">
         <NavbarMenuToggle />
         <NavbarMenu>
