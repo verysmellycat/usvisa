@@ -138,7 +138,7 @@ export default function Home() {
                           onClick={() => {
                             setAction(option.action);
                             setFormData({
-                              action: action,
+                              action: option.action,
                               country: country,
                             });
                             setActiveTab((prev) => prev + 2);

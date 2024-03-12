@@ -14,6 +14,11 @@ export default function SubmissionForm({ formData }) {
     alert(t("submission.clipboardMessage"));
   };
 
+  const handleClick = () => {
+    const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
     <div className="mx-auto flex w-full flex-col gap-y-6 py-6 md:w-3/5">
       <p className="text-center text-xl font-semibold">
@@ -45,7 +50,10 @@ export default function SubmissionForm({ formData }) {
         defaultValue={body}
         onClick={() => copyToClipboard(body)}
       />
-      <Button className="bg-foreground text-background">
+      <Button
+        className="bg-foreground text-background"
+        onClick={() => handleClick()}
+      >
         {t("text.text19")}
       </Button>
     </div>
