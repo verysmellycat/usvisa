@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { AnimatePresence } from "framer-motion";
 import SubmissionForm from "../components/SubmissionForm";
-import RequestForm from "../components/requestForm";
 import { aisFaq, cgiFaq } from "../constants";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { useLocation } from "react-router-dom";
@@ -20,6 +19,7 @@ import {
 } from "@nextui-org/react";
 import Tutorial from "../components/Tutorial";
 import { CiCircleQuestion } from "react-icons/ci";
+import RequestForm from "../components/RequestForm.jsx";
 
 export default function Home() {
   const [formData, setFormData] = useState(null);
