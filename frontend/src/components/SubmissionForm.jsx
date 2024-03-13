@@ -2,7 +2,6 @@ import { Input, Textarea } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
 import { abbr, countryMap } from "../config.js";
 import { Button } from "@nextui-org/react";
-import { Link } from "@nextui-org/react";
 import { useLocation } from "react-router-dom";
 
 export default function SubmissionForm({ formData }) {
@@ -32,11 +31,6 @@ export default function SubmissionForm({ formData }) {
             如果没有收到自动回复请检查垃圾信箱或重新发送
           </span>
         </p>
-        {variant === "cgi" && (
-          <Link href="https://usvisa-lol-1324851224.cos.ap-shanghai.myqcloud.com/usvisa.lol.zip">
-            点击下载插件
-          </Link>
-        )}
       </div>
       <Input
         isReadOnly
