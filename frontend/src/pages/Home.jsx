@@ -202,16 +202,20 @@ export default function Home() {
         </AnimatePresence>
       </div>
       <div className="flex flex-col gap-y-6 lg:gap-y-12" ref={ref}>
-        <h2 className="text-center text-3xl font-bold">工作原理</h2>
-        <p className="text-lg">
-          程序为互助模式，运行在用户电脑上，每5~10分钟刷新一次取消预约页面获取最新可预约时间，上报给服务器，
-          如果有大家想预约的时间范围， 服务器通知用户端自动预约。
-          <br />
-          用程序的人越多，
-          刷新间隔就越小，比方说每个人10分钟刷新一次，也就是600秒，
-          如果有60个人使用程序，就相当于10秒刷新一次，可以第一时间知道放号，
-          并自动预约。
-        </p>
+        {variant === "cgi" && (
+          <>
+            <h2 className="text-center text-3xl font-bold">工作原理</h2>
+            <p className="text-lg">
+              程序为互助模式，运行在用户电脑上，每5~10分钟刷新一次取消预约页面获取最新可预约时间，上报给服务器，
+              如果有大家想预约的时间范围， 服务器通知用户端自动预约。
+              <br />
+              用程序的人越多，
+              刷新间隔就越小，比方说每个人10分钟刷新一次，也就是600秒，
+              如果有60个人使用程序，就相当于10秒刷新一次，可以第一时间知道放号，
+              并自动预约。
+            </p>
+          </>
+        )}
         <h2 className="text-center text-3xl font-bold">常见问题</h2>
         <div className="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3">
           {(variant === "cgi" ? cgiFaq : aisFaq).map((item, index) => (
