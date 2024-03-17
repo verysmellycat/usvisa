@@ -107,13 +107,21 @@ export default function RequestForm({ variant, setters }) {
         className="flex w-full flex-col gap-y-3 lg:w-3/5"
         noValidate
       >
-        <Button
-          className="gap-x-1 self-end bg-transparent p-0"
-          onClick={() => handleTimeAdd()}
-        >
-          <IoIosAddCircle size={24} />
-          {t("form.datepickerButtonText")}
-        </Button>
+        <div className="relative flex items-center">
+          <p className="grow text-center text-sm">
+            期望预约时间范围<span className="text-red-500"> *</span>
+          </p>
+          <button
+            className="absolute right-0 top-0 flex items-center gap-x-1 text-sm"
+            onClick={(e) => {
+              e.preventDefault();
+              handleTimeAdd();
+            }}
+          >
+            <IoIosAddCircle size={20} />
+            {t("form.datepickerButtonText")}
+          </button>
+        </div>
         {timeIntervals.map((timeInterval, index) => (
           <div key={index} className="flex items-center justify-center">
             <div className="grid grid-flow-row-dense gap-x-3 gap-y-1 lg:grid-flow-col-dense">

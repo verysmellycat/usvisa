@@ -38,9 +38,9 @@ export default function SubmissionForm({ formData }) {
       <div className="flex flex-col items-center gap-y-3">
         <p className="text-center text-xl font-semibold">
           请使用签证预约邮箱发送以下邮件 <br />
-          <span className="text-base font-normal text-danger">
+          <span className="text-base font-normal text-red-500">
             {variant === "cgi" ? (
-              "收不到自动回复请检查垃圾信箱或再次发送"
+              "收不到自动回复请检查垃圾信箱或重新发送"
             ) : (
               <>
                 {"收不到自动回复？检查垃圾信箱或"}
