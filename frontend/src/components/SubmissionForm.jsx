@@ -12,6 +12,7 @@ import {
 } from "@nextui-org/react";
 import updateEmail_1 from "/updateEmail-1.png";
 import updateEmail_2 from "/updateEmail-2.png";
+import { useLocation } from "react-router-dom";
 
 export default function SubmissionForm({ formData }) {
   const recipient = `${abbr[countryMap[formData.country][0]]}.${countryMap[formData.country][1]}.${Math.floor(Math.random() * 10) + 1}@usvisa.lol`;
@@ -19,6 +20,8 @@ export default function SubmissionForm({ formData }) {
   const body = `<<<${JSON.stringify(formData)}>>>`;
   const { t } = useTranslation();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const location = useLocation();
+  const variant = location.pathname.split("/")[1];
 
   const copyToClipboard = async (value) => {
     await navigator.clipboard.writeText(value);
@@ -36,10 +39,20 @@ export default function SubmissionForm({ formData }) {
         <p className="text-center text-xl font-semibold">
           请使用签证预约邮箱发送以下邮件 <br />
           <span className="text-base font-normal text-danger">
-            收不到自动回复？检查垃圾信箱或
-            <Link onClick={onOpen} showAnchorIcon className="cursor-pointer">
-              更换签证账户邮箱
-            </Link>
+            {variant === "cgi" ? (
+              "收不到自动回复请检查垃圾信箱或再次发送"
+            ) : (
+              <>
+                {"收不到自动回复？检查垃圾信箱或"}
+                <Link
+                  onClick={onOpen}
+                  showAnchorIcon
+                  className="cursor-pointer"
+                >
+                  更换签证账户邮箱
+                </Link>
+              </>
+            )}
           </span>
         </p>
       </div>
