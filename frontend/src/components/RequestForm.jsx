@@ -88,12 +88,13 @@ export default function RequestForm({ variant, setters }) {
       conditions: formattedTimeIntervals,
       action: "create",
       country: country,
-      applicants: parseInt(formData.applicants),
     };
     if (variant === "ais") {
       data.schedule_ids =
         formData.schedule_ids === "" ? [] : formData.schedule_ids.split(",");
       data.cities = formData.cities.split(",");
+    } else {
+      data.applicants = parseInt(formData.applicants);
     }
     setFormData(data);
     setActiveTab((currentTab) => currentTab + 1);
