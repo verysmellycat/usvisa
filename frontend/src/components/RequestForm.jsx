@@ -121,9 +121,7 @@ export default function RequestForm({ variant, setters }) {
           </button>
         </div>
         {timeIntervals.length === 0 && (
-          <p className="bg-foreground-100 bg-clip-text text-center text-sm">
-            尚未添加任何时间！
-          </p>
+          <p className="text-center text-sm">尚未添加任何时间！</p>
         )}
         {timeIntervals.map((timeInterval, index) => (
           <div key={index} className="flex items-center justify-center">
