@@ -24,15 +24,12 @@ export default function RequestForm({ variant, setters }) {
   const {
     control,
     handleSubmit,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
-  const [timeIntervals, setTimeIntervals] = useState([
-    {
-      from: new Date(),
-      to: addMonths(new Date(), 8),
-    },
-  ]);
+  const [timeIntervals, setTimeIntervals] = useState([]);
 
   useEffect(() => {
     let consulates = countries[countryMap[country][0]][country];
@@ -97,8 +94,9 @@ export default function RequestForm({ variant, setters }) {
       data.applicants = parseInt(formData.applicants);
     }
     setFormData(data);
-    setActiveTab((currentTab) => currentTab + 1);
+    setActiveTab((prev) => prev + 1);
   };
+
   return (
     <div className="flex flex-col items-center gap-y-3 py-6">
       <p className="text-xl font-semibold">请提供以下必要信息</p>
@@ -122,6 +120,11 @@ export default function RequestForm({ variant, setters }) {
             {t("form.datepickerButtonText")}
           </button>
         </div>
+        {timeIntervals.length === 0 && (
+          <p className="bg-foreground-100 bg-clip-text text-center text-sm">
+            尚未添加任何时间！
+          </p>
+        )}
         {timeIntervals.map((timeInterval, index) => (
           <div key={index} className="flex items-center justify-center">
             <div className="grid grid-flow-row-dense gap-x-3 gap-y-1 lg:grid-flow-col-dense">
@@ -159,6 +162,11 @@ export default function RequestForm({ variant, setters }) {
             </Button>
           </div>
         ))}
+        {errors?.timeIntervals && (
+          <p className="ml-1 text-xs text-danger">
+            {errors.timeIntervals.message}
+          </p>
+        )}
         {variant === "ais" && (
           <>
             <Controller
@@ -272,6 +280,17 @@ export default function RequestForm({ variant, setters }) {
           className="bg-foreground text-background"
           type="submit"
           isDisabled={variant === "cgi" && !isSelected}
+          onClick={() => {
+            if (timeIntervals.length === 0) {
+              setError("timeIntervals", {
+                type: "manual",
+                message:
+                  "请至少提交一个期望时间范围并再三确认这是你想要的时间！",
+              });
+            } else if (errors?.timeIntervals) {
+              clearErrors("timeIntervals");
+            }
+          }}
         >
           {t("提交")}
         </Button>

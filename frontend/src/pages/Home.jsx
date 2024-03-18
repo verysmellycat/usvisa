@@ -21,6 +21,8 @@ import Tutorial from "../components/Tutorial";
 import { CiCircleQuestion } from "react-icons/ci";
 import RequestForm from "../components/RequestForm.jsx";
 import { Link } from "@nextui-org/react";
+import { useForm, Controller } from "react-hook-form";
+import { Input } from "@nextui-org/react";
 
 export default function Home() {
   const [formData, setFormData] = useState(null);
@@ -33,6 +35,22 @@ export default function Home() {
   const variant = location.pathname.split("/")[1];
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const ref = useRef(null);
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleFormSubmit = (formData) => {
+    setFormData({
+      country,
+      action,
+      schedule_ids:
+        formData.schedule_ids === "" ? [] : formData.schedule_ids.split(","),
+    });
+    setActiveTab((prev) => prev + 1);
+  };
 
   const options = [
     {
@@ -126,13 +144,10 @@ export default function Home() {
               <div className="flex flex-col items-center gap-y-6 py-6">
                 <p className="text-xl font-semibold">请从以下选项中选择</p>
                 <div
-                  className={`grid grid-cols-1 gap-x-3 gap-y-3 lg:${variant === "cgi" ? "grid-cols-2" : "grid-cols-3"}`}
+                  className={`grid grid-cols-1 gap-x-3 gap-y-3 lg:grid-cols-3`}
                 >
                   {options.map((option, index) => {
-                    if (variant === "cgi" && index === 1) {
-                      return null;
-                    }
-                    if (variant === "ais" && index === 1) {
+                    if (index === 1) {
                       return (
                         <Button
                           key={option.action}
@@ -185,16 +200,56 @@ export default function Home() {
                     将即刻失效，如需再次使用请重新付款
                   </p>
                   <p>建议同步修改账户密码以保证信息安全</p>
-
-                  <Button
-                    className="bg-foreground text-background"
-                    onClick={() => {
-                      setFormData({ action: action, country: country });
-                      setActiveTab((prev) => prev + 1);
-                    }}
-                  >
-                    下一步
-                  </Button>
+                  {variant === "ais" ? (
+                    <form
+                      onSubmit={handleSubmit(handleFormSubmit)}
+                      className="flex w-full flex-col gap-y-3 lg:w-3/5"
+                      noValidate
+                    >
+                      <Controller
+                        control={control}
+                        name="schedule_ids"
+                        defaultValue=""
+                        rules={{
+                          pattern: {
+                            value: /^\d{8}(,\d{8})*$/,
+                            message: t("form.fieldErrorMessage2a"),
+                          },
+                          minLength: {
+                            value: 8,
+                            message: t("form.fieldErrorMessage2b"),
+                          },
+                        }}
+                        render={({ field }) => (
+                          <Input
+                            {...field}
+                            variant="underlined"
+                            className="w-full"
+                            label="Schedule ID"
+                            type="text"
+                            placeholder="不填默认为账户中全部申请人退款"
+                            errorMessage={errors?.schedule_ids?.message}
+                          />
+                        )}
+                      />
+                      <Button
+                        className="bg-foreground text-background"
+                        type="submit"
+                      >
+                        下一步
+                      </Button>
+                    </form>
+                  ) : (
+                    <Button
+                      className="bg-foreground text-background"
+                      onClick={() => {
+                        setFormData({ action: action, country: country });
+                        setActiveTab((prev) => prev + 1);
+                      }}
+                    >
+                      下一步
+                    </Button>
+                  )}
                 </div>
               ))}
             {activeTab === 2 && <SubmissionForm formData={formData} />}
