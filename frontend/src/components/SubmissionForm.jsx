@@ -99,7 +99,7 @@ export default function SubmissionForm({ formData }) {
                 <div className="mx-auto flex w-full flex-col gap-y-2">
                   <p className="text-base">
                     {
-                      "1. 登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击右上角Actions -> Account Settings -> Update Email"
+                      "1. 登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击右上角Actions -> Account Settings -> Update Email。"
                     }
                   </p>
                   <img
