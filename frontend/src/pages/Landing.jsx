@@ -91,15 +91,15 @@ export default function Landing() {
               </div>
             </div>
           </div>
-          <div className="space-y-2 text-sm text-foreground-500 lg:text-base">
-            <div className="space-y-1.5 text-foreground">
-              <p>You're eligible for a 50% refund if you:</p>
-              <p>1. Post on Xiaohongshu when you start using our website.</p>
-              <p>
-                2. Collect at least price/2 likes and bookmarks (that's 10 each
-                if you paid $20).
-              </p>
-            </div>
+          <div className="space-y-1.5 bg-foreground-100 p-3 text-sm text-foreground lg:text-base">
+            <p>You're eligible for a 50% refund if you:</p>
+            <p>1. Post on Xiaohongshu when you start using our website.</p>
+            <p>
+              2. Collect at least price/2 likes and bookmarks (that's 10 each if
+              you paid $20).
+            </p>
+          </div>
+          <div className="w-full space-y-1.5 text-sm text-foreground-500 lg:text-base">
             <p>
               Pricing is determined by the operational costs, which varies
               across countries based on the average server running time to grab
