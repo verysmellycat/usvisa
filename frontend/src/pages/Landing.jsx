@@ -5,12 +5,23 @@ import { Button } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
 
 export default function Landing() {
   const ref = useRef(null);
   const scrollToBottom = () => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    (function () {
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://usvisa.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }, []);
 
   return (
     <motion.div
@@ -139,6 +150,10 @@ export default function Landing() {
             </div>
           </div>
         ))}
+        <h2 className="text-2xl font-bold" ref={ref}>
+          Leave your comments
+        </h2>
+        <div id="disqus_thread"></div>
       </div>
     </motion.div>
   );
