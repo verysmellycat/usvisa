@@ -59,10 +59,12 @@ export const countries = {
     rs: ["Belgrade"],
     pt: ["Lisbon"],
     tr: ["Ankara", "Istanbul"],
+    de: [],
   },
   Asia: {
     ae: ["Abu Dhabi", "Dubai"],
     cn: [],
+    sg: [],
   },
 };
 
@@ -113,4 +115,6 @@ export const countryMap = {
   uy: ["The Americas", "ais", "Uruguay", "乌拉圭"],
   pt: ["Europe", "ais", "Portugal", "葡萄牙"],
   tr: ["Europe", "ais", "Turkey", "土耳其"],
+  de: ["Europe", "cgi", "Germany", "德国"],
+  sg: ["Asia", "cgi", "Singapore", "新加坡"],
 };
