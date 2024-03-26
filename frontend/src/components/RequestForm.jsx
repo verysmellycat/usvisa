@@ -20,6 +20,7 @@ export default function RequestForm({ variant, setters }) {
   const { setFormData, setActiveTab } = setters;
   const [consulates, setConsulates] = useState([]);
   const [isSelected, setIsSelected] = useState(false);
+  const [skipTomorrow, setSkipTomorrow] = useState(false);
 
   const {
     control,
@@ -90,6 +91,7 @@ export default function RequestForm({ variant, setters }) {
       data.schedule_ids =
         formData.schedule_ids === "" ? [] : formData.schedule_ids.split(",");
       data.cities = formData.cities.split(",");
+      data.skip_tomorrow = skipTomorrow;
     } else {
       data.applicants = parseInt(formData.applicants);
     }
@@ -160,6 +162,13 @@ export default function RequestForm({ variant, setters }) {
             </Button>
           </div>
         ))}
+        {timeIntervals.length !== 0 && (
+          <Checkbox isSelected={skipTomorrow} onValueChange={setSkipTomorrow}>
+            <p className="text-sm">
+              我没法及时赶到第二天的面试，勾选跳过这些slot
+            </p>
+          </Checkbox>
+        )}
         {errors?.timeIntervals && (
           <p className="ml-1 text-xs text-danger">
             {errors.timeIntervals.message}
