@@ -11,7 +11,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container mx-auto">
-        <SharedNavbar />
+        <NavBar />
         <div className="mx-auto w-5/6">
           <Routes>
             <Route path="/" element={<Landing />}></Route>
@@ -25,10 +25,6 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
-
-function SharedNavbar() {
-  return <NavBar />;
 }
 
 export default App;

@@ -15,7 +15,7 @@ import { IoLanguage } from "react-icons/io5";
 const NavigationBar = () => {
   const { t } = useTranslation();
   const toggleLanguage = () => {
-    let lang = i18n.resolvedLanguage === "en" ? "ch" : "en";
+    let lang = i18n.resolvedLanguage === "en" ? "cn" : "en";
     localStorage.setItem("lang", lang);
     i18n.changeLanguage(lang);
   };
@@ -115,21 +115,24 @@ const NavigationBar = () => {
           <IoLanguage size={26} />
         </button>
       </div>
-      <Button
-        as={Link}
-        href="/community"
-        variant="ghost"
-        className="border border-foreground md:hidden"
-      >
-        {t("communityButtonText")}
-      </Button>
-      <Button
-        className="flex gap-2 rounded-lg border p-1 hover:bg-foreground-100 md:hidden"
-        onClick={toggleLanguage}
-      >
-        {t("toggleLanguage")}
-        <IoLanguage size={26} />
-      </Button>
+      <div className="absolute right-0 flex gap-x-1">
+        <Button
+          as={Link}
+          href="/community"
+          variant="ghost"
+          className="border border-foreground md:hidden"
+        >
+          {t("communityButtonText")}
+        </Button>
+        <Button
+          className="flex gap-2 rounded-lg border border-foreground p-1 md:hidden"
+          variant="ghost"
+          onClick={toggleLanguage}
+        >
+          {t("toggleLanguage")}
+          <IoLanguage size={26} />
+        </Button>
+      </div>
     </nav>
   );
 };
