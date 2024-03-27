@@ -10,8 +10,12 @@ import {
   NavbarMenuItem,
 } from "@nextui-org/react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 
 const NavigationBar = () => {
+  const location = useLocation();
+  const variant = location.pathname.split("/")[1];
+  const country = location.pathname.split("/")[2];
   const { t } = useTranslation();
   return (
     <nav className="sticky top-0 z-20 mx-auto flex w-full items-center justify-between gap-x-3 bg-background py-3 md:w-5/6">
@@ -61,6 +65,15 @@ const NavigationBar = () => {
           >
             USVISA-INFO
           </Link>
+          {variant === "ais" && country && (
+            <Link
+              className="text-base font-medium hover:text-blue-600"
+              color="foreground"
+              href={`/ais/${country}/stats`}
+            >
+              STATS
+            </Link>
+          )}
         </div>
       </div>
       <div className="hidden items-center gap-x-3 md:flex">
