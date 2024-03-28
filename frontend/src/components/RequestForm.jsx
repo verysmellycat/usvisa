@@ -107,7 +107,7 @@ export default function RequestForm({ variant, setters }) {
 
   return (
     <div className="flex flex-col items-center gap-y-3 py-6">
-      <p className="text-xl font-semibold">请提供以下必要信息</p>
+      <p className="text-xl font-semibold">{t('creationForm.title')}</p>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
         className="flex w-full flex-col gap-y-3 lg:w-3/5"
@@ -116,7 +116,7 @@ export default function RequestForm({ variant, setters }) {
       >
         <div className="relative flex items-center">
           <p className="grow text-center text-sm">
-            期望预约时间范围<span className="text-red-500"> *</span>
+            {t('creationForm.idealDate')}<span className="text-red-500"> *</span>
           </p>
           <button
             className="absolute right-0 top-0 flex items-center gap-x-1 text-sm"
@@ -130,7 +130,7 @@ export default function RequestForm({ variant, setters }) {
           </button>
         </div>
         {timeIntervals.length === 0 && (
-          <p className="text-center text-sm">尚未添加任何时间！</p>
+          <p className="text-center text-sm">{t('creationForm.noTimeAdded')}</p>
         )}
         {timeIntervals.map((timeInterval, index) => (
           <div key={index} className="flex items-center justify-center">
@@ -172,7 +172,7 @@ export default function RequestForm({ variant, setters }) {
         {timeIntervals.length !== 0 && (
           <Checkbox isSelected={skipTomorrow} onValueChange={setSkipTomorrow}>
             <p className="text-sm">
-              我没法及时赶到第二天的面试，勾选跳过这些slot
+              {t('creationForm.skipTmr')}
             </p>
           </Checkbox>
         )}
@@ -241,9 +241,9 @@ export default function RequestForm({ variant, setters }) {
           rules={{
             minLength: {
               value: 8,
-              message: "密码至少需要8个字符",
+              message:t("errors.minChar") ,
             },
-            required: "请输入预约网站登陆密码",
+            required:t('errors.requiredPassword') ,
           }}
           defaultValue=""
           render={({ field }) => (
@@ -251,7 +251,7 @@ export default function RequestForm({ variant, setters }) {
               {...field}
               variant="underlined"
               className="w-full"
-              label={t("预约网站登陆密码")}
+              label={t("creationForm.passwordLabel")}
               type="password"
               errorMessage={errors?.password?.message}
               isRequired
@@ -300,14 +300,14 @@ export default function RequestForm({ variant, setters }) {
               setError("timeIntervals", {
                 type: "manual",
                 message:
-                  "请至少提交一个期望时间范围并再三确认这是你想要的时间！",
+                  t('errors.timeRange'),
               });
             } else if (errors?.timeIntervals) {
               clearErrors("timeIntervals");
             }
           }}
         >
-          {t("提交")}
+          {t("buttons.submit")}
         </Button>
       </form>
     </div>

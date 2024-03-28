@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import NavBar from "./components/Navbar";
 import NotFound from "./pages/NotFound";
 import UserCommunity from "./pages/UserCommunity";
+
 import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
 import { useLocation } from "react-router-dom";
@@ -11,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="container mx-auto">
-        <SharedNavbar />
+        <NavBar />
         <div className="mx-auto w-5/6">
           <Routes>
             <Route path="/" element={<Landing />}></Route>
@@ -28,9 +29,5 @@ function App() {
   );
 }
 
-function SharedNavbar() {
-  const location = useLocation();
-  return <>{location.pathname !== "/" && <NavBar />}</>;
-}
 
 export default App;
