@@ -55,9 +55,7 @@ export default function Landing() {
         </div>
         <div className="relative space-y-6 overflow-hidden lg:h-[300px]">
           <div className="w-full space-y-1.5 text-lg lg:w-2/5">
-            <p className="text-3xl font-bold lg:text-4xl">
-              Expedite the Process
-            </p>
+            <p className="text-3xl font-bold">Expedite the Process</p>
             <p className="text-foreground-500">
               The wait time for Visa appointment averages hundreds of calender
               days in Canada and the UK. If you're tired of waiting, we are here
@@ -155,7 +153,7 @@ export default function Landing() {
         {Object.entries(countries).map((entry) => (
           <div key={entry[0]} className="space-y-3">
             <div className="space-y-1">
-              <div className="flex items-center gap-x-3">
+              <div className="flex items-center gap-x-1.5">
                 <h3 className="text-lg">{entry[0]}</h3>
                 {entry[0] !== "Asia" && (
                   <Link
