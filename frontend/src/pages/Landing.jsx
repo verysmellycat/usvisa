@@ -103,7 +103,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-          <div className="space-y-1.5 bg-foreground-100 p-3 text-sm text-foreground lg:text-base">
+          <div className="space-y-1.5 p-3 text-sm text-foreground lg:text-base">
             <p>You're eligible for a 50% refund if you:</p>
             <p>1. Post on Xiaohongshu when you start using our website.</p>
             <p>
