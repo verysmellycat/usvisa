@@ -84,7 +84,7 @@ export default function SubmissionForm({ formData }) {
         className="bg-foreground text-background"
         onClick={() => handleClick()}
       >
-        {t("text.text19")}
+        {t("buttons.submit")}
       </Button>
       <Modal
         isOpen={isOpen}

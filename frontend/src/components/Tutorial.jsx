@@ -1,4 +1,7 @@
+
+import { useTranslation } from "react-i18next";
 export default function Tutorial({ variant }) {
+  const {t} = useTranslation()
   const cgiVideoItems = [
     {
       title: "加载浏览器插件",
@@ -23,30 +26,32 @@ export default function Tutorial({ variant }) {
 
   const aisItems = [
     {
-      title: "填写个人信息",
-      body: "选择你想预约面试的城市，并且提供签证预约网站的登陆密码。如果账户中所有人都需要刷签，不需要填写schedule ID，系统会自动判断。",
+      title: t('tutorial.title1'),
+      body: t('tutorial.body1'),
     },
     {
-      title: "为某位申请人刷签（可选）",
-      body: "如果不是账户中所有人都需要刷签，你可以通过填写schedule ID指定为账户中哪位申请人刷签。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，网址中显示的数字即为schedule ID。多位申请人请以54306276,54306278的格式填写。",
+      title: t('tutorial.title2'),
+      body: t('tutorial.body2'),
     },
     {
-      title: "多人拆组刷签（可选）",
-      body: "如果账户中有多人同组，系统默认为多人一起刷签，但是成功率比较低。如果可以接受在不同时间面试，请把同组的人拆分。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，在如图所示界面中点击Reschedule Appointment后勾选一位申请人，点击下一步，即可把申请人拆分出来形成一个新的schedule ID。",
+      title: t('tutorial.title3'),
+      body: t('tutorial.body3'),
     },
     {
-      title: "发送邮件提交",
-      body: "请仔细检查你填写的信息，尤其确保提供的密码可以成功登陆签证预约网站。确认无误后，请使用与签证预约网站账户相同的邮箱发送界面中显示内容的邮件。如果没有收到自动回邮，证明发送内容有误，或系统遇到了网络错误，请检查发送的内容，多尝试几次。",
+      title: t('tutorial.title4'),
+      body: t('tutorial.body4'),
     },
     {
-      title: "完成订单支付",
-      body: "请从上一步的自动回邮中点击支付链接，用任意方式完成支付后你会再次收到一封自动回邮，表明刷签已经开始。",
+      title: t('tutorial.title5'),
+      body: t('tutorial.body5'),
     },
+  
+
   ];
 
   return (
     <>
-      <h2 className="text-center text-3xl font-bold">使用教程</h2>
+      <h2 className="text-center text-3xl font-bold">{t('tutorial.title')}</h2>
       {variant === "cgi" &&
         cgiImageItems.map((item, index) => (
           <div
