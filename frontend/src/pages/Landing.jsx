@@ -1,4 +1,4 @@
-import { countries, countryMap } from "../config.js";
+import { countries, countryMap, redashUrls } from "../config.js";
 import { Avatar } from "@nextui-org/react";
 import { Divider } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
@@ -53,8 +53,9 @@ export default function Landing() {
           </Button>
         </div>
         <div className="flex flex-col gap-y-6">
+          <h2 className="text-2xl font-bold">Pricing</h2>
           <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-7">
-            <div className="space-y-3 border border-foreground px-3 py-3 md:col-span-4 md:py-6">
+            <div className="space-y-3 bg-gradient-to-br from-foreground-300 from-0% to-20% px-3 py-3 hover:-translate-y-1 hover:duration-300 md:col-span-4 md:py-6">
               <div className="space-y-1.5">
                 <h2 className="text-center text-lg font-semibold lg:text-2xl">
                   Regular
@@ -85,7 +86,7 @@ export default function Landing() {
                 <span className="text-red-500">*</span> per person price
               </p>
             </div>
-            <div className="flex flex-col gap-y-3 border border-foreground px-3 py-3 md:col-span-3 md:py-6">
+            <div className="flex flex-col gap-y-3 bg-gradient-to-br from-foreground-300 from-0% to-20% px-3 py-3 hover:-translate-y-1 hover:duration-300 md:col-span-3 md:py-6">
               <div className="space-y-1.5">
                 <h2 className="text-center text-lg font-semibold lg:text-2xl">
                   Pro
@@ -112,9 +113,8 @@ export default function Landing() {
           </div>
           <div className="w-full space-y-1.5 text-sm text-foreground-500 lg:text-base">
             <p>
-              Pricing is determined by the operational costs, which varies
-              across countries based on the average server running time to grab
-              a slot.
+              Pricing is determined by the operational cost, which varies across
+              countries based on the average server running time to grab a slot.
             </p>
             <p>
               We encourage you to value your chance, so that everybody gets a
@@ -129,7 +129,19 @@ export default function Landing() {
         {Object.entries(countries).map((entry) => (
           <div key={entry[0]} className="space-y-3">
             <div className="space-y-1">
-              <h3 className="text-lg">{entry[0]}</h3>
+              <div className="flex items-center gap-x-3">
+                <h3 className="text-lg">{entry[0]}</h3>
+                {entry[0] !== "Asia" && (
+                  <Link
+                    href={redashUrls[entry[0]]}
+                    isExternal
+                    showAnchorIcon
+                    className="cursor-pointer"
+                  >
+                    View slot-monitoring stats
+                  </Link>
+                )}
+              </div>
               <Divider />
             </div>
             <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4">
@@ -137,7 +149,7 @@ export default function Landing() {
                 <Link
                   key={country}
                   href={`${countryMap[country][1]}/${country}`}
-                  className="flex items-center gap-x-2"
+                  className="flex items-center gap-x-1.5"
                 >
                   <Avatar
                     alt="country"

@@ -74,6 +74,13 @@ export const abbr = {
   Asia: "as",
 };
 
+export const redashUrls = {
+  "The Americas":
+    "https://redash.usvisa.lol/public/dashboards/qrJjgOHiBBhlxdJGhHWkOOcS4yCdRS8eQlzRJvVd?org_slug=default",
+  Europe:
+    "https://redash.usvisa.lol/public/dashboards/8f9ysadqeQHjPbfuOGl8j0SuE3QF7hBhMvoI8Gqx?org_slug=default",
+};
+
 export const countryMap = {
   ca: ["The Americas", "ais", "Canada", "加拿大"],
   gb: ["Europe", "ais", "United Kingdom", "英国"],
