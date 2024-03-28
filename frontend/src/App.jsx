@@ -6,6 +6,7 @@ import UserCommunity from "./pages/UserCommunity";
 
 import Payment from "./pages/Payment";
 import Landing from "./pages/Landing";
+import { useLocation } from "react-router-dom";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/cgi/:country" element={<Home />}></Route>
             <Route path="/community" element={<UserCommunity />}></Route>
             <Route path="/pay" element={<Payment />}></Route>
+            <Route path="/cgi/:country" element={<Home />}></Route>
             <Route path="*" element={<NotFound />}></Route>
           </Routes>
         </div>
@@ -26,5 +28,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;

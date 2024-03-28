@@ -99,12 +99,19 @@ export default function RequestForm({ variant, setters }) {
     setActiveTab((prev) => prev + 1);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="flex flex-col items-center gap-y-3 py-6">
       <p className="text-xl font-semibold">{t('creationForm.title')}</p>
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
         className="flex w-full flex-col gap-y-3 lg:w-3/5"
+        onKeyDown={handleKeyDown}
         noValidate
       >
         <div className="relative flex items-center">
@@ -286,6 +293,7 @@ export default function RequestForm({ variant, setters }) {
         <Button
           className="bg-foreground text-background"
           type="submit"
+          id="submitButton"
           isDisabled={variant === "cgi" && !isSelected}
           onClick={() => {
             if (timeIntervals.length === 0) {

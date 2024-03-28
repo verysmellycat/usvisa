@@ -1,4 +1,4 @@
-import { countries, countryMap } from "../config.js";
+import { countries, countryMap, redashUrls } from "../config.js";
 import { Avatar } from "@nextui-org/react";
 import { Divider } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Image } from "@nextui-org/react";
 
 export default function Landing() {
   const ref = useRef(null);
@@ -52,9 +53,33 @@ export default function Landing() {
             Get started
           </Button>
         </div>
+        <div className="relative space-y-6 overflow-hidden lg:h-[300px]">
+          <div className="w-full space-y-1.5 text-lg lg:w-2/5">
+            <p className="text-3xl font-bold">Expedite the Process</p>
+            <p className="text-foreground-500">
+              The wait time for Visa appointment averages hundreds of calender
+              days in Canada and the UK. If you're tired of waiting, we are here
+              to help.
+            </p>
+            <Link
+              href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+              isExternal
+              className="text-lg"
+            >
+              What's my wait time?
+            </Link>
+          </div>
+          <div className="overflow-hidden">
+            <img
+              src="/waitTime.png"
+              className="right-0 top-0 -z-10 mx-auto w-full -translate-y-5 -rotate-12 md:w-5/6 lg:absolute lg:w-[500px]"
+            />
+          </div>
+        </div>
         <div className="flex flex-col gap-y-6">
+          <h2 className="text-2xl font-bold">Pricing</h2>
           <div className="grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-7">
-            <div className="space-y-3 border border-foreground px-3 py-3 md:col-span-4 md:py-6">
+            <div className="space-y-3 bg-gradient-to-br from-foreground-300 from-0% to-20% px-3 py-3 hover:-translate-y-1 hover:duration-300 md:col-span-4 md:py-6">
               <div className="space-y-1.5">
                 <h2 className="text-center text-lg font-semibold lg:text-2xl">
                   Regular
@@ -85,7 +110,7 @@ export default function Landing() {
                 <span className="text-red-500">*</span> per person price
               </p>
             </div>
-            <div className="flex flex-col gap-y-3 border border-foreground px-3 py-3 md:col-span-3 md:py-6">
+            <div className="flex flex-col gap-y-3 bg-gradient-to-br from-foreground-300 from-0% to-20% px-3 py-3 hover:-translate-y-1 hover:duration-300 md:col-span-3 md:py-6">
               <div className="space-y-1.5">
                 <h2 className="text-center text-lg font-semibold lg:text-2xl">
                   Pro
@@ -102,7 +127,7 @@ export default function Landing() {
               </div>
             </div>
           </div>
-          <div className="space-y-1.5 bg-foreground-100 p-3 text-sm text-foreground lg:text-base">
+          <div className="space-y-1.5 p-3 text-sm text-foreground lg:text-base">
             <p>You're eligible for a 50% refund if you:</p>
             <p>1. Post on Xiaohongshu when you start using our website.</p>
             <p>
@@ -112,9 +137,8 @@ export default function Landing() {
           </div>
           <div className="w-full space-y-1.5 text-sm text-foreground-500 lg:text-base">
             <p>
-              Pricing is determined by the operational costs, which varies
-              across countries based on the average server running time to grab
-              a slot.
+              Pricing is determined by the operational cost, which varies across
+              countries based on the average server running time to grab a slot.
             </p>
             <p>
               We encourage you to value your chance, so that everybody gets a
@@ -129,7 +153,19 @@ export default function Landing() {
         {Object.entries(countries).map((entry) => (
           <div key={entry[0]} className="space-y-3">
             <div className="space-y-1">
-              <h3 className="text-lg">{entry[0]}</h3>
+              <div className="flex flex-col gap-x-1.5 gap-y-1.5 lg:flex-row lg:items-center">
+                <h3 className="text-lg">{entry[0]}</h3>
+                {entry[0] !== "Asia" && (
+                  <Link
+                    href={redashUrls[entry[0]]}
+                    isExternal
+                    showAnchorIcon
+                    className="cursor-pointer text-lg"
+                  >
+                    View slot-monitoring stats
+                  </Link>
+                )}
+              </div>
               <Divider />
             </div>
             <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4">
@@ -137,7 +173,7 @@ export default function Landing() {
                 <Link
                   key={country}
                   href={`${countryMap[country][1]}/${country}`}
-                  className="flex items-center gap-x-2"
+                  className="flex items-center gap-x-1.5"
                 >
                   <Avatar
                     alt="country"
