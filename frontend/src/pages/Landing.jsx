@@ -153,7 +153,7 @@ export default function Landing() {
         {Object.entries(countries).map((entry) => (
           <div key={entry[0]} className="space-y-3">
             <div className="space-y-1">
-              <div className="flex items-center gap-x-1.5">
+              <div className="flex flex-col gap-x-1.5 gap-y-1.5 lg:flex-row lg:items-center">
                 <h3 className="text-lg">{entry[0]}</h3>
                 {entry[0] !== "Asia" && (
                   <Link
