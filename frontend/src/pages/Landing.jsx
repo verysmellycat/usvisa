@@ -6,6 +6,7 @@ import { Link } from "@nextui-org/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import { Image } from "@nextui-org/react";
 
 export default function Landing() {
   const ref = useRef(null);
@@ -51,6 +52,31 @@ export default function Landing() {
           >
             Get started
           </Button>
+        </div>
+        <div className="relative space-y-6 overflow-hidden lg:h-[300px]">
+          <div className="w-full space-y-1.5 text-lg lg:w-2/5">
+            <p className="text-3xl font-bold lg:text-4xl">
+              Expedite the Process
+            </p>
+            <p className="text-foreground-500">
+              The wait time for Visa appointment averages hundreds of calender
+              days in Canada and the UK. If you're tired of waiting, we are here
+              to help.
+            </p>
+            <Link
+              href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/wait-times.html"
+              isExternal
+              className="text-lg"
+            >
+              What's my wait time?
+            </Link>
+          </div>
+          <div className="overflow-hidden">
+            <img
+              src="/waitTime.png"
+              className="right-0 top-0 -z-10 mx-auto w-full -translate-y-5 -rotate-12 md:w-5/6 lg:absolute lg:w-[500px]"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-y-6">
           <h2 className="text-2xl font-bold">Pricing</h2>
@@ -136,7 +162,7 @@ export default function Landing() {
                     href={redashUrls[entry[0]]}
                     isExternal
                     showAnchorIcon
-                    className="cursor-pointer"
+                    className="cursor-pointer text-lg"
                   >
                     View slot-monitoring stats
                   </Link>
