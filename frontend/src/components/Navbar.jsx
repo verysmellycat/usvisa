@@ -12,6 +12,8 @@ import {
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
 import { IoLanguage } from "react-icons/io5";
+import { FaUserGroup } from "react-icons/fa6";
+
 const NavigationBar = () => {
   const { t } = useTranslation();
   const toggleLanguage = () => {
@@ -118,14 +120,15 @@ const NavigationBar = () => {
       <div className="absolute right-0 flex gap-x-1">
         <Button
           as={Link}
+          isIconOnly
           href="/community"
           variant="ghost"
-          className="border border-foreground md:hidden"
+          className="border md:hidden"
         >
-          {t("communityButtonText")}
+          <FaUserGroup size={26} />
         </Button>
         <Button
-          className="flex gap-2 rounded-lg border border-foreground p-1 md:hidden"
+          className="flex gap-2 border p-1 md:hidden"
           variant="ghost"
           onClick={toggleLanguage}
         >

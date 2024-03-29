@@ -56,8 +56,7 @@ export default function Payment() {
         </div>
         <div className="bg-foreground-100 px-3 py-6">
           <p>
-            点击前往支付后，你会自动跳转到AlphaPay支付界面。
-            订单30分钟内有效，请及时完成支付并妥善保存订单号。
+            {t("payment.text2a")} {t("payment.text2b")}
           </p>
         </div>
       </div>

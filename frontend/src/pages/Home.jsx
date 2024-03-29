@@ -29,41 +29,40 @@ export default function Home() {
   const [action, setAction] = useState(null);
   const params = useParams();
   const { country } = params;
-  const { t,i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const location = useLocation();
   const variant = location.pathname.split("/")[1];
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const ref = useRef(null);
 
-  const langauge = i18n.language
+  const langauge = i18n.language;
 
- const aisFaq = [
-  {
-    question:t("ais.faq1"),
-    answer:t("ais.faqAnswer1"),
-  },
-  {
-    question:t("ais.faq2"),
-    answer:t("ais.faqAnswer2"),
-  },
-  {
-    question:t("ais.faq3"),
-    answer:t("ais.faqAnswer3"),
-  },
-  {
-    question:t("ais.faq4"),
-    answer:t("ais.faqAnswer4"),
-  },
-  {
-    question:t("ais.faq5"),
-    answer:t("ais.faqAnswer5"),
-  },
-  {
-    question:t("ais.faq6"),
-    answer:t("ais.faqAnswer6"),
-  },
-];
-
+  const aisFaq = [
+    {
+      question: t("ais.faq1"),
+      answer: t("ais.faqAnswer1"),
+    },
+    {
+      question: t("ais.faq2"),
+      answer: t("ais.faqAnswer2"),
+    },
+    {
+      question: t("ais.faq3"),
+      answer: t("ais.faqAnswer3"),
+    },
+    {
+      question: t("ais.faq4"),
+      answer: t("ais.faqAnswer4"),
+    },
+    {
+      question: t("ais.faq5"),
+      answer: t("ais.faqAnswer5"),
+    },
+    {
+      question: t("ais.faq6"),
+      answer: t("ais.faqAnswer6"),
+    },
+  ];
 
   const {
     control,
@@ -107,7 +106,7 @@ export default function Home() {
           </span>
           {t("home.heading")}{" "}
           <span className="text-2xl underline decoration-fuchsia-700 decoration-2 underline-offset-8 md:text-3xl">
-            {langauge == 'cn' ?countryMap[country][3]:countryMap[country][2] }
+            {langauge == "cn" ? countryMap[country][3] : countryMap[country][2]}
           </span>
         </h1>
         <div className="space-y-1.5 text-center">
@@ -297,7 +296,7 @@ export default function Home() {
             </p>
           </>
         )}
-        <h2 className="text-center text-3xl font-bold">{t('ais.title')}</h2>
+        <h2 className="text-center text-3xl font-bold">{t("ais.title")}</h2>
         <div className="grid grid-cols-1 gap-x-6 gap-y-6 lg:grid-cols-3">
           {(variant === "cgi" ? cgiFaq : aisFaq).map((item, index) => (
             <div
@@ -312,7 +311,7 @@ export default function Home() {
         <Tutorial variant={variant} />
       </div>
       <div
-        className="fixed bottom-0 left-0 flex h-fit w-[25px] cursor-pointer flex-col items-center justify-center rounded-md bg-foreground-300 px-3 py-3 text-sm leading-none lg:text-base"
+        className="fixed bottom-0 left-0 flex h-fit w-[25px] cursor-pointer flex-col items-center justify-center rounded-md bg-foreground-100 px-3 py-3 text-sm leading-none lg:text-base"
         onClick={onOpen}
       >
         <span>D</span>

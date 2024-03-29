@@ -10,35 +10,43 @@ i18n.use(initReactI18next).init({
   resources: {
     cn: {
       translation: {
-        ais:{
-          title:"常见问题",
-          faq1:"在 USVISA-INFO 填写信息时怎么回答 TCN 这个问题：“Are you traveling from another country to apply for a U.S. visa in Canada？”",
-          faqAnswer1:"在加拿大本国选 no，否则选 yes。在本国的情况包括当地居民／学生签／工作签和 PR。不在本国指不居住在加拿大，持旅游签来加拿大的情况。",
+        ais: {
+          title: "常见问题",
+          faq1: "在 USVISA-INFO 填写信息时怎么回答 TCN 这个问题：“Are you traveling from another country to apply for a U.S. visa in Canada？”",
+          faqAnswer1:
+            "在加拿大本国选 no，否则选 yes。在本国的情况包括当地居民／学生签／工作签和 PR。不在本国指不居住在加拿大，持旅游签来加拿大的情况。",
           faq2: "如果 TCN 回答 Yes，程序可以帮我自动预约美签吗？",
-          faqAnswer2: "可以，本程序同时适用于 tcn = yes 和 no 的情况；但是 tcn = yes 的成功率比较低，请检查清楚。",
+          faqAnswer2:
+            "可以，本程序同时适用于 tcn = yes 和 no 的情况；但是 tcn = yes 的成功率比较低，请检查清楚。",
           faq3: "提交后我还需要做什么吗？我还可以做什么吗？",
-          faqAnswer3: "不需要，程序会自动抢 slot，成功了会有邮件通知。与此同时，你可以做任何你想做的事，对程序没有影响。",
+          faqAnswer3:
+            "不需要，程序会自动抢 slot，成功了会有邮件通知。与此同时，你可以做任何你想做的事，对程序没有影响。",
           faq4: "我需要取消已有的预约才能使用程序吗？我已有的预约会被程序取消吗？",
-          faqAnswer4: "不需要。程序也不会取消你的已有预约，只会重新预约你期望日期范围内的面试时间，请确保你的密码安全。",
+          faqAnswer4:
+            "不需要。程序也不会取消你的已有预约，只会重新预约你期望日期范围内的面试时间，请确保你的密码安全。",
           faq5: "信息填错了或者想更改日期范围怎么办？",
           faqAnswer5: "提交新的刷签请求，新的请求会覆盖旧的。",
           faq6: "可以一次又一次地使用这个程序吗？",
-          faqAnswer6: "可以，但每次刷签成功后再提交新的刷签请求，需要再次支付费用。"
-
+          faqAnswer6:
+            "可以，但每次刷签成功后再提交新的刷签请求，需要再次支付费用。",
         },
-        tutorial:{
-          title:"使用教程",
+        tutorial: {
+          title: "使用教程",
           title1: "填写个人信息",
-          body1: "选择你想预约面试的城市，并且提供签证预约网站的登陆密码。如果账户中所有人都需要刷签，不需要填写schedule ID，系统会自动判断。",
+          body1:
+            "选择你想预约面试的城市，并且提供签证预约网站的登陆密码。如果账户中所有人都需要刷签，不需要填写schedule ID，系统会自动判断。",
           title2: "为某位申请人刷签（可选）",
-          body2: "如果不是账户中所有人都需要刷签，你可以通过填写schedule ID指定为账户中哪位申请人刷签。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，网址中显示的数字即为schedule ID。多位申请人请以54306276,54306278的格式填写。",
+          body2:
+            "如果不是账户中所有人都需要刷签，你可以通过填写schedule ID指定为账户中哪位申请人刷签。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，网址中显示的数字即为schedule ID。多位申请人请以54306276,54306278的格式填写。",
           title3: "多人拆组刷签（可选）",
-          body3: "如果账户中有多人同组，系统默认为多人一起刷签，但是成功率比较低。如果可以接受在不同时间面试，请把同组的人拆分。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，在如图所示界面中点击Reschedule Appointment后勾选一位申请人，点击下一步，即可把申请人拆分出来形成一个新的schedule ID。",
+          body3:
+            "如果账户中有多人同组，系统默认为多人一起刷签，但是成功率比较低。如果可以接受在不同时间面试，请把同组的人拆分。登陆https://ais.usvisa-info.com/en-ca/niv/users/sign_in后，点击continue，在如图所示界面中点击Reschedule Appointment后勾选一位申请人，点击下一步，即可把申请人拆分出来形成一个新的schedule ID。",
           title4: "发送邮件提交",
-          body4: "请仔细检查你填写的信息，尤其确保提供的密码可以成功登陆签证预约网站。确认无误后，请使用与签证预约网站账户相同的邮箱发送界面中显示内容的邮件。如果没有收到自动回邮，证明发送内容有误，或系统遇到了网络错误，请检查发送的内容，多尝试几次。",
+          body4:
+            "请仔细检查你填写的信息，尤其确保提供的密码可以成功登陆签证预约网站。确认无误后，请使用与签证预约网站账户相同的邮箱发送界面中显示内容的邮件。如果没有收到自动回邮，证明发送内容有误，或系统遇到了网络错误，请检查发送的内容，多尝试几次。",
           title5: "完成订单支付",
-          body5: "请从上一步的自动回邮中点击支付链接，用任意方式完成支付后你会再次收到一封自动回邮，表明刷签已经开始。"
-        
+          body5:
+            "请从上一步的自动回邮中点击支付链接，用任意方式完成支付后你会再次收到一封自动回邮，表明刷签已经开始。",
         },
         home: {
           heading: "系统预约",
@@ -59,24 +67,24 @@ i18n.use(initReactI18next).init({
           next: "下一步",
           back: "上一步",
           close: "关闭",
-          submit:"提交"
+          submit: "提交",
         },
         submissionForm: {
           heading1: "请使用签证预约邮箱发送以下邮件",
           heading2: "收不到自动回复？检查垃圾信箱或",
           link1: "更换签证账户邮箱",
         },
-        creationForm:{
-          title:"请提供以下必要信息",
-          idealDate:"期望预约时间范围",
-          noTimeAdded:"尚未添加任何时间！",
-          skipTmr:"我没法及时赶到第二天的面试，勾选跳过这些slot",
-          passwordLabel:"预约网站登陆密码"
+        creationForm: {
+          title: "请提供以下必要信息",
+          idealDate: "期望预约时间范围",
+          noTimeAdded: "尚未添加任何时间！",
+          skipTmr: "我没法及时赶到第二天的面试，勾选跳过这些slot",
+          passwordLabel: "预约网站登陆密码",
         },
-        errors:{
-          minChar:"密码至少需要8个字符",
-          requiredPassword:"请输入预约网站登陆密码",
-          timeRange:"请至少提交一个期望时间范围并再三确认这是你想要的时间！"
+        errors: {
+          minChar: "密码至少需要8个字符",
+          requiredPassword: "请输入预约网站登陆密码",
+          timeRange: "请至少提交一个期望时间范围并再三确认这是你想要的时间！",
         },
         emailChangeModal: {
           title: "更换签证账户邮箱",
@@ -145,28 +153,33 @@ i18n.use(initReactI18next).init({
           next: "Next",
           back: "Back",
           close: "Close",
-          submit:"Submit"
+          submit: "Submit",
         },
-        ais:{
-          title:"FAQ",
-          faq1:"How to answer 'Are you traveling from another country to apply for a U.S. visa in Canada?' on usvisa-info?",
-          faqAnswer1:"If you're in canada select 'No', otherwise select 'Yes'. Being in Canada means you're a citizen, worker, student or PR. You're considered to be outside of Canada if you're not physically here and/or you have a visitor visa.",
+        ais: {
+          title: "FAQ",
+          faq1: "How to answer 'Are you traveling from another country to apply for a U.S. visa in Canada?' on usvisa-info?",
+          faqAnswer1:
+            "If you're in canada select 'No', otherwise select 'Yes'. Being in Canada means you're a citizen, worker, student or PR. You're considered to be outside of Canada if you're not physically here and/or you have a visitor visa.",
           faq2: "If I am a Third Country National (TCN), can this program help me automatically schedule a U.S. visa appointment?",
-          faqAnswer2: "Yes, the program works either way. However, the success rate for TCNs is relatively low, so please double-check carefully.",
+          faqAnswer2:
+            "Yes, the program works either way. However, the success rate for TCNs is relatively low, so please double-check carefully.",
           faq3: "Do I need to do anything after submission? Can I do anything else?",
-          faqAnswer3: "No, the program will automatically grab a slot and notify you via email upon success. Meanwhile, you can carry on with anything else you'd like to do; it won't affect the program.",
+          faqAnswer3:
+            "No, the program will automatically grab a slot and notify you via email upon success. Meanwhile, you can carry on with anything else you'd like to do; it won't affect the program.",
           faq4: "Do I need to cancel existing appointments to use the program? Will the program cancel my existing appointments?",
-          faqAnswer4: "No. The program won't cancel your existing appointments; it will only reschedule them for your desired date range. Please keep your passwords safe.",
+          faqAnswer4:
+            "No. The program won't cancel your existing appointments; it will only reschedule them for your desired date range. Please keep your password safe.",
           faq5: "What if I entered incorrect information or want to change the date range?",
-          faqAnswer5: "Submit a new visa application request, and the new request will override the old one.",
+          faqAnswer5:
+            "Submit a new slot-grabbing request, and the new request will override the old one.",
           faq6: "Can I use this program repeatedly?",
-          faqAnswer6: "Yes, but each time after a successful visa application, you'll need to submit a new visa application request and pay the fee."
-        
+          faqAnswer6:
+            "Yes, but each time after a successful slot-grabbing, you'll need to submit a new request and pay the fee.",
         },
         home: {
           heading: "Appointment Finder",
-          heading2: "Automatically Book a Slot",
-          heading3: "and get real-time email after successful booking",
+          heading2: "Automatic Slot Booking",
+          heading3: "Real-time Email Notification upon Success",
           cta: "Start Here",
           optionsTitle: "Please select one of the following",
           option1: "Create/Update request",
@@ -181,20 +194,24 @@ i18n.use(initReactI18next).init({
           refundInput1:
             "If left blank, all applicants in the account will be refunded by default.",
         },
-        tutorial:{
-          title:"Tutorial",
+        tutorial: {
+          title: "Tutorial",
           title1: "Fill in Personal Information",
-          body1: "Choose the city where you want to schedule your interview and provide the login password for the visa appointment website. If everyone in the account needs to apply for a visa, there is no need to fill in the schedule ID; the system will automatically determine.",
-          title2: "Apply for Visa for Someone Else (Optional)",
-          body2: "If not everyone in the account needs to apply for a visa, you can specify which applicant to apply for by filling in the schedule ID. After logging into https://ais.usvisa-info.com/en-ca/niv/users/sign_in, click 'continue,' and the number displayed in the URL is the schedule ID. For multiple applicants, please fill in the format as '54306276,54306278.'",
+          body1:
+            "Choose the city where you want to schedule your interview and provide the login password for the visa appointment website. If everyone in the account needs to grab slots, there is no need to fill in the schedule ID; the system will automatically determine.",
+          title2: "Grab Slot for Specific Applicants (Optional)",
+          body2:
+            "If not everyone in the account needs to grab slots, you can specify which applicants to grab slot for by filling in the schedule ID. After logging into https://ais.usvisa-info.com/en-ca/niv/users/sign_in, click 'continue,' and the number displayed in the URL is the schedule ID. For multiple applicants, please fill in the format as '54306276,54306278.'",
           title3: "Split Group Visa Application (Optional)",
-          body3: "If there are multiple people in the account who are in the same group, the system defaults to applying for visas together, but the success rate is relatively low. If you can accept interviews at different times, split the applicants in the same group. After logging into https://ais.usvisa-info.com/en-ca/niv/users/sign_in, click 'continue,' then click 'Reschedule Appointment' on the page as shown in the picture below, select one applicant, click 'next,' and a new schedule ID will be generated for the applicant.",
-          title4: "Submit Application via Email",
-          body4: "Please carefully check the information you have provided, especially ensuring that the password provided can successfully log in to the visa appointment website. After confirming the information is correct, please use the email address associated with the visa appointment website account to send the content displayed on the interface via email. If you do not receive an automatic reply email, it indicates that there was an error in the content sent or the system encountered a network error. Please check the content sent and try again several times.",
+          body3:
+            "If there are multiple people in the account who are in the same group, the system defaults to grabbing slots for them together, but the success rate is relatively low. If you can accept interviews at different times, split the applicants in the same group. After logging into https://ais.usvisa-info.com/en-ca/niv/users/sign_in, click 'continue,' then click 'Reschedule Appointment' on the page as shown in the picture below, select one applicant, click 'next,' and a new schedule ID will be generated for the applicant.",
+          title4: "Submit via Email",
+          body4:
+            "Please carefully check the information you have provided, especially ensuring that the password provided can successfully log in to the visa appointment website. After confirming the information is correct, please use the email address associated with the visa appointment website account to send the content displayed on the interface via email. If you do not receive an automatic reply email, it indicates that there was an error in the content sent or the system encountered a network error. Please check the content sent and try again several times.",
           title5: "Complete Order Payment",
-          body5: "Click the payment link in the previous automatic reply email and complete the payment in any way you prefer. After completing the payment, you will receive another automatic reply email, indicating that the visa application process has started."
-        
-        } ,
+          body5:
+            "Click the payment link in the previous automatic reply email and complete the payment in any way you prefer. After completing the payment, you will receive another automatic reply email, indicating that slot-grabbing has started.",
+        },
         submissionForm: {
           heading1:
             "Plese email us the following details using the email used for your visa appointment",
@@ -202,18 +219,17 @@ i18n.use(initReactI18next).init({
             "Didn't recieve an automated reply? Please check your spam folder",
           link1: "or change your email address",
         },
-        creationForm:{
-          title:"Please fill out the following information",
-          idealDate:"Ideal date range",
-          noTimeAdded:"No time added!",
-          skipTmr:"Skip slots that become available with only 1 day notice.",
-          passwordLabel:"Appointment account password"
+        creationForm: {
+          title: "Please fill out the following information",
+          idealDate: "Ideal date range",
+          noTimeAdded: "No time added!",
+          skipTmr: "Skip slots that become available with only 1 day notice.",
+          passwordLabel: "Appointment account password",
         },
-        errors:{
-          minChar:"Password is at least 8 characters",
-          requiredPassword:"Please enter the appointment website password",
-          timeRange:"Please make sure to provide at least 1 time range."
-
+        errors: {
+          minChar: "Password is at least 8 characters",
+          requiredPassword: "Please enter the appointment website password",
+          timeRange: "Please make sure to provide at least 1 time range.",
         },
         emailChangeModal: {
           title: "Change Visa Account Email",

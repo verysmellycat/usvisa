@@ -6,7 +6,6 @@ import { Link } from "@nextui-org/react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { Image } from "@nextui-org/react";
 
 export default function Landing() {
   const ref = useRef(null);
@@ -168,27 +167,28 @@ export default function Landing() {
               </div>
               <Divider />
             </div>
-            <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-y-6 lg:grid-cols-3">
               {Object.keys(entry[1]).map((country) => (
-                <Link
+                <Button
                   key={country}
+                  as={Link}
                   href={`${countryMap[country][1]}/${country}`}
-                  className="flex items-center gap-x-1.5"
+                  className="flex h-fit items-center justify-start bg-transparent hover:bg-foreground-100 hover:text-blue-600"
                 >
                   <Avatar
                     alt="country"
                     className="h-6 w-6 shrink-0"
                     src={`https://flagcdn.com/${country}.svg`}
                   />
-                  <span className="text-lg">{countryMap[country][2]}</span>
-                </Link>
+                  <span className="text-wrap text-lg">
+                    {countryMap[country][2]}
+                  </span>
+                </Button>
               ))}
             </div>
           </div>
         ))}
-        <h2 className="text-2xl font-bold" ref={ref}>
-          Leave your comments
-        </h2>
+        <h2 className="text-2xl font-bold">Leave your comments</h2>
         <div id="disqus_thread"></div>
       </div>
     </motion.div>
